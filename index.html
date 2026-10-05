@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="J. Ben G — software, stock tools, and shop. Featured: BenGStock, offline stock control for small UK workshops. Linux now; Windows coming; Apple later." />
+  <title>J. Ben G</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f8f4;
+      --bg-soft: #eef2ea;
+      --ice: #f4f7f2;
+      --surface: #ffffff;
+      --text: #142018;
+      --text-muted: #4a5a4e;
+      --text-soft: #6b7a6e;
+      --green: #1a3d2b;
+      --green-mid: #2f5c42;
+      --green-soft: #dce8df;
+      --gold: #b8975a;
+      --gold-deep: #9a7a3f;
+      --border: #d9e0d6;
+      --shadow: 0 1px 2px rgba(20, 32, 24, 0.04), 0 8px 24px rgba(20, 32, 24, 0.06);
+      --shadow-lg: 0 4px 8px rgba(20, 32, 24, 0.04), 0 20px 48px rgba(20, 32, 24, 0.08);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      -webkit-font-smoothing: antialiased; min-height: 100vh;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -15%, rgba(47, 92, 66, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 35% at 100% 8%, rgba(184, 151, 90, 0.09) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 30% at 0% 35%, rgba(26, 61, 43, 0.04) 0%, transparent 45%);
+    }
+    .wrap { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem 4rem; }
+    a { color: var(--green-mid); }
+    a:hover { color: var(--gold-deep); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 1.25rem 0 1rem; flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      text-decoration: none; color: inherit;
+    }
+    .brand-mark {
+      width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--green) 0%, var(--gold) 100%);
+    }
+    .brand-name {
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.03em; color: var(--green);
+    }
+    .nav-links {
+      display: flex; gap: 1.35rem; list-style: none; font-size: 0.92rem; font-weight: 550;
+    }
+    .nav-links a { color: var(--text-muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--green); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: inherit; font-size: 0.98rem; font-weight: 600;
+      padding: 0.85rem 1.55rem; border-radius: 999px; border: none;
+      text-decoration: none; cursor: pointer; letter-spacing: -0.01em;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .btn-primary {
+      background: var(--green); color: #fff;
+      box-shadow: 0 4px 14px rgba(26, 61, 43, 0.25);
+    }
+    .btn-primary:hover { background: var(--green-mid); color: #fff; transform: translateY(-1px); }
+    .btn-primary[aria-disabled="true"], .btn-primary:disabled {
+      opacity: 0.72; cursor: not-allowed; transform: none;
+    }
+    .btn-secondary {
+      background: var(--surface); color: var(--green);
+      border: 1.5px solid var(--border); box-shadow: var(--shadow);
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-deep); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+
+    .brand-intro {
+      text-align: center; padding: 1.75rem 0 0.5rem; max-width: 640px; margin: 0 auto;
+    }
+    .brand-intro h1 {
+      font-size: clamp(1.9rem, 4.2vw, 2.55rem); font-weight: 800;
+      letter-spacing: -0.035em; color: var(--green); margin-bottom: 0.65rem;
+    }
+    .brand-intro p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; }
+
+    .hub {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin: 2rem 0 3.25rem;
+    }
+    .hub-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.35rem 1.25rem; box-shadow: var(--shadow); text-decoration: none; color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .hub-card:hover {
+      box-shadow: var(--shadow-lg); transform: translateY(-2px);
+      border-color: rgba(184, 151, 90, 0.45);
+    }
+    .hub-card .hub-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.4rem;
+    }
+    .hub-card h2 {
+      font-size: 1.1rem; font-weight: 700; color: var(--green);
+      margin-bottom: 0.35rem; letter-spacing: -0.02em;
+    }
+    .hub-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+    section { margin-bottom: 3.75rem; scroll-margin-top: 1.5rem; }
+    .section-label {
+      text-align: center; font-size: 0.78rem; font-weight: 650;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.55rem;
+    }
+    .section-title {
+      text-align: center; font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 750;
+      letter-spacing: -0.025em; color: var(--green); margin-bottom: 0.65rem;
+    }
+    .section-lead {
+      text-align: center; color: var(--text-muted); max-width: 580px;
+      margin: 0 auto 2rem; font-size: 1.02rem;
+    }
+
+    .product-hero {
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, var(--ice) 100%);
+      border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
+      padding: 2.5rem 1.75rem 2.25rem; box-shadow: var(--shadow);
+      max-width: 820px; margin: 0 auto 2.5rem;
+    }
+    .product-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.76rem; font-weight: 650; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--green-mid); background: var(--green-soft);
+      padding: 0.32rem 0.7rem; border-radius: 999px; margin-bottom: 1rem;
+    }
+    .product-eyebrow::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 151, 90, 0.22);
+    }
+    .product-hero .product-name {
+      font-size: clamp(1.75rem, 4vw, 2.35rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--green); margin-bottom: 0.65rem;
+    }
+    .product-hero h3 {
+      font-size: clamp(1.25rem, 2.8vw, 1.55rem); font-weight: 700;
+      letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.75rem;
+    }
+    .product-hero .subline {
+      font-size: 1.05rem; color: var(--text-muted); max-width: 520px;
+      margin: 0 auto 1rem; line-height: 1.65;
+    }
+    .platforms-line {
+      font-size: 0.98rem; color: var(--text); margin: 0 auto 1.5rem;
+      max-width: 540px; line-height: 1.55;
+    }
+    .platforms-line strong { color: var(--green); font-weight: 700; }
+
+    .why-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.85rem 1.6rem; box-shadow: var(--shadow); max-width: 720px; margin: 0 auto;
+    }
+    .why-card p { color: var(--text-muted); font-size: 1.02rem; margin-bottom: 0.85rem; }
+    .why-card p:last-child { margin-bottom: 0; }
+
+    .preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.15rem; }
+    .preview-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .preview-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .preview-card figure { margin: 0; }
+    .preview-card img {
+      display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+      object-fit: cover; object-position: top left; background: var(--bg-soft);
+    }
+    .preview-card figcaption { padding: 1rem 1.1rem 1.1rem; }
+    .preview-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--green); margin-bottom: 0.25rem; }
+    .preview-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.1rem; list-style: none;
+    }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.3rem 1.2rem; box-shadow: var(--shadow);
+    }
+    .feature-mark {
+      width: 28px; height: 3px; border-radius: 2px; margin-bottom: 0.8rem;
+      background: linear-gradient(90deg, var(--green-mid), var(--gold));
+    }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 0.35rem; }
+    .feature-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+
+    .pricing-card {
+      max-width: 440px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2.15rem 1.7rem; text-align: center;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .pricing-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--green) 0%, var(--gold) 100%);
+    }
+    .pricing-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--green); margin-bottom: 0.4rem; }
+    .pricing-card .price { font-size: 1.3rem; font-weight: 750; color: var(--gold-deep); margin-bottom: 1.2rem; }
+    .pricing-card .note { margin-top: 1.1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
+    .info-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.6rem 1.4rem; box-shadow: var(--shadow);
+    }
+    .info-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--green); margin-bottom: 0.55rem; }
+    .info-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem; }
+    .info-card p:last-child { margin-bottom: 0; }
+    .placeholder-hint {
+      display: block; margin-top: 0.45rem; font-size: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text-soft);
+    }
+    .shop-link {
+      font-weight: 650; text-decoration: none;
+      border-bottom: 1.5px solid rgba(184, 151, 90, 0.45); color: var(--green-mid);
+    }
+    .shop-link:hover { color: var(--gold-deep); border-color: var(--gold); }
+
+    footer {
+      border-top: 1px solid var(--border); padding-top: 1.75rem; text-align: center;
+      font-size: 0.875rem; color: var(--text-soft); display: grid; gap: 0.35rem;
+    }
+    footer .footer-brand { color: var(--green); font-weight: 700; }
+    footer .footer-platforms { color: var(--text-muted); }
+    footer .contact {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem; color: var(--text-soft); text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .hub, .preview-grid, .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 1.1rem 3rem; }
+      .nav-links { width: 100%; justify-content: flex-start; gap: 1rem; flex-wrap: wrap; }
+      .btn-row { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .features-grid { grid-template-columns: 1fr; }
+      .product-hero { padding: 1.85rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">J. Ben G</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#bengstock">BenGStock</a></li>
+      </ul>
+    </nav>
+
+    <header class="brand-intro" id="top">
+      <h1>J. Ben G</h1>
+      <p>Software, tools, and shop goods from one UK maker — built for real small-business work.</p>
+    </header>
+
+    <div class="hub" aria-label="Site sections">
+      <a class="hub-card" href="#products">
+        <p class="hub-label">Products</p>
+        <h2>Software &amp; tools</h2>
+        <p>Start with BenGStock — more products to follow under the same brand.</p>
+      </a>
+      <a class="hub-card" href="#shop">
+        <p class="hub-label">Shop</p>
+        <h2>eBay &amp; goods</h2>
+        <p>Day-to-day stock and listings from the same operation that shaped the software.</p>
+      </a>
+      <a class="hub-card" href="#about">
+        <p class="hub-label">About</p>
+        <h2>Who’s behind it</h2>
+        <p>Designed and built by Josh (J. Ben G), finished carefully with AI for bugs and polish.</p>
+      </a>
+    </div>
+
+    <section id="products" aria-labelledby="products-title">
+      <p class="section-label">Products</p>
+      <h2 class="section-title" id="products-title">Featured now</h2>
+      <p class="section-lead">One product line is live on this page today. More will land here under J. Ben G.</p>
+
+      <article class="product-hero" id="bengstock" aria-labelledby="bengstock-name">
+        <p class="product-eyebrow">Featured product</p>
+        <p class="product-name" id="bengstock-name">BenGStock</p>
+        <h3>Stock control that stays on your machine</h3>
+        <p class="subline">Built for small UK workshops and stores. Offline by design. No monthly fee.</p>
+        <p class="platforms-line">Available for <strong>Linux</strong> now. <strong>Windows</strong> is coming. <strong>Apple</strong> follows later, at a higher price.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="button" disabled aria-disabled="true">Coming soon</button>
+          <a class="btn btn-secondary" href="#features">See what’s included ↓</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="why" aria-labelledby="why-title">
+      <p class="section-label">Why BenGStock</p>
+      <h2 class="section-title" id="why-title">Designed by Josh. Checked by AI.</h2>
+      <div class="why-card">
+        <p>Josh (J. Ben G) designed and built BenGStock himself for real small-business stock work. AI helped finalise it — catching bugs and tightening the edges — so you get careful software without a big software house price tag.</p>
+        <p>Your stock file stays on your own computer. You own the backups. Nobody else hosts your numbers.</p>
+      </div>
+    </section>
+
+    <section id="previews" aria-labelledby="previews-title">
+      <p class="section-label">Product previews</p>
+      <h2 class="section-title" id="previews-title">BenGStock in use</h2>
+      <p class="section-lead">Flight Deck screens for day-to-day stock work — clickable and keyboard-friendly.</p>
+      <div class="preview-grid">
+        <article class="preview-card">
+          <figure>
+            <img src="img/preview-dashboard.jpg" width="960" height="540" alt="BenGStock dashboard showing stock value, open POs, and balances" loading="lazy" />
+            <figcaption>
+              <h3>Dashboard</h3>
+              <p>See what needs attention today without digging through menus.</p>
+            </figcaption>
+          </figure>
+        </article>
+        <article class="preview-card">
+          <figure>
+            <img src="img/preview-stock.jpg" width="960" height="540" alt="BenGStock stock items list with quantities and status" loading="lazy" />
+            <figcaption>
+              <h3>Stock</h3>
+              <p>Keep levels, locations, and product detail in one clear list.</p>
+            </figcaption>
+          </figure>
+        </article>
+        <article class="preview-card">
+          <figure>
+            <img src="img/preview-purchasing.jpg" width="960" height="540" alt="BenGStock purchase order screen" loading="lazy" />
+            <figcaption>
+              <h3>Purchasing</h3>
+              <p>Raise and track orders with proper PO numbers.</p>
+            </figcaption>
+          </figure>
+        </article>
+        <article class="preview-card">
+          <figure>
+            <img src="img/preview-cashbook.jpg" width="960" height="540" alt="BenGStock cashbook with movements and balance" loading="lazy" />
+            <figcaption>
+              <h3>CASHBOOK</h3>
+              <p>Keep cash pots and movements clear and tidy.</p>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <p class="section-label">Features</p>
+      <h2 class="section-title" id="features-title">Everything you need to run stock</h2>
+      <ul class="features-grid">
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>Purchase orders</h3><p>Raise and track orders with proper PO numbers.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>Goods received</h3><p>Book deliveries in — including part loads and refused goods.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>Bill of materials</h3><p>Build products from components with a clear parts list.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>QUOTEBOOK</h3><p>Turn quotes into invoices in one place.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>CASHBOOK</h3><p>Keep cash pots and movements clear and tidy.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>Supplier scorecard</h3><p>See who delivers on time — and who doesn’t.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>Works offline</h3><p>Your data stays on your machine. No cloud login.</p></li>
+        <li class="feature-card"><div class="feature-mark" aria-hidden="true"></div><h3>Click &amp; keyboard</h3><p>Fully clickable, with keyboard shortcuts when you want speed.</p></li>
+      </ul>
+    </section>
+
+    <section id="pricing" aria-labelledby="pricing-title">
+      <p class="section-label">Licensing</p>
+      <h2 class="section-title" id="pricing-title">Simple licensing</h2>
+      <div class="pricing-card">
+        <h3>One-off licence for your business.</h3>
+        <p class="price">Coming soon</p>
+        <button class="btn btn-primary" type="button" disabled aria-disabled="true">Coming soon</button>
+        <p class="note">Bug fixes stay free after you buy. Bigger feature updates are a small paid upgrade when you’re ready — you keep what you already paid for.</p>
+      </div>
+    </section>
+
+    <section id="shop" aria-labelledby="shop-title">
+      <p class="section-label">Shop</p>
+      <h2 class="section-title" id="shop-title">eBay &amp; goods</h2>
+      <div class="two-col">
+        <article class="info-card">
+          <h3>UK eBay shop</h3>
+          <p>Josh also runs a small UK eBay shop — the same day-to-day stock headaches that shaped BenGStock.</p>
+          <a class="shop-link" href="#shop" id="ebay">eBay shop (placeholder)</a>
+          <span class="placeholder-hint">YOUR-EBAY-URL — replace when Josh confirms the store link</span>
+        </article>
+        <article class="info-card" id="about">
+          <h3>About J. Ben G</h3>
+          <p>Designed and built by Josh (J. Ben G). AI helped finalise BenGStock — catching bugs and tightening the edges.</p>
+          <p>This site will grow: more products under Products, and shop listings here when ready.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div><span class="footer-brand">© 2026 J. Ben G</span> · BenGStock version 1.0.0.0</div>
+      <div class="footer-platforms">Linux now · Windows coming · Apple later</div>
+      <a class="contact" href="mailto:CONTACT@YOUR-DOMAIN.example">CONTACT@YOUR-DOMAIN.example</a>
+    </footer>
+  </div>
+</body>
+</html>
