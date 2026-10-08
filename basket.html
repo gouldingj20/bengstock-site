@@ -43,31 +43,22 @@
     const list = document.getElementById("lines");
     function draw() {
       const items = window.JBG.list();
-      list.innerHTML = items.length ? "" : "<li><span>The basket is empty.</span></li>";
+      list.innerHTML = "";
+      if (!items.length) {
+        list.innerHTML = "<li><span>The basket is empty.</span></li>";
+        return;
+      }
       items.forEach((item) => {
         const li = document.createElement("li");
-        li.innerHTML = "<span>" + item.name + " × " + item.qty + "</span>";
+        const name = document.createElement("span");
+        name.textContent = item.name + " × " + item.qty;
         const btn = document.createElement("button");
         btn.textContent = "Remove";
-        btn.addEventListener("click", () => { window.JBG.remove(item.id); draw();
-    const params = new URLSearchParams(location.search);
-    if (params.get("paid") === "1") {
-      localStorage.removeItem("jbg-basket");
-      document.getElementById("pay-note").textContent = "Payment received. The basket has been cleared.";
-    }
-    document.getElementById("pay").addEventListener("click", async () => {
-      const note = document.getElementById("pay-note");
-      const items = window.JBG.list();
-      note.textContent = "Opening Stripe...";
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items })
-      });
-      const data = await response.json();
-      if (data.url) location.href = data.url;
-      else note.textContent = data.error || "Checkout could not open";
-    }); });
+        btn.addEventListener("click", () => {
+          window.JBG.remove(item.id);
+          draw();
+        });
+        li.appendChild(name);
         li.appendChild(btn);
         list.appendChild(li);
       });
@@ -77,19 +68,28 @@
     if (params.get("paid") === "1") {
       localStorage.removeItem("jbg-basket");
       document.getElementById("pay-note").textContent = "Payment received. The basket has been cleared.";
+      draw();
     }
     document.getElementById("pay").addEventListener("click", async () => {
       const note = document.getElementById("pay-note");
       const items = window.JBG.list();
-      note.textContent = "Opening Stripe...";
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items })
-      });
-      const data = await response.json();
-      if (data.url) location.href = data.url;
-      else note.textContent = data.error || "Checkout could not open";
+      if (!items.length) {
+        note.textContent = "The basket is empty.";
+        return;
+      }
+      note.textContent = "Opening payment...";
+      try {
+        const response = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items })
+        });
+        const data = await response.json();
+        if (data.url) location.href = data.url;
+        else note.textContent = "Payment could not open.";
+      } catch (e) {
+        note.textContent = "Payment could not open.";
+      }
     });
   </script>
 </body>
