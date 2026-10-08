@@ -1,6 +1,6 @@
 const prices = {
   software: { price: "price_1UONBrIxCmDSYfBKgohkcM07", amount: 19900, weight: 0 },
-  satya: { price: "price_1UONBsIxCmDSYfBK7KkqfEG2", amount: 450, weight: 0.2 }
+  satya: { price: "price_1UONBsIxCmDSYfBK7KkqfEG2", amount: 199, weight: 0.2 }
 };
 
 function deliveryPence(items) {
