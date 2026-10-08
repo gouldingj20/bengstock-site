@@ -33,7 +33,7 @@
     <p>Items stay in this browser until you remove them.</p>
     <ul id="lines"></ul>
     <div class="note">
-      <p id="pay-note">Pay opens Stripe with the items in this basket. This is the sandbox. Use card 4242 4242 4242 4242. No real charge is taken.</p>
+      <p id="pay-note">Pay for the items in this basket.</p>
       <p style="margin-top:12px"><button id="pay" style="background:#143226;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer">Pay with Stripe</button></p>
     </div>
   <p style="margin-top:18px;color:#5c6d63">Website built by J. Ben G</p>
@@ -53,7 +53,7 @@
     const params = new URLSearchParams(location.search);
     if (params.get("paid") === "1") {
       localStorage.removeItem("jbg-basket");
-      document.getElementById("pay-note").textContent = "Payment received in the sandbox. The basket has been cleared.";
+      document.getElementById("pay-note").textContent = "Payment received. The basket has been cleared.";
     }
     document.getElementById("pay").addEventListener("click", async () => {
       const note = document.getElementById("pay-note");
@@ -76,7 +76,7 @@
     const params = new URLSearchParams(location.search);
     if (params.get("paid") === "1") {
       localStorage.removeItem("jbg-basket");
-      document.getElementById("pay-note").textContent = "Payment received in the sandbox. The basket has been cleared.";
+      document.getElementById("pay-note").textContent = "Payment received. The basket has been cleared.";
     }
     document.getElementById("pay").addEventListener("click", async () => {
       const note = document.getElementById("pay-note");
