@@ -28,6 +28,13 @@
   });
   window.JBG = {
     list: read,
-    remove(id) { write(read().filter((item) => item.id !== id)); }
+    remove(id) { write(read().filter((item) => item.id !== id)); },
+    setQty(id, qty) {
+      const items = read();
+      const found = items.find((item) => item.id === id);
+      if (!found) return;
+      found.qty = Math.max(1, Number(qty) || 1);
+      write(items);
+    }
   };
 })();
