@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop · J. Ben G</title>
+  <link rel="icon" href="img/logo-j-ben-g.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; --bg:#f7f6f3; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
+    a { color:inherit; }
+    img { max-width:100%; display:block; }
+    .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
+    header img { width:108px; }
+    nav { display:flex; gap:20px; align-items:center; }
+    nav a { text-decoration:none; font-weight:500; color:#31443a; }
+    .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
+    .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
+    .intro { padding:36px 0 10px; }
+    .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:10px; }
+    h1 { font-size:clamp(2rem,4vw,3rem); letter-spacing:-.03em; margin-bottom:10px; }
+    .lede { color:var(--muted); max-width:40rem; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:22px 0 40px; }
+    .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    .card img { width:100%; height:280px; object-fit:contain; background:#fafafa; }
+    .card div { padding:16px 18px 18px; }
+    .card h2 { font-size:1.25rem; margin-bottom:4px; }
+    .card p { color:var(--muted); margin-bottom:12px; }
+    .card a, .card button { font-weight:600; color:var(--green); background:none; border:0; border-bottom:1px solid var(--gold); cursor:pointer; font:inherit; padding:0; }
+    .card .site-buy { display:inline-block; margin-right:12px; background:var(--green); color:#fff; border:0; border-radius:999px; padding:8px 14px; }
+    footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    footer a { color:var(--green); font-weight:600; text-decoration:none; }
+    @media (max-width:800px) { .grid { grid-template-columns:1fr; } nav a:not(.buy):not(.basket-link) { display:none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
+        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
+      </nav>
+    </header>
+    <section class="intro">
+      <p class="eyebrow">Shop</p>
+      <h1>RAW and Satya, in stock.</h1>
+      <p class="lede">Add an item to the basket. Card payment opens when Stripe is connected. Until then, the same stock is on eBay. UK delivery is free on orders of £50 or more. Site prices will be lower than eBay.</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <img src="img/products/raw-tims.jpg" alt="RAW 2oz tobacco tin" />
+        <div>
+          <h2>RAW tins 2oz</h2>
+          <p>RAW 2oz storage tin.</p>
+          <button class="site-buy" data-add="tin" data-name="RAW tins 2oz">Add to basket</button>
+          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/products/satya.jpg" alt="Satya incense" />
+        <div>
+          <h2>Satya incense</h2>
+          <p>Satya incense, in stock.</p>
+          <button class="site-buy" data-add="satya" data-name="Satya incense">Add to basket</button>
+          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/products/bamboo.jpg" alt="RAW bamboo rolling mats" />
+        <div>
+          <h2>RAW bamboo mats</h2>
+          <p>Pack of two RAW bamboo rolling mats.</p>
+          <button class="site-buy" data-add="mats" data-name="RAW bamboo mats">Add to basket</button>
+          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/products/gift.jpg" alt="RAW gift set" />
+        <div>
+          <h2>RAW gift set</h2>
+          <p>Tin, printed bamboo mat and portable ashtray.</p>
+          <button class="site-buy" data-add="gift" data-name="RAW gift set">Add to basket</button>
+          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
+        </div>
+      </article>
+    </section>
+    <footer>
+      <div>© 2026 J. Ben G · sole trader, not a limited company · <a href="privacy.html">Privacy</a></div>
+      <a href="basket.html">View basket</a>
+    </footer>
+  </div>
+  <script src="basket.js"></script>
+</body>
+</html>
