@@ -34,7 +34,7 @@
     <ul id="lines"></ul>
     <p id="totals" style="margin-top:12px"></p>
     <div class="note">
-      <p id="pay-note">Delivery is £9.99. Free on goods of £50 or more. Another £9.99 over 20kg.</p>
+      <p id="pay-note">Delivery is £9.99. Free on goods of £25 or more. Another £9.99 over 20kg.</p>
       <p style="margin-top:12px"><button id="pay" style="background:#143226;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer">PAY</button></p>
     </div>
   <p style="margin-top:18px;color:#5c6d63">Website built by J. Ben G</p>
@@ -74,7 +74,7 @@
         kilos += (weight[item.id] || 0) * item.qty;
       });
       const boxes = kilos ? Math.max(1, Math.ceil(kilos / 20)) : 0;
-      const chargeable = goods >= 50 ? Math.max(0, boxes - 1) : boxes;
+      const chargeable = goods >= 25 ? Math.max(0, boxes - 1) : boxes;
       const delivery = chargeable * 9.99;
       totals.textContent = "Goods " + moneyText(goods) + " · Delivery " + moneyText(delivery) + " · Total " + moneyText(goods + delivery);
     }
