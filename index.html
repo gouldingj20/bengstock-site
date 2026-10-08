@@ -37,6 +37,7 @@
     .card h2 { font-size:1.25rem; margin-bottom:4px; }
     .card p { color:var(--muted); margin-bottom:12px; }
     .card a { font-weight:600; color:var(--green); text-decoration:none; border-bottom:1px solid var(--gold); }
+    .card .site-buy { display:inline-block; margin-right:12px; background:var(--green); color:#fff; border:0; border-radius:999px; padding:8px 14px; text-decoration:none; }
     .soft { background:var(--green); color:#f7f3ea; border-radius:20px; padding:28px; margin-bottom:18px; }
     .soft p { color:rgba(247,243,234,.82); margin:8px 0 14px; max-width:40rem; }
     .price { font-size:2rem; font-weight:700; margin:8px 0 4px; }
@@ -92,7 +93,7 @@
       <div class="shop-note">
         <strong>Buy on this site</strong>
         Lower than the eBay price. Free UK delivery from £50.
-        <p style="margin-top:12px"><a class="buy" href="#stock">Shop stock</a></p>
+        <p style="margin-top:12px"><a class="buy" href="#stock">Buy on this site</a></p>
       </div>
     </section>
     <section class="grid" id="stock">
@@ -101,7 +102,8 @@
         <div>
           <h2>RAW Tins 2oz</h2>
           <p>RAW 2oz storage tin, in stock.</p>
-          <a href="https://www.ebay.co.uk/itm/800456512027" target="_blank" rel="noopener">View listing</a>
+          <a class="site-buy" data-stripe="tin" href="#stock">Buy here</a>
+          <a href="https://www.ebay.co.uk/itm/800456512027" target="_blank" rel="noopener">eBay listing</a>
         </div>
       </article>
       <article class="card">
@@ -109,7 +111,8 @@
         <div>
           <h2>Satya incense</h2>
           <p>Satya stock, listed in the shop.</p>
-          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
+          <a class="site-buy" data-stripe="satya" href="#stock">Buy here</a>
+          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay shop</a>
         </div>
       </article>
       <article class="card">
@@ -117,7 +120,8 @@
         <div>
           <h2>RAW bamboo mats</h2>
           <p>Pack of two RAW bamboo rolling mats.</p>
-          <a href="https://www.ebay.co.uk/itm/800455380377" target="_blank" rel="noopener">View listing</a>
+          <a class="site-buy" data-stripe="mats" href="#stock">Buy here</a>
+          <a href="https://www.ebay.co.uk/itm/800455380377" target="_blank" rel="noopener">eBay listing</a>
         </div>
       </article>
       <article class="card">
@@ -125,7 +129,8 @@
         <div>
           <h2>RAW gift set</h2>
           <p>Tin, printed bamboo mat and portable ashtray.</p>
-          <a href="https://www.ebay.co.uk/itm/800539890501" target="_blank" rel="noopener">View listing</a>
+          <a class="site-buy" data-stripe="gift" href="#stock">Buy here</a>
+          <a href="https://www.ebay.co.uk/itm/800539890501" target="_blank" rel="noopener">eBay listing</a>
         </div>
       </article>
     </section>
@@ -198,19 +203,26 @@
 
   <script>
     const stripeLinks = {
-      software: ""
+      software: "",
+      tin: "",
+      satya: "",
+      mats: "",
+      gift: ""
     };
-    const buy = document.getElementById("buy-software");
-    if (stripeLinks.software) {
-      buy.href = stripeLinks.software;
-      buy.target = "_blank";
-      buy.rel = "noopener";
-    } else {
-      buy.addEventListener("click", (e) => {
-        e.preventDefault();
-        buy.textContent = "Stripe link not added yet";
-      });
-    }
+    document.querySelectorAll("[data-stripe], #buy-software").forEach((buy) => {
+      const key = buy.dataset.stripe || "software";
+      const link = stripeLinks[key];
+      if (link) {
+        buy.href = link;
+        buy.target = "_blank";
+        buy.rel = "noopener";
+      } else {
+        buy.addEventListener("click", (e) => {
+          e.preventDefault();
+          buy.textContent = "Stripe link not added yet";
+        });
+      }
+    });
   </script>
 </body>
 </html>
