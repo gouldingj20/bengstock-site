@@ -33,7 +33,8 @@
     <p>Items stay in this browser until you remove them.</p>
     <ul id="lines"></ul>
     <div class="note">
-      <p>Card payment is not open yet. Stripe has to be connected before a checkout can take a payment. Nothing is charged from this page.</p>
+      <p id="pay-note">Pay opens Stripe with the items in this basket. This is the sandbox. Use card 4242 4242 4242 4242. No real charge is taken.</p>
+      <p style="margin-top:12px"><button id="pay" style="background:#143226;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer">Pay with Stripe</button></p>
     </div>
   <p style="margin-top:18px;color:#5c6d63">Website built by J. Ben G</p>
   </div>
@@ -48,12 +49,48 @@
         li.innerHTML = "<span>" + item.name + " × " + item.qty + "</span>";
         const btn = document.createElement("button");
         btn.textContent = "Remove";
-        btn.addEventListener("click", () => { window.JBG.remove(item.id); draw(); });
+        btn.addEventListener("click", () => { window.JBG.remove(item.id); draw();
+    const params = new URLSearchParams(location.search);
+    if (params.get("paid") === "1") {
+      localStorage.removeItem("jbg-basket");
+      document.getElementById("pay-note").textContent = "Payment received in the sandbox. The basket has been cleared.";
+    }
+    document.getElementById("pay").addEventListener("click", async () => {
+      const note = document.getElementById("pay-note");
+      const items = window.JBG.list();
+      note.textContent = "Opening Stripe...";
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items })
+      });
+      const data = await response.json();
+      if (data.url) location.href = data.url;
+      else note.textContent = data.error || "Checkout could not open";
+    }); });
         li.appendChild(btn);
         list.appendChild(li);
       });
     }
     draw();
+    const params = new URLSearchParams(location.search);
+    if (params.get("paid") === "1") {
+      localStorage.removeItem("jbg-basket");
+      document.getElementById("pay-note").textContent = "Payment received in the sandbox. The basket has been cleared.";
+    }
+    document.getElementById("pay").addEventListener("click", async () => {
+      const note = document.getElementById("pay-note");
+      const items = window.JBG.list();
+      note.textContent = "Opening Stripe...";
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items })
+      });
+      const data = await response.json();
+      if (data.url) location.href = data.url;
+      else note.textContent = data.error || "Checkout could not open";
+    });
   </script>
 </body>
 </html>
