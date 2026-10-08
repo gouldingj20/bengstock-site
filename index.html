@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>J. Ben G · shop and BenGStock</title>
-  <meta name="description" content="J. Ben G sells on eBay and builds BenGStock, offline stock software. One-off licence. Your records stay on your computer." />
+  <title>J. Ben G · BenGStock and shop</title>
+  <meta name="description" content="J. Ben G supplies RAW and Satya, and builds BenGStock, Linux stock software. One-off licence. Records stay on your computer." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; --bg:#f7f6f3; }
@@ -17,187 +16,139 @@
     .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
     header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
     header img { width:108px; }
-    nav { display:flex; gap:22px; align-items:center; }
+    nav { display:flex; gap:20px; align-items:center; }
     nav a { text-decoration:none; font-weight:500; color:#31443a; }
     .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
-    .hero { padding:48px 0 28px; display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:end; }
+    .basket-link { position:relative; }
+    .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
+    .hero { padding:46px 0 22px; display:grid; grid-template-columns:1.3fr .7fr; gap:28px; align-items:end; }
     .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:12px; }
-    h1 { font-size:clamp(2.2rem,4vw,3.4rem); line-height:1.05; letter-spacing:-.03em; margin-bottom:14px; }
+    h1 { font-size:clamp(2.2rem,4vw,3.3rem); line-height:1.05; letter-spacing:-.03em; margin-bottom:14px; }
     h2 { font-size:1.7rem; letter-spacing:-.02em; }
     .lede { font-size:1.12rem; color:var(--muted); max-width:40rem; }
     .lede.second { margin-top:14px; }
-    .roles { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
-    .roles span { border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:.9rem; }
     .shop-note { background:var(--bg); border-radius:16px; padding:18px; }
     .shop-note strong { display:block; margin-bottom:6px; }
-    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:10px 0 48px; }
-    .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fff; }
-    .card img { width:100%; height:280px; object-fit:contain; background:#fafafa; }
-    .card div { padding:16px 18px 18px; }
-    .card h2 { font-size:1.25rem; margin-bottom:4px; }
-    .card p { color:var(--muted); margin-bottom:12px; }
-    .card a { font-weight:600; color:var(--green); text-decoration:none; border-bottom:1px solid var(--gold); }
-    .card .site-buy { display:inline-block; margin-right:12px; background:var(--green); color:#fff; border:0; border-radius:999px; padding:8px 14px; text-decoration:none; }
-    .soft { background:var(--green); color:#f7f3ea; border-radius:20px; padding:28px; margin-bottom:18px; }
-    .soft p { color:rgba(247,243,234,.82); margin:8px 0 14px; max-width:40rem; }
+    .soft { background:var(--green); color:#f7f3ea; border-radius:20px; padding:28px; margin:18px 0; }
+    .soft p { color:rgba(247,243,234,.82); margin:8px 0 14px; max-width:42rem; }
     .price { font-size:2rem; font-weight:700; margin:8px 0 4px; }
     .price small { display:block; font-size:.95rem; font-weight:500; color:rgba(247,243,234,.75); }
     .fine { font-size:.85rem; }
     .points { display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; margin:16px 0 18px; list-style:none; }
     .points li { padding-left:14px; position:relative; }
     .points li::before { content:""; width:7px; height:7px; border-radius:50%; background:#e4c98a; position:absolute; left:0; top:.5rem; }
-    .shots { display:grid; grid-template-columns:1.2fr 1fr; gap:14px; margin-bottom:40px; }
+    .source { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin:8px 0 28px; }
+    .source article { border:1px solid var(--line); border-radius:18px; padding:22px; background:#fff; }
+    .source article:first-child { background:#f7f6f3; }
+    .source h2 { font-size:1.35rem; margin-bottom:8px; }
+    .source p { color:var(--muted); margin-bottom:10px; }
+    .shots { display:grid; grid-template-columns:1.2fr 1fr; gap:14px; margin-bottom:36px; }
     .shot { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
     .shot img { width:100%; height:230px; object-fit:cover; object-position:top left; background:#0d1c16; }
-    .shot.main img { height:100%; min-height:480px; }
+    .shot.main img { height:100%; min-height:460px; }
     .shot figcaption { padding:12px 14px 14px; }
     .shot h3 { font-size:1rem; margin-bottom:2px; }
     .shot p { color:var(--muted); font-size:.92rem; }
     .stack { display:grid; gap:14px; }
+    .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:36px; }
+    .feature a { border:1px solid var(--line); border-radius:16px; overflow:hidden; text-decoration:none; }
+    .feature img { height:140px; width:100%; object-fit:contain; background:#fafafa; }
+    .feature span { display:block; padding:10px 12px 12px; font-weight:600; }
     .contact { border-top:1px solid var(--line); padding:28px 0 8px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px; }
     .contact p, .contact a { color:var(--muted); text-decoration:none; }
     .contact a { color:var(--green); font-weight:600; }
     footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.92rem; }
     footer a { color:var(--green); text-decoration:none; font-weight:600; }
-    @media (max-width:800px) { .contact { grid-template-columns:1fr; } }
     @media (max-width:800px) {
-      .hero,.grid,.shots,.points { grid-template-columns:1fr; }
-      nav a:not(.buy) { display:none; }
-      .card img, .shot img, .shot.main img { height:220px; min-height:0; }
+      .hero,.source,.shots,.points,.feature,.contact { grid-template-columns:1fr; }
+      nav a:not(.buy):not(.basket-link) { display:none; }
+      .shot img, .shot.main img { height:220px; min-height:0; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <a href="#top"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
+      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
       <nav>
-        <a href="#stock">Shop</a>
+        <a href="shop.html">Shop</a>
         <a href="#software">Software</a>
         <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy</a>
+        <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
         <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
       </nav>
     </header>
-    <section class="hero" id="top">
+    <section class="hero">
       <div>
         <p class="eyebrow">Online seller and software developer</p>
-        <h1>Genuine RAW and Satya, in stock now.</h1>
-        <p class="lede">The shop is RAW 2oz tins, Satya incense, RAW bamboo mats and a gift set with a tin, mat and portable ashtray. Buy on this site for a lower price than eBay. UK delivery is free on orders of £50 or more.</p>
-        <p class="lede second">BenGStock is Linux stock software. It covers the main jobs: stock, orders, goods in and cash. One payment covers the licence. There is no monthly fee. Your records stay on your computer.</p>
-        <div class="roles">
-          <span>Online sales</span>
-          <span>Software developer</span>
-          <span>Linux available</span>
-        </div>
+        <h1>RAW and Satya in stock. BenGStock for the records.</h1>
+        <p class="lede">J. Ben G supplies RAW tins, Satya incense, RAW bamboo mats and a gift set. Buy on this site or on eBay. The site price is lower. UK delivery is free on orders of £50 or more.</p>
+        <p class="lede second">BenGStock is Linux stock software. It covers stock, purchase orders, goods in and cash. One payment covers the licence. There is no monthly fee. Your records stay on your computer.</p>
       </div>
       <div class="shop-note">
-        <strong>Lower than eBay</strong>
-        Free UK delivery on orders of £50 or more.
-        <p style="margin-top:12px"><a class="buy" href="#stock">Buy on this site</a></p>
+        <strong>Two ways to buy</strong>
+        The shop is on its own page. BenGStock is £199, as a Linux .deb.
+        <p style="margin-top:12px"><a class="buy" href="shop.html">View the shop</a></p>
       </div>
-    </section>
-    <section class="grid" id="stock">
-      <article class="card">
-        <img src="img/products/raw-tims.jpg" alt="RAW 2oz tobacco tin" />
-        <div>
-          <h2>RAW Tins 2oz</h2>
-          <p>RAW 2oz storage tin, in stock.</p>
-          <a class="site-buy" data-stripe="tin" href="#stock">Buy here</a>
-          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="img/products/satya.jpg" alt="Satya incense" />
-        <div>
-          <h2>Satya incense</h2>
-          <p>Satya incense, in stock.</p>
-          <a class="site-buy" data-stripe="satya" href="#stock">Buy here</a>
-          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="img/products/bamboo.jpg" alt="RAW bamboo rolling mats" />
-        <div>
-          <h2>RAW bamboo mats</h2>
-          <p>Pack of two RAW bamboo rolling mats.</p>
-          <a class="site-buy" data-stripe="mats" href="#stock">Buy here</a>
-          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
-        </div>
-      </article>
-      <article class="card">
-        <img src="img/products/gift.jpg" alt="RAW gift set with tin, bamboo mat and portable ashtray" />
-        <div>
-          <h2>RAW gift set</h2>
-          <p>Tin, printed bamboo mat and portable ashtray.</p>
-          <a class="site-buy" data-stripe="gift" href="#stock">Buy here</a>
-          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay listing</a>
-        </div>
-      </article>
     </section>
     <section class="soft" id="software">
       <p class="eyebrow" style="color:#e4c98a">BenGStock</p>
-      <h2>Stock software for the work a shop actually does.</h2>
-      <p>BenGStock covers the main areas: stock, purchase orders, goods in and cash. The wording and layout are built for day-to-day business use. It is still being improved. There is no monthly fee and no cloud login.</p>
-      <p class="price">£199 <small>one-off licence. Linux .deb. Bug fixes included.</small></p>
+      <h2>Linux stock control. One licence.</h2>
+      <p>Built for daily stock work. It covers stock, purchase orders, goods in and cash. The layout is written for business use. It is still being improved. There is no monthly fee and no cloud login.</p>
+      <p class="price">£199 <small>One-off licence. Linux .deb. Bug fixes included.</small></p>
       <ul class="points">
         <li>No monthly fee. You keep the version you buy.</li>
         <li>Your file stays on your machine. You keep the backups.</li>
-        <li>Linux .deb download after payment. Windows in development.</li>
+        <li>Linux .deb after payment. Windows is in development.</li>
         <li>Still being improved. Bug fixes are included.</li>
       </ul>
       <p>
         <a class="buy" id="buy-software" href="#software">Buy and download</a>
         <a class="buy" href="#shots" style="background:transparent;color:#f3e7cc !important;border:1px solid rgba(243,231,204,.4);margin-left:8px">See the screens</a>
       </p>
-      <p class="fine">Card checkout uses Stripe. The button goes live when the payment link is added. The download is a Linux .deb, sent after payment.</p>
+      <p class="fine">Card payment uses Stripe. The button goes live when the payment link is added. The download is a Linux .deb.</p>
+    </section>
+    <section class="source" id="source">
+      <article>
+        <p class="eyebrow">Included</p>
+        <h2>The licence is the program.</h2>
+        <p>The £199 sale is a Linux .deb. You install it and run it. Bug fixes for that program are included. A business can install it on its own computer or server. The source code is not required for that.</p>
+      </article>
+      <article>
+        <p class="eyebrow">Not included</p>
+        <h2>Source code is a separate enquiry.</h2>
+        <p>The files are sent as they stand on that day. Updates, bug fixes, support and custom changes are not included. Later releases can be quoted separately.</p>
+        <a class="buy" href="mailto:enquiries@bengstock.com">Enquire about source code</a>
+      </article>
     </section>
     <section class="shots" id="shots">
       <figure class="shot main">
-        <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard with stock value and open orders" />
-        <figcaption>
-          <h3>Today, in one view</h3>
-          <p>Stock value, open orders and balances without opening five screens.</p>
-        </figcaption>
+        <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
+        <figcaption><h3>Dashboard</h3><p>Stock value, open orders and balances in one view.</p></figcaption>
       </figure>
       <div class="stack">
         <figure class="shot">
           <img src="img/preview-stock.jpg" alt="BenGStock stock list" />
-          <figcaption>
-            <h3>Stock</h3>
-            <p>Levels, locations and product detail in one list.</p>
-          </figcaption>
+          <figcaption><h3>Stock</h3><p>Levels, locations and product detail.</p></figcaption>
         </figure>
         <figure class="shot">
           <img src="img/preview-purchasing.jpg" alt="BenGStock purchase orders" />
-          <figcaption>
-            <h3>Purchasing</h3>
-            <p>Raise and track orders with proper purchase-order numbers.</p>
-          </figcaption>
+          <figcaption><h3>Purchasing</h3><p>Orders with purchase-order numbers.</p></figcaption>
         </figure>
         <figure class="shot">
           <img src="img/preview-cashbook.jpg" alt="BenGStock cashbook" />
-          <figcaption>
-            <h3>Cashbook</h3>
-            <p>Cash positions and movements, kept in one book.</p>
-          </figcaption>
+          <figcaption><h3>Cashbook</h3><p>Cash positions and movements.</p></figcaption>
         </figure>
       </div>
     </section>
-
-    <section class="contact" id="source">
-      <div>
-        <p class="eyebrow">Source code</p>
-        <h2>The licence is the program.</h2>
-        <p style="margin-top:8px">The £199 sale is a Linux .deb. You install it and run it. Bug fixes for that program are included. The source code is not included.</p>
-        <p style="margin-top:8px">A business can install the .deb on its own computer or server. That does not need the source code.</p>
-      </div>
-      <div>
-        <p>Source code is a separate enquiry. It is the project files on the day they are sent.</p>
-        <p style="margin-top:8px">It does not include updates, bug fixes, support, or changes made for the buyer. Later releases can be quoted separately.</p>
-        <p style="margin-top:8px"><a href="mailto:enquiries@bengstock.com">Enquire about source code</a></p>
-      </div>
-    </section>
+    <p class="eyebrow">In stock</p>
+    <h2 style="margin-bottom:14px">From the shop</h2>
+    <div class="feature">
+      <a href="shop.html"><img src="img/products/raw-tims.jpg" alt="RAW 2oz tin" /><span>RAW tins 2oz</span></a>
+      <a href="shop.html"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense</span></a>
+      <a href="shop.html"><img src="img/products/bamboo.jpg" alt="RAW bamboo mats" /><span>RAW bamboo mats</span></a>
+      <a href="shop.html"><img src="img/products/gift.jpg" alt="RAW gift set" /><span>RAW gift set</span></a>
+    </div>
     <section class="contact" id="contact">
       <div>
         <p class="eyebrow">Contact</p>
@@ -215,29 +166,20 @@
       <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
     </footer>
   </div>
-
+  <script src="basket.js"></script>
   <script>
-    const stripeLinks = {
-      software: "",
-      tin: "",
-      satya: "",
-      mats: "",
-      gift: ""
-    };
-    document.querySelectorAll("[data-stripe], #buy-software").forEach((buy) => {
-      const key = buy.dataset.stripe || "software";
-      const link = stripeLinks[key];
-      if (link) {
-        buy.href = link;
-        buy.target = "_blank";
-        buy.rel = "noopener";
-      } else {
-        buy.addEventListener("click", (e) => {
-          e.preventDefault();
-          buy.textContent = "Stripe link not added yet";
-        });
-      }
-    });
+    const stripeLinks = { software: "" };
+    const buy = document.getElementById("buy-software");
+    if (stripeLinks.software) {
+      buy.href = stripeLinks.software;
+      buy.target = "_blank";
+      buy.rel = "noopener";
+    } else {
+      buy.addEventListener("click", (e) => {
+        e.preventDefault();
+        buy.textContent = "Stripe link not added yet";
+      });
+    }
   </script>
 </body>
 </html>
