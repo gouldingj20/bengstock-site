@@ -44,10 +44,15 @@ export default async function handler(req, res) {
   params.set("phone_number_collection[enabled]", "true");
   params.set("shipping_address_collection[allowed_countries][0]", "GB");
   lines.forEach((item, i) => {
+    let qty = Math.max(1, Number(item.qty) || 1);
+    if (item.id === "satya") qty = Math.floor(qty / 12) * 6 + (qty % 12);
     params.set(`line_items[${i}][price]`, prices[item.id].price);
-    params.set(`line_items[${i}][quantity]`, String(Math.max(1, Number(item.qty) || 1)));
+    params.set(`line_items[${i}][quantity]`, String(qty));
   });
-  const delivery = deliveryPence(lines);
+  const delivery = deliveryPence(lines.map((item) => {
+    const qty = Math.max(1, Number(item.qty) || 1);
+    return item.id === "satya" ? { ...item, qty: Math.floor(qty / 12) * 6 + (qty % 12) } : item;
+  }));
   if (delivery) {
     const i = lines.length;
     params.set(`line_items[${i}][quantity]`, "1");
