@@ -7,7 +7,7 @@
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; --bg:#f7f6f3; }
+    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; }
     * { box-sizing:border-box; margin:0; padding:0; }
     body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
     a { color:inherit; }
@@ -19,18 +19,24 @@
     nav a { text-decoration:none; font-weight:500; color:#31443a; }
     .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
     .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .intro { padding:36px 0 10px; }
+    .intro { padding:36px 0 8px; }
     .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:10px; }
     h1 { font-size:clamp(2rem,4vw,3rem); letter-spacing:-.03em; margin-bottom:10px; }
-    .lede { color:var(--muted); max-width:40rem; }
-    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:22px 0 40px; }
+    .lede { color:var(--muted); max-width:42rem; }
+    .filters { display:flex; gap:8px; flex-wrap:wrap; margin:18px 0; }
+    .filters button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 14px; font:inherit; cursor:pointer; }
+    .filters button.on { background:var(--green); color:#fff; border-color:var(--green); }
+    .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; padding:8px 0 40px; }
     .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
-    .card img { width:100%; height:280px; object-fit:contain; background:#fafafa; }
-    .card div { padding:16px 18px 18px; }
-    .card h2 { font-size:1.25rem; margin-bottom:4px; }
-    .card p { color:var(--muted); margin-bottom:12px; }
-    .card a, .card button { font-weight:600; color:var(--green); background:none; border:0; border-bottom:1px solid var(--gold); cursor:pointer; font:inherit; padding:0; }
-    .card .site-buy { display:inline-block; margin-right:12px; background:var(--green); color:#fff; border:0; border-radius:999px; padding:8px 14px; }
+    .card img { width:100%; height:210px; object-fit:contain; background:#fafafa; }
+    .card div { padding:14px 16px 16px; }
+    .card h2 { font-size:1.1rem; margin-bottom:4px; }
+    .card p { color:var(--muted); margin-bottom:12px; font-size:.95rem; }
+    .tag { color:var(--gold); font-size:.75rem; letter-spacing:.08em; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .site-buy { background:var(--green); color:#fff; border:0; border-radius:999px; padding:8px 14px; font:inherit; font-weight:600; cursor:pointer; }
+    input[type="number"] { width:64px; border:1px solid var(--line); border-radius:8px; padding:7px; font:inherit; }
+    .card a { font-weight:600; color:var(--green); }
     footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
     footer a { color:var(--green); font-weight:600; text-decoration:none; }
     @media (max-width:800px) { .grid { grid-template-columns:1fr; } nav a:not(.buy):not(.basket-link) { display:none; } }
@@ -49,48 +55,67 @@
     </header>
     <section class="intro">
       <p class="eyebrow">Shop</p>
-      <h1>Incense, accessories and BenGStock.</h1>
-      <p class="lede">Satya incense is in stock. The other accessories are listed for the range and are not in stock yet. Card payment opens when Stripe is connected. UK delivery is free on orders of £50 or more.</p>
+      <h1>Incense, packaging and BenGStock.</h1>
+      <p class="lede">Satya incense and BenGStock can be added to the basket. Packaging and holders are listed for the range and are not in stock yet. Quantity is chosen here. Stripe will charge that quantity when checkout is connected.</p>
+      <div class="filters">
+        <button class="on" data-filter="all">All</button>
+        <button data-filter="software">Software</button>
+        <button data-filter="incense">Incense</button>
+        <button data-filter="packaging">Packaging</button>
+      </div>
     </section>
-    <section class="grid">
-      <article class="card">
+    <section class="grid" id="grid">
+      <article class="card" data-cat="software">
         <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
         <div>
-          <h2>BenGStock <span style="color:#b8923e;font-size:.8rem;letter-spacing:.08em">NEW</span></h2>
+          <h2>BenGStock <span class="tag">NEW</span></h2>
           <p>Linux stock software. £199 beta licence, supplied as a .deb.</p>
-          <button class="site-buy" data-add="software" data-name="BenGStock Linux .deb">Add to basket</button>
-          <a href="index.html#software">Details</a>
+          <div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" data-add="software" data-name="BenGStock Linux .deb">Add to basket</button></div>
         </div>
       </article>
-      <article class="card">
+      <article class="card" data-cat="incense">
         <img src="img/products/satya.jpg" alt="Satya incense" />
         <div>
           <h2>Satya incense</h2>
-          <p>Satya incense sticks, in stock.</p>
-          <button class="site-buy" data-add="satya" data-name="Satya incense">Add to basket</button>
-          <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
+          <p>Incense sticks, in stock.</p>
+          <div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" data-add="satya" data-name="Satya incense">Add to basket</button><a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a></div>
         </div>
       </article>
-      <article class="card">
-        <img src="img/products/satya.jpg" alt="Incense holders" />
-        <div>
-          <h2>Incense holders</h2>
-          <p>Not in stock. Holders and burners, to be added from wholesale.</p>
-        </div>
+      <article class="card" data-cat="incense">
+        <img src="img/products/holder.jpg" alt="Brass incense holder" />
+        <div><h2>Incense holder</h2><p>Not in stock. A tray holder for sticks.</p></div>
       </article>
-      <article class="card">
-        <img src="img/products/bamboo.jpg" alt="Refillable lighters" />
-        <div>
-          <h2>Refillable lighters</h2>
-          <p>Not in stock. Listed so the range is visible.</p>
-        </div>
+      <article class="card" data-cat="incense">
+        <img src="img/products/holder-round.jpg" alt="Round incense holder" />
+        <div><h2>Round incense holder</h2><p>Not in stock. A stand for a single stick.</p></div>
       </article>
-      <article class="card">
-        <img src="img/products/gift.jpg" alt="Storage pouches" />
-        <div>
-          <h2>Storage pouches</h2>
-          <p>Not in stock. To be added when ordered from the wholesaler.</p>
-        </div>
+      <article class="card" data-cat="incense">
+        <img src="img/products/candle.jpg" alt="Jar candle" />
+        <div><h2>Jar candle</h2><p>Not in stock. To be added from wholesale.</p></div>
+      </article>
+      <article class="card" data-cat="packaging">
+        <img src="img/products/mailers.jpg" alt="Mailing bags" />
+        <div><h2>Mailing bags</h2><p>Not in stock. Plain postal mailers.</p></div>
+      </article>
+      <article class="card" data-cat="packaging">
+        <img src="img/products/boxes.jpg" alt="Postal boxes" />
+        <div><h2>Postal boxes</h2><p>Not in stock. Kraft cartons for orders.</p></div>
+      </article>
+      <article class="card" data-cat="packaging">
+        <img src="img/products/tape.jpg" alt="Packing tape" />
+        <div><h2>Packing tape</h2><p>Not in stock.</p></div>
+      </article>
+      <article class="card" data-cat="packaging">
+        <img src="img/products/bubble.jpg" alt="Bubble wrap" />
+        <div><h2>Bubble wrap</h2><p>Not in stock.</p></div>
+      </article>
+      <article class="card" data-cat="packaging">
+        <img src="img/products/tissue.jpg" alt="Tissue paper" />
+        <div><h2>Tissue paper</h2><p>Not in stock. Kraft tissue for packing.</p></div>
+      </article>
+      <article class="card" data-cat="packaging">
+        <img src="img/products/labels.jpg" alt="Address labels" />
+        <div><h2>Address labels</h2><p>Not in stock.</p></div>
       </article>
     </section>
     <footer>
@@ -99,5 +124,17 @@
     </footer>
   </div>
   <script src="basket.js"></script>
+  <script>
+    document.querySelectorAll("[data-filter]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("on"));
+        btn.classList.add("on");
+        const cat = btn.dataset.filter;
+        document.querySelectorAll(".card").forEach((card) => {
+          card.style.display = cat === "all" || card.dataset.cat === cat ? "" : "none";
+        });
+      });
+    });
+  </script>
 </body>
 </html>
