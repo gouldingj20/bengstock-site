@@ -10,17 +10,19 @@
       el.textContent = items.reduce((n, item) => n + item.qty, 0);
     });
   }
-  function add(id, name) {
+  function add(id, name, qty) {
     const items = read();
     const found = items.find((item) => item.id === id);
-    if (found) found.qty += 1;
-    else items.push({ id, name, qty: 1 });
+    const n = Math.max(1, Number(qty) || 1);
+    if (found) found.qty += n;
+    else items.push({ id, name, qty: n });
     write(items);
   }
   write(read());
   document.querySelectorAll("[data-add]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      add(btn.dataset.add, btn.dataset.name);
+      const input = btn.parentElement.querySelector("[data-qty]");
+      add(btn.dataset.add, btn.dataset.name, input && input.value);
       btn.textContent = "Added";
     });
   });
