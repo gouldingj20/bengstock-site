@@ -15,7 +15,7 @@ function deliveryPence(items) {
   });
   if (!weight) return 0;
   const boxes = Math.max(1, Math.ceil(weight / 20));
-  const chargeable = goods >= 5000 ? boxes - 1 : boxes;
+  const chargeable = goods >= 2500 ? boxes - 1 : boxes;
   return chargeable * 999;
 }
 
