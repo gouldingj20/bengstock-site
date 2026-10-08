@@ -1,7 +1,23 @@
 const prices = {
-  software: "price_1UONBrIxCmDSYfBKgohkcM07",
-  satya: "price_1UONBsIxCmDSYfBK7KkqfEG2"
+  software: { price: "price_1UONBrIxCmDSYfBKgohkcM07", amount: 19900, weight: 0 },
+  satya: { price: "price_1UONBsIxCmDSYfBK7KkqfEG2", amount: 450, weight: 0.2 }
 };
+
+function deliveryPence(items) {
+  let goods = 0;
+  let weight = 0;
+  items.forEach((item) => {
+    const product = prices[item.id];
+    if (!product || !product.weight) return;
+    const qty = Math.max(1, Number(item.qty) || 1);
+    goods += product.amount * qty;
+    weight += product.weight * qty;
+  });
+  if (!weight) return 0;
+  const boxes = Math.max(1, Math.ceil(weight / 20));
+  const chargeable = goods >= 5000 ? boxes - 1 : boxes;
+  return chargeable * 999;
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -28,9 +44,17 @@ export default async function handler(req, res) {
   params.set("phone_number_collection[enabled]", "true");
   params.set("shipping_address_collection[allowed_countries][0]", "GB");
   lines.forEach((item, i) => {
-    params.set(`line_items[${i}][price]`, prices[item.id]);
+    params.set(`line_items[${i}][price]`, prices[item.id].price);
     params.set(`line_items[${i}][quantity]`, String(Math.max(1, Number(item.qty) || 1)));
   });
+  const delivery = deliveryPence(lines);
+  if (delivery) {
+    const i = lines.length;
+    params.set(`line_items[${i}][quantity]`, "1");
+    params.set(`line_items[${i}][price_data][currency]`, "gbp");
+    params.set(`line_items[${i}][price_data][unit_amount]`, String(delivery));
+    params.set(`line_items[${i}][price_data][product_data][name]`, "Delivery");
+  }
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/x-www-form-urlencoded" },
