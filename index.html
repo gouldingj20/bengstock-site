@@ -38,6 +38,9 @@
     .card a { font-weight:600; color:var(--green); text-decoration:none; border-bottom:1px solid var(--gold); }
     .soft { background:var(--green); color:#f7f3ea; border-radius:20px; padding:28px; margin-bottom:18px; }
     .soft p { color:rgba(247,243,234,.82); margin:8px 0 14px; max-width:40rem; }
+    .price { font-size:2rem; font-weight:700; margin:8px 0 4px; }
+    .price small { display:block; font-size:.95rem; font-weight:500; color:rgba(247,243,234,.75); }
+    .fine { font-size:.85rem; }
     .points { display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; margin:16px 0 18px; list-style:none; }
     .points li { padding-left:14px; position:relative; }
     .points li::before { content:""; width:7px; height:7px; border-radius:50%; background:#e4c98a; position:absolute; left:0; top:.5rem; }
@@ -85,9 +88,9 @@
         </div>
       </div>
       <div class="shop-note">
-        <strong>Shop</strong>
-        Listings, price and postage are on eBay.
-        <p style="margin-top:12px"><a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a></p>
+        <strong>Buy here, or on eBay</strong>
+        Prices on this site are lower than the eBay listings. Free UK delivery on orders of £50 or more.
+        <p style="margin-top:12px"><a class="buy" href="#stock">Shop stock</a></p>
       </div>
     </section>
     <section class="grid" id="stock">
@@ -128,13 +131,18 @@
       <p class="eyebrow" style="color:#e4c98a">BenGStock</p>
       <h2>Stock control that stays on your computer.</h2>
       <p>Built for a working shop. Stock, purchase orders, goods in, cash and supplier performance, without a monthly fee or a cloud login.</p>
+      <p class="price">£199 <small>one-off licence, Linux. Bug fixes included.</small></p>
       <ul class="points">
-        <li>One-off licence. Bug fixes included.</li>
+        <li>No monthly fee. You keep the version you buy.</li>
         <li>Your file stays on your machine. You keep the backups.</li>
-        <li>Linux available now. Windows in development.</li>
+        <li>Linux download after payment. Windows in development.</li>
         <li>Mouse or keyboard. Built for repeat shop work.</li>
       </ul>
-      <a class="buy" href="#shots" style="background:#e4c98a;color:#1a1408 !important">See the screens</a>
+      <p>
+        <a class="buy" id="buy-software" href="#software">Buy and download</a>
+        <a class="buy" href="#shots" style="background:transparent;color:#f3e7cc !important;border:1px solid rgba(243,231,204,.4);margin-left:8px">See the screens</a>
+      </p>
+      <p class="fine">Card checkout is wired for Stripe. The button goes live when the payment link is added. The download is sent after payment.</p>
     </section>
     <section class="shots" id="shots">
       <figure class="shot main">
@@ -172,7 +180,7 @@
       <div>
         <p class="eyebrow">Contact</p>
         <h2>Enquiries</h2>
-        <p style="margin-top:8px">Shop orders go through eBay. For anything else, use the details here.</p>
+        <p style="margin-top:8px">Shop orders can be placed here or on eBay. On this site, delivery in the UK is free on orders of £50 or more.</p>
       </div>
       <div>
         <p><a href="mailto:enquiries@bengstock.com">enquiries@bengstock.com</a></p>
@@ -185,5 +193,22 @@
       <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
     </footer>
   </div>
+
+  <script>
+    const stripeLinks = {
+      software: ""
+    };
+    const buy = document.getElementById("buy-software");
+    if (stripeLinks.software) {
+      buy.href = stripeLinks.software;
+      buy.target = "_blank";
+      buy.rel = "noopener";
+    } else {
+      buy.addEventListener("click", (e) => {
+        e.preventDefault();
+        buy.textContent = "Stripe link not added yet";
+      });
+    }
+  </script>
 </body>
 </html>
