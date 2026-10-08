@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basket · J. Ben G</title>
+  <link rel="icon" href="img/logo-j-ben-g.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); }
+    a { color:inherit; }
+    .wrap { max-width:760px; margin:0 auto; padding:0 20px 40px; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid var(--line); }
+    header img { width:108px; }
+    nav a { margin-left:16px; text-decoration:none; font-weight:500; }
+    h1 { margin:28px 0 8px; letter-spacing:-.03em; }
+    p { color:var(--muted); }
+    ul { list-style:none; margin:18px 0; }
+    li { display:flex; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+    button { background:none; border:0; color:var(--green); font:inherit; font-weight:600; cursor:pointer; }
+    .note { background:#f7f6f3; border-radius:16px; padding:16px; margin-top:16px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
+      <nav><a href="shop.html">Shop</a></nav>
+    </header>
+    <h1>Basket</h1>
+    <p>Items stay in this browser until you remove them.</p>
+    <ul id="lines"></ul>
+    <div class="note">
+      <p>Card payment is not open yet. Stripe has to be connected before a checkout can take a payment. Nothing is charged from this page.</p>
+    </div>
+  </div>
+  <script src="basket.js"></script>
+  <script>
+    const list = document.getElementById("lines");
+    function draw() {
+      const items = window.JBG.list();
+      list.innerHTML = items.length ? "" : "<li><span>The basket is empty.</span></li>";
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        li.innerHTML = "<span>" + item.name + " × " + item.qty + "</span>";
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.addEventListener("click", () => { window.JBG.remove(item.id); draw(); });
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+    }
+    draw();
+  </script>
+</body>
+</html>
