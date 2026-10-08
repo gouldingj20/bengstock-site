@@ -75,7 +75,7 @@
         <a href="#software">Software</a>
         <a href="#contact">Contact</a>
         <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
-        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
+        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
       </nav>
     </header>
     <section class="hero">
@@ -88,7 +88,7 @@
       <div class="shop-note">
         <strong>Shop and software</strong>
         The product range is on the shop page. BenGStock is £199 and is supplied as a Linux .deb.
-        <p style="margin-top:12px"><a class="buy" href="shop.html">View the shop</a></p>
+        <p style="margin-top:12px"><a class="buy" href="shop.html">My shop</a></p>
       </div>
     </section>
     <section class="soft" id="software">
@@ -105,7 +105,7 @@
       <p>A fault in a listed feature should be reported by email. A corrected .deb is sent within 30 days. If that update does not correct the fault, the licence ends and the price is refunded in full. After 12 months, a later release is quoted separately. An unlisted feature, or a Windows version, is not a fault.</p>
       <p>
         <button class="buy" id="add-software" data-add="software" data-name="BenGStock Linux .deb" style="border:0;cursor:pointer;font:inherit">Add to basket</button>
-        <a class="buy" id="buy-software" href="#software" style="margin-left:8px">Buy and download</a>
+        <a class="buy" href="mailto:enquiries@bengstock.com" style="margin-left:8px;background:#e4c98a;color:#1a1408 !important">Enquire more</a>
       </p>
       <p class="fine">The basket holds the .deb only. Card payment opens when Stripe is connected. Source code is not added to the basket.</p>
     </section>
@@ -164,23 +164,9 @@
     </section>
     <footer>
       <div>© 2026 J. Ben G · sole trader, not a limited company · <a href="privacy.html">Privacy</a></div>
-      <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">Open shop</a>
+      <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
     </footer>
   </div>
   <script src="basket.js"></script>
-  <script>
-    const stripeLinks = { software: "" };
-    const buy = document.getElementById("buy-software");
-    if (stripeLinks.software) {
-      buy.href = stripeLinks.software;
-      buy.target = "_blank";
-      buy.rel = "noopener";
-    } else {
-      buy.addEventListener("click", (e) => {
-        e.preventDefault();
-        buy.textContent = "Stripe link not added yet";
-      });
-    }
-  </script>
 </body>
 </html>
