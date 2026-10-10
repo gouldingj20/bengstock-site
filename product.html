@@ -56,7 +56,8 @@
       <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
       <nav>
         <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
+        <a href="software.html">Software</a>
+        <a href="shop.html">General shop</a>
         <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
         <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
       </nav>
@@ -78,19 +79,24 @@
         price: "From £250 a year",
         inStock: true,
         plans: true,
-        desc: "Stock control for Linux. Stock, purchasing, goods received and cash, kept on your own computer. This listing is v1. Later versions are sold separately. The year is paid up front. Renew and enter a new key to continue. There is no direct debit.",
-        points: ["One year of use", "Key matched to your machine", "Email used for the key, invoice and licence terms", "Manual renewal"]
+        crumb: "software.html",
+        desc: "Stock control for Linux. Stock, purchasing, goods received and cash, kept on your own computer. This listing is v1. Later versions are sold separately. The year is paid up front. Renew and enter a new key to continue. There is no direct debit. Every plan is for one computer and includes email support.",
+        points: ["One year of use", "One computer", "Email support on every plan", "Manual renewal"]
       },
       satya: { name: "Satya incense", cat: "Household", image: "img/products/satya.jpg", price: "£1.99", inStock: true, id: "satya", desc: "Satya incense sticks for home. A simple, familiar stick for a room, a shelf or a quiet evening.", points: ["In stock", "UK delivery", "Free UK delivery on orders of £25 or more"] },
       holder: { name: "Incense holder", cat: "Household", image: "img/products/holder.jpg", price: "Coming soon", inStock: false, desc: "A tray holder for incense sticks. Useful on a shelf, desk or windowsill, and easy to empty.", points: ["Tray style", "For incense sticks", "Not in stock yet"] },
       "holder-round": { name: "Round incense holder", cat: "Household", image: "img/products/holder-round.jpg", price: "Coming soon", inStock: false, desc: "A small stand for a single incense stick. Neat on a table or beside a plant.", points: ["Single stick", "Compact", "Not in stock yet"] },
       candle: { name: "Jar candle", cat: "Household", image: "img/products/candle.jpg", price: "Coming soon", inStock: false, desc: "A jar candle for the house. A simple everyday scent.", points: ["Jar candle", "For the home", "Not in stock yet"] },
-      mailers: { name: "Mailing bags", cat: "Packaging", image: "img/products/mailers.jpg", price: "Coming soon", inStock: false, desc: "Plain postal mailers for small orders. Useful if you send from home.", points: ["Plain mailers", "For posting", "Not in stock yet"] },
-      boxes: { name: "Postal boxes", cat: "Packaging", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Kraft cartons for packing orders.", points: ["Kraft cartons", "For orders", "Not in stock yet"] },
-      tape: { name: "Packing tape", cat: "Packaging", image: "img/products/tape.jpg", price: "Coming soon", inStock: false, desc: "Packing tape for sealing boxes and mailers.", points: ["For sealing", "Everyday packing", "Not in stock yet"] },
-      bubble: { name: "Bubble wrap", cat: "Packaging", image: "img/products/bubble.jpg", price: "Coming soon", inStock: false, desc: "Bubble wrap for protecting small items in the post.", points: ["Protective packing", "For small items", "Not in stock yet"] },
-      tissue: { name: "Tissue paper", cat: "Packaging", image: "img/products/tissue.jpg", price: "Coming soon", inStock: false, desc: "Kraft tissue for wrapping and packing.", points: ["Kraft tissue", "For wrapping", "Not in stock yet"] },
-      labels: { name: "Address labels", cat: "Packaging", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Address labels for parcels and envelopes.", points: ["For parcels", "Plain labels", "Not in stock yet"] }
+      mailers: { name: "Mailing bags", cat: "Packing", image: "img/products/mailers.jpg", price: "Coming soon", inStock: false, desc: "Plain postal mailers for small orders. Useful if you send from home.", points: ["Plain mailers", "For posting", "Not in stock yet"] },
+      boxes: { name: "Postal boxes", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Kraft cartons for packing orders.", points: ["Kraft cartons", "For orders", "Not in stock yet"] },
+      tape: { name: "Packing tape", cat: "Packing", image: "img/products/tape.jpg", price: "Coming soon", inStock: false, desc: "Packing tape for sealing boxes and mailers.", points: ["For sealing", "Everyday packing", "Not in stock yet"] },
+      bubble: { name: "Bubble wrap", cat: "Packing", image: "img/products/bubble.jpg", price: "Coming soon", inStock: false, desc: "Bubble wrap for protecting small items in the post.", points: ["Protective packing", "For small items", "Not in stock yet"] },
+      tissue: { name: "Tissue paper", cat: "Packing", image: "img/products/tissue.jpg", price: "Coming soon", inStock: false, desc: "Kraft tissue for wrapping and packing.", points: ["Kraft tissue", "For wrapping", "Not in stock yet"] },
+      labels: { name: "Address labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Plain address labels for parcels and envelopes.", points: ["For parcels", "Plain labels", "Not in stock yet"] },
+      "shipping-labels": { name: "Shipping labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Thermal label rolls for posting. For a small label printer on the desk.", points: ["Thermal rolls", "For shipping", "Not in stock yet"] },
+      "barcode-labels": { name: "Barcode labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Small labels for stock, shelves and boxes.", points: ["For stock", "Small size", "Not in stock yet"] },
+      "label-printer": { name: "Label printer", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "A small desktop printer for shipping and barcode labels.", points: ["Desktop size", "For day-to-day labels", "Not in stock yet"] },
+      "packing-pads": { name: "Packing list pads", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Simple pads for writing what goes in the box.", points: ["For packing", "Day-to-day", "Not in stock yet"] }
     };
     const id = new URLSearchParams(location.search).get("id") || "software";
     const item = products[id] || products.software;
@@ -100,8 +106,8 @@
     let buy = '<p class="note">This line is not in stock yet. <a href="mailto:enquiries@bengstock.com">Ask when it returns.</a></p>';
     if (item.plans) {
       buy = '<div class="plans">' +
-        '<div class="plan"><strong>Basic · £250 / year</strong><p>Bug fixes, some updates, light email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
-        '<div class="plan"><strong>Pro · £500 / year</strong><p>Faster support and larger updates. Refund of unused months, if a listed fault cannot be fixed, is decided on the facts.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
+        '<div class="plan"><strong>Basic · £250 / year</strong><p>One computer. Bug fixes, some updates, email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
+        '<div class="plan"><strong>Pro · £500 / year</strong><p>Still one computer. Email support a bit faster, larger updates. Refund of unused months, if a listed fault cannot be fixed, is decided on the facts.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
         '<div class="plan"><strong>Mega · by arrangement</strong><p>Full cover and custom work for your business and size.</p><a class="buy" href="mailto:enquiries@bengstock.com?subject=BenGStock%20Mega">Enquire</a></div>' +
         '</div>';
     } else if (item.inStock) {
