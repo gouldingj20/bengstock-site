@@ -79,37 +79,47 @@
         price: "From £250 a year",
         inStock: true,
         plans: true,
-        crumb: "software.html",
-        desc: "Stock control for Linux. Stock, purchasing, goods received and cash, kept on your own computer. This listing is v1. Later versions are sold separately. The year is paid up front. Renew and enter a new key to continue. There is no direct debit. Every plan is for one computer and includes email support.",
-        points: ["One year of use", "One computer", "Email support on every plan", "Manual renewal"]
+        desc: "Stock, purchasing, goods received and cash. On your computer. One year, one machine.",
+        points: ["One year", "One computer", "Email support", "New key if you renew"]
       },
-      satya: { name: "Satya incense", cat: "Household", image: "img/products/satya.jpg", price: "£1.99", inStock: true, id: "satya", desc: "Satya incense sticks for home. A simple, familiar stick for a room, a shelf or a quiet evening.", points: ["In stock", "UK delivery", "Free UK delivery on orders of £25 or more"] },
-      holder: { name: "Incense holder", cat: "Household", image: "img/products/holder.jpg", price: "Coming soon", inStock: false, desc: "A tray holder for incense sticks. Useful on a shelf, desk or windowsill, and easy to empty.", points: ["Tray style", "For incense sticks", "Not in stock yet"] },
-      "holder-round": { name: "Round incense holder", cat: "Household", image: "img/products/holder-round.jpg", price: "Coming soon", inStock: false, desc: "A small stand for a single incense stick. Neat on a table or beside a plant.", points: ["Single stick", "Compact", "Not in stock yet"] },
-      candle: { name: "Jar candle", cat: "Household", image: "img/products/candle.jpg", price: "Coming soon", inStock: false, desc: "A jar candle for the house. A simple everyday scent.", points: ["Jar candle", "For the home", "Not in stock yet"] },
-      mailers: { name: "Mailing bags", cat: "Packing", image: "img/products/mailers.jpg", price: "Coming soon", inStock: false, desc: "Plain postal mailers for small orders. Useful if you send from home.", points: ["Plain mailers", "For posting", "Not in stock yet"] },
-      boxes: { name: "Postal boxes", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Kraft cartons for packing orders.", points: ["Kraft cartons", "For orders", "Not in stock yet"] },
-      tape: { name: "Packing tape", cat: "Packing", image: "img/products/tape.jpg", price: "Coming soon", inStock: false, desc: "Packing tape for sealing boxes and mailers.", points: ["For sealing", "Everyday packing", "Not in stock yet"] },
-      bubble: { name: "Bubble wrap", cat: "Packing", image: "img/products/bubble.jpg", price: "Coming soon", inStock: false, desc: "Bubble wrap for protecting small items in the post.", points: ["Protective packing", "For small items", "Not in stock yet"] },
-      tissue: { name: "Tissue paper", cat: "Packing", image: "img/products/tissue.jpg", price: "Coming soon", inStock: false, desc: "Kraft tissue for wrapping and packing.", points: ["Kraft tissue", "For wrapping", "Not in stock yet"] },
-      labels: { name: "Address labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Plain address labels for parcels and envelopes.", points: ["For parcels", "Plain labels", "Not in stock yet"] },
-      "shipping-labels": { name: "Shipping labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Thermal label rolls for posting. For a small label printer on the desk.", points: ["Thermal rolls", "For shipping", "Not in stock yet"] },
-      "barcode-labels": { name: "Barcode labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Small labels for stock, shelves and boxes.", points: ["For stock", "Small size", "Not in stock yet"] },
-      "label-printer": { name: "Label printer", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "A small desktop printer for shipping and barcode labels.", points: ["Desktop size", "For day-to-day labels", "Not in stock yet"] },
-      "packing-pads": { name: "Packing list pads", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Simple pads for writing what goes in the box.", points: ["For packing", "Day-to-day", "Not in stock yet"] }
+      "custom-labels": {
+        name: "Custom shipping labels",
+        cat: "Labels",
+        image: "img/products/labels.jpg",
+        price: "From £15 for 100",
+        inStock: true,
+        custom: true,
+        desc: "Your design, printed to order. Email the artwork and the quantity. From £15 for 100 labels. Larger runs are cheaper per label.",
+        points: ["Email your design", "Printed to order", "From £15 for 100", "UK postage"]
+      },
+      satya: { name: "Satya incense", cat: "Household", image: "img/products/satya.jpg", price: "£1.99", inStock: true, id: "satya", desc: "Satya incense sticks.", points: ["In stock", "Free UK delivery over £25"] },
+      holder: { name: "Incense holder", cat: "Household", image: "img/products/holder.jpg", price: "Coming soon", inStock: false, desc: "Tray holder for incense sticks.", points: ["Coming soon"] },
+      "holder-round": { name: "Round incense holder", cat: "Household", image: "img/products/holder-round.jpg", price: "Coming soon", inStock: false, desc: "Stand for a single stick.", points: ["Coming soon"] },
+      candle: { name: "Jar candle", cat: "Household", image: "img/products/candle.jpg", price: "Coming soon", inStock: false, desc: "Everyday jar candle.", points: ["Coming soon"] },
+      mailers: { name: "Mailing bags", cat: "Packing", image: "img/products/mailers.jpg", price: "Coming soon", inStock: false, desc: "Plain postal mailers.", points: ["Coming soon"] },
+      boxes: { name: "Postal boxes", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Kraft cartons.", points: ["Coming soon"] },
+      tape: { name: "Packing tape", cat: "Packing", image: "img/products/tape.jpg", price: "Coming soon", inStock: false, desc: "For boxes and mailers.", points: ["Coming soon"] },
+      bubble: { name: "Bubble wrap", cat: "Packing", image: "img/products/bubble.jpg", price: "Coming soon", inStock: false, desc: "For small items.", points: ["Coming soon"] },
+      tissue: { name: "Tissue paper", cat: "Packing", image: "img/products/tissue.jpg", price: "Coming soon", inStock: false, desc: "Kraft tissue.", points: ["Coming soon"] },
+      labels: { name: "Address labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Plain address labels.", points: ["Coming soon"] },
+      "barcode-labels": { name: "Barcode labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Small labels for stock.", points: ["Coming soon"] },
+      "label-printer": { name: "Label printer", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Desktop label printer.", points: ["Coming soon"] },
+      "packing-pads": { name: "Packing list pads", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Pads for what goes in the box.", points: ["Coming soon"] }
     };
     const id = new URLSearchParams(location.search).get("id") || "software";
     const item = products[id] || products.software;
     document.title = item.name + " · J. Ben G";
     document.getElementById("crumb-name").textContent = item.name;
-    const status = item.inStock ? '<span class="status in">In stock</span>' : '<span class="status out">Out of stock</span>';
-    let buy = '<p class="note">This line is not in stock yet. <a href="mailto:shopsupport@j-ben-g.com">Ask when it returns.</a></p>';
+    const status = item.inStock ? '<span class="status in">Available</span>' : '<span class="status out">Coming soon</span>';
+    let buy = '<p class="note">Coming soon. <a href="mailto:shopsupport@j-ben-g.com">Ask when it is back.</a></p>';
     if (item.plans) {
       buy = '<div class="plans">' +
         '<div class="plan"><strong>Basic · £250 / year</strong><p>One computer. Bug fixes, some updates, email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
-        '<div class="plan"><strong>Pro · £500 / year</strong><p>Still one computer. Email support a bit faster, larger updates. Refund of unused months, if a listed fault cannot be fixed, is decided on the facts.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
-        '<div class="plan"><strong>Mega · by arrangement</strong><p>Full cover and custom work for your business and size.</p><a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a></div>' +
+        '<div class="plan"><strong>Pro · £500 / year</strong><p>One computer. Faster email support, larger updates.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
+        '<div class="plan"><strong>Mega · by arrangement</strong><p>Custom work for your business.</p><a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a></div>' +
         '</div>';
+    } else if (item.custom) {
+      buy = '<p class="note"><a class="buy" href="mailto:shopsupport@j-ben-g.com?subject=Custom%20shipping%20labels">Email your design</a></p>';
     } else if (item.inStock) {
       buy = '<div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" id="add">Add to basket</button></div>';
     }
@@ -117,8 +127,7 @@
       '<div class="photo"><img src="' + item.image + '" alt="' + item.name + '" /></div>' +
       '<div><p class="eyebrow">' + item.cat + '</p><h1>' + item.name + '</h1>' + status +
       '<p class="price">' + item.price + '</p><p class="desc">' + item.desc + '</p>' +
-      '<ul class="points">' + item.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' + buy +
-      '<p class="note">The email you give at checkout is where the key, invoice and licence terms are sent. It is also how we keep in touch.</p></div>';
+      '<ul class="points">' + item.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' + buy + '</div>';
     function add(pid, name) {
       const key = "jbg-basket";
       const items = JSON.parse(localStorage.getItem(key) || "[]");
