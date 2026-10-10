@@ -57,15 +57,15 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="software.html">Software</a>
-        <a href="shop.html">General shop</a>
+        <a href="shop.html">Accessories</a>
         <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
         <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
       </nav>
     </header>
-    <p class="crumb"><a href="shop.html">Shop</a> / <span id="crumb-name">Product</span></p>
+    <p class="crumb"><a href="shop.html">Accessories</a> / <span id="crumb-name">Product</span></p>
     <section class="product" id="product"></section>
     <footer>
-      <div>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></div>
+      <div>© 2026 J. Ben G · UK based · <a href="privacy.html">Privacy</a></div>
       <a href="basket.html">View basket</a>
     </footer>
   </div>
@@ -103,12 +103,12 @@
     document.title = item.name + " · J. Ben G";
     document.getElementById("crumb-name").textContent = item.name;
     const status = item.inStock ? '<span class="status in">In stock</span>' : '<span class="status out">Out of stock</span>';
-    let buy = '<p class="note">This line is not in stock yet. <a href="mailto:enquiries@bengstock.com">Ask when it returns.</a></p>';
+    let buy = '<p class="note">This line is not in stock yet. <a href="mailto:shopsupport@j-ben-g.com">Ask when it returns.</a></p>';
     if (item.plans) {
       buy = '<div class="plans">' +
         '<div class="plan"><strong>Basic · £250 / year</strong><p>One computer. Bug fixes, some updates, email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
         '<div class="plan"><strong>Pro · £500 / year</strong><p>Still one computer. Email support a bit faster, larger updates. Refund of unused months, if a listed fault cannot be fixed, is decided on the facts.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
-        '<div class="plan"><strong>Mega · by arrangement</strong><p>Full cover and custom work for your business and size.</p><a class="buy" href="mailto:enquiries@bengstock.com?subject=BenGStock%20Mega">Enquire</a></div>' +
+        '<div class="plan"><strong>Mega · by arrangement</strong><p>Full cover and custom work for your business and size.</p><a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a></div>' +
         '</div>';
     } else if (item.inStock) {
       buy = '<div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" id="add">Add to basket</button></div>';
