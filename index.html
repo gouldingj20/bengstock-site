@@ -21,13 +21,16 @@
     .buy { background:var(--green); color:#fff !important; padding:11px 18px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; border:0; cursor:pointer; font:inherit; }
     .ghost { background:transparent; color:var(--green) !important; border:1px solid var(--line); }
     .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .hero { padding:36px 0 28px; display:grid; grid-template-columns:1fr 1.15fr; gap:28px; align-items:center; }
+    .hero { padding:36px 0 20px; display:grid; grid-template-columns:1fr 1.15fr; gap:28px; align-items:center; }
     .eyebrow { letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:600; color:var(--gold); margin-bottom:12px; }
     h1 { font-size:clamp(2.1rem,4.2vw,3.1rem); line-height:1.05; letter-spacing:-.035em; margin-bottom:10px; }
     .lede { font-size:1.08rem; color:var(--muted); max-width:28rem; }
     .hero-actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
     .hero-shot { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#0d1c16; }
     .hero-shot img { width:100%; height:340px; object-fit:cover; object-position:top left; }
+    .welcome { padding:8px 0 28px; max-width:42rem; }
+    .welcome h2 { font-size:1.45rem; letter-spacing:-.02em; margin-bottom:8px; }
+    .welcome p { color:var(--muted); margin-bottom:10px; }
     .band { margin:8px 0 28px; }
     .band h2 { font-size:1.55rem; letter-spacing:-.02em; margin-bottom:6px; }
     .band .sub { color:var(--muted); max-width:36rem; margin-bottom:16px; }
@@ -88,15 +91,22 @@
       <div>
         <p class="eyebrow">UK based</p>
         <h1>Software and accessories.</h1>
-        <p class="lede">BenGStock for stock control. Custom software and websites. Accessories for packing and the home.</p>
+        <p class="lede">BenGStock for stock control. Custom software and websites. Accessories for packing, the home and the dog.</p>
         <div class="hero-actions">
           <a class="buy" href="#software">BenGStock</a>
-          <a class="buy ghost" href="#custom">Custom builds</a>
+          <a class="buy ghost" href="shop.html">Accessories</a>
         </div>
       </div>
       <div class="hero-shot">
         <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
       </div>
+    </section>
+    <section class="welcome">
+      <p class="eyebrow">Welcome</p>
+      <h2>A small UK business with a mixed range.</h2>
+      <p>J. Ben G started on eBay with everyday bits for the house and for packing orders. From there it grew into software, because stock and orders were the part that needed a proper tool.</p>
+      <p>BenGStock is stock control for Linux. There is also custom software and website work, where you get the code and own it. No hosting from us.</p>
+      <p>The shop still has the practical side: incense, labels, packing, and now dog leads, collars and the usual walk bits. It is a mix because that is what the business actually does day to day.</p>
     </section>
     <section class="band" id="software">
       <p class="eyebrow">BenGStock v1</p>
@@ -174,7 +184,7 @@
       <h2>A few of the range</h2>
       <div class="feature">
         <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense<small>In stock</small></span></a>
-        <a href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" /><span>Incense holder<small>Coming soon</small></span></a>
+        <a href="product.html?id=dog-lead"><img src="img/products/boxes.jpg" alt="Dog lead" /><span>Dog lead<small>Coming soon</small></span></a>
         <a href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><span>Mailing bags<small>Coming soon</small></span></a>
         <a href="shop.html"><img src="img/products/boxes.jpg" alt="Packing" /><span>More<small>See the shop</small></span></a>
       </div>
