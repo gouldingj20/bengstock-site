@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>J. Ben G</title>
-  <meta name="description" content="UK based. Software and accessories. BenGStock stock control for Linux." />
+  <meta name="description" content="UK based. Software, custom builds and accessories. BenGStock stock control for Linux." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -47,6 +47,11 @@
     .shot figcaption { padding:10px 12px 12px; }
     .shot h3 { font-size:.95rem; }
     .shot p { color:var(--muted); font-size:.86rem; }
+    .custom { background:var(--bg); border-radius:18px; padding:28px; margin:8px 0 32px; display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center; }
+    .custom h2 { font-size:1.5rem; letter-spacing:-.02em; margin-bottom:6px; }
+    .custom p { color:var(--muted); }
+    .custom ul { margin:12px 0 16px; padding-left:18px; color:#31443a; }
+    .custom li { margin:4px 0; }
     .range { margin-bottom:32px; }
     .range h2 { margin:6px 0 12px; font-size:1.35rem; }
     .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
@@ -60,7 +65,7 @@
     footer { border-top:1px solid var(--line); padding:16px 0 24px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.9rem; }
     footer a { color:var(--green); text-decoration:none; font-weight:600; }
     @media (max-width:800px) {
-      .hero,.plans,.shots,.feature,.contact { grid-template-columns:1fr; }
+      .hero,.plans,.shots,.feature,.contact,.custom { grid-template-columns:1fr; }
       nav a:not(.buy):not(.basket-link) { display:none; }
       .hero-shot img { height:220px; }
     }
@@ -72,6 +77,7 @@
       <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
       <nav>
         <a href="software.html">Software</a>
+        <a href="#custom">Custom</a>
         <a href="shop.html">Accessories</a>
         <a href="#contact">Contact</a>
         <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
@@ -82,10 +88,10 @@
       <div>
         <p class="eyebrow">UK based</p>
         <h1>Software and accessories.</h1>
-        <p class="lede">BenGStock for stock control. Accessories for packing and the home.</p>
+        <p class="lede">BenGStock for stock control. Custom software and websites. Accessories for packing and the home.</p>
         <div class="hero-actions">
           <a class="buy" href="#software">BenGStock</a>
-          <a class="buy ghost" href="shop.html">Accessories</a>
+          <a class="buy ghost" href="#custom">Custom builds</a>
         </div>
       </div>
       <div class="hero-shot">
@@ -145,6 +151,23 @@
         <img src="img/preview-cashbook.jpg" alt="BenGStock cashbook" />
         <figcaption><h3>Cashbook</h3><p>Cash positions and movements.</p></figcaption>
       </figure>
+    </section>
+    <section class="custom" id="custom">
+      <div>
+        <p class="eyebrow">Custom builds</p>
+        <h2>Software and websites. You own the code.</h2>
+        <p>Custom software or a website built for your business. You get the raw code when it is finished. No hosting from us.</p>
+        <ul>
+          <li>Custom software</li>
+          <li>Websites</li>
+          <li>You own the code</li>
+          <li>No hosting</li>
+        </ul>
+        <a class="buy" href="mailto:enquiry@j-ben-g.com?subject=Custom%20build">Enquire</a>
+      </div>
+      <div>
+        <p style="color:var(--muted)">Scoped and agreed in writing before work starts. Quote depends on what you need.</p>
+      </div>
     </section>
     <section class="range">
       <p class="eyebrow">Accessories</p>
