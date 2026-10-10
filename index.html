@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>J. Ben G</title>
-  <meta name="description" content="UK based. Software, custom builds and accessories. BenGStock stock control for Linux." />
+  <meta name="description" content="UK based. Software, custom builds and a shop for packing, home and dog." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -21,16 +21,14 @@
     .buy { background:var(--green); color:#fff !important; padding:11px 18px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; border:0; cursor:pointer; font:inherit; }
     .ghost { background:transparent; color:var(--green) !important; border:1px solid var(--line); }
     .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .hero { padding:36px 0 20px; display:grid; grid-template-columns:1fr 1.15fr; gap:28px; align-items:center; }
-    .eyebrow { letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:600; color:var(--gold); margin-bottom:12px; }
-    h1 { font-size:clamp(2.1rem,4.2vw,3.1rem); line-height:1.05; letter-spacing:-.035em; margin-bottom:10px; }
-    .lede { font-size:1.08rem; color:var(--muted); max-width:28rem; }
-    .hero-actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
-    .hero-shot { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#0d1c16; }
-    .hero-shot img { width:100%; height:340px; object-fit:cover; object-position:top left; }
-    .welcome { padding:8px 0 28px; max-width:42rem; }
-    .welcome h2 { font-size:1.45rem; letter-spacing:-.02em; margin-bottom:8px; }
+    .welcome { padding:32px 0 20px; max-width:40rem; }
+    .welcome h1 { font-size:clamp(2rem,4vw,2.8rem); letter-spacing:-.03em; margin-bottom:10px; }
     .welcome p { color:var(--muted); margin-bottom:10px; }
+    .eyebrow { letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:600; color:var(--gold); margin-bottom:12px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:8px 0 28px; }
+    .card-link { border:1px solid var(--line); border-radius:18px; padding:22px; text-decoration:none; display:flex; flex-direction:column; gap:8px; }
+    .card-link h2 { font-size:1.4rem; letter-spacing:-.02em; }
+    .card-link p { color:var(--muted); flex:1; }
     .band { margin:8px 0 28px; }
     .band h2 { font-size:1.55rem; letter-spacing:-.02em; margin-bottom:6px; }
     .band .sub { color:var(--muted); max-width:36rem; margin-bottom:16px; }
@@ -56,21 +54,21 @@
     .custom ul { margin:12px 0 16px; padding-left:18px; color:#31443a; }
     .custom li { margin:4px 0; }
     .range { margin-bottom:32px; }
-    .range h2 { margin:6px 0 12px; font-size:1.35rem; }
+    .range h2 { margin:6px 0 12px; font-size:1.5rem; letter-spacing:-.02em; }
     .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
     .feature a { border:1px solid var(--line); border-radius:14px; overflow:hidden; text-decoration:none; }
-    .feature img { height:110px; width:100%; object-fit:contain; background:#fafafa; }
+    .feature img { height:130px; width:100%; object-fit:contain; background:#fafafa; }
     .feature span { display:block; padding:10px 12px; font-weight:600; font-size:.95rem; }
     .feature small { display:block; font-weight:500; color:var(--muted); margin-top:2px; }
+    .shop-cta { margin-top:14px; }
     .contact { border-top:1px solid var(--line); padding:24px 0 8px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px; }
     .contact a { color:var(--green); font-weight:600; text-decoration:none; }
     .emails { display:grid; gap:4px; color:var(--muted); }
     footer { border-top:1px solid var(--line); padding:16px 0 24px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.9rem; }
     footer a { color:var(--green); text-decoration:none; font-weight:600; }
     @media (max-width:800px) {
-      .hero,.plans,.shots,.feature,.contact,.custom { grid-template-columns:1fr; }
+      .split,.plans,.shots,.feature,.contact,.custom { grid-template-columns:1fr; }
       nav a:not(.buy):not(.basket-link) { display:none; }
-      .hero-shot img { height:220px; }
     }
   </style>
 </head>
@@ -81,32 +79,47 @@
       <nav>
         <a href="software.html">Software</a>
         <a href="#custom">Custom</a>
-        <a href="shop.html">Accessories</a>
+        <a href="shop.html">Shop</a>
         <a href="#contact">Contact</a>
         <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
         <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
       </nav>
     </header>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">UK based</p>
-        <h1>Software and accessories.</h1>
-        <p class="lede">BenGStock for stock control. Custom software and websites. Accessories for packing, the home and the dog.</p>
-        <div class="hero-actions">
-          <a class="buy" href="#software">BenGStock</a>
-          <a class="buy ghost" href="shop.html">Accessories</a>
-        </div>
-      </div>
-      <div class="hero-shot">
-        <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
-      </div>
-    </section>
     <section class="welcome">
       <p class="eyebrow">Welcome</p>
-      <h2>A small UK business with a mixed range.</h2>
-      <p>J. Ben G started on eBay with everyday bits for the house and for packing orders. From there it grew into software, because stock and orders were the part that needed a proper tool.</p>
-      <p>BenGStock is stock control for Linux. There is also custom software and website work, where you get the code and own it. No hosting from us.</p>
-      <p>The shop still has the practical side: incense, labels, packing, and now dog leads, collars and the usual walk bits. It is a mix because that is what the business actually does day to day.</p>
+      <h1>A small UK business with a mixed range.</h1>
+      <p>J. Ben G started on eBay with everyday bits for the house and for packing orders. From there it grew into software, because stock and orders needed a proper tool.</p>
+      <p>BenGStock is stock control for Linux. There is also custom software and website work. You get the code and own it. No hosting from us.</p>
+      <p>The shop still has the practical side: incense, labels, packing, dog leads, collars and the usual walk bits. Free UK delivery over £25.</p>
+    </section>
+    <section class="split">
+      <a class="card-link" href="shop.html">
+        <p class="eyebrow">Shop</p>
+        <h2>Incense, labels, packing and dog bits.</h2>
+        <p>Everyday products for the house, the post and the dog. Order here or on eBay.</p>
+        <span class="buy">See the shop</span>
+      </a>
+      <a class="card-link" href="#software">
+        <p class="eyebrow">Software</p>
+        <h2>BenGStock for stock control.</h2>
+        <p>From £250 a year. One computer. Email support.</p>
+        <span class="buy">See BenGStock</span>
+      </a>
+    </section>
+    <section class="range">
+      <p class="eyebrow">Shop</p>
+      <h2>From the shop</h2>
+      <div class="feature">
+        <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense<small>In stock · £1.99</small></span></a>
+        <a href="product.html?id=custom-labels"><img src="img/products/labels.jpg" alt="Custom labels" /><span>Custom labels<small>From £15 / 100</small></span></a>
+        <a href="product.html?id=dog-lead"><img src="img/products/boxes.jpg" alt="Dog lead" /><span>Dog lead<small>Coming soon</small></span></a>
+        <a href="product.html?id=dog-collar"><img src="img/products/boxes.jpg" alt="Dog collar" /><span>Dog collar<small>Coming soon</small></span></a>
+        <a href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><span>Mailing bags<small>Coming soon</small></span></a>
+        <a href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" /><span>Incense holder<small>Coming soon</small></span></a>
+        <a href="product.html?id=dog-harness"><img src="img/products/boxes.jpg" alt="Dog harness" /><span>Dog harness<small>Coming soon</small></span></a>
+        <a href="shop.html"><img src="img/products/boxes.jpg" alt="More" /><span>More<small>See the shop</small></span></a>
+      </div>
+      <p class="shop-cta"><a class="buy" href="shop.html">Open the shop</a></p>
     </section>
     <section class="band" id="software">
       <p class="eyebrow">BenGStock v1</p>
@@ -179,16 +192,6 @@
         <p style="color:var(--muted)">Scoped and agreed in writing before work starts. Quote depends on what you need.</p>
       </div>
     </section>
-    <section class="range">
-      <p class="eyebrow">Accessories</p>
-      <h2>A few of the range</h2>
-      <div class="feature">
-        <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense<small>In stock</small></span></a>
-        <a href="product.html?id=dog-lead"><img src="img/products/boxes.jpg" alt="Dog lead" /><span>Dog lead<small>Coming soon</small></span></a>
-        <a href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><span>Mailing bags<small>Coming soon</small></span></a>
-        <a href="shop.html"><img src="img/products/boxes.jpg" alt="Packing" /><span>More<small>See the shop</small></span></a>
-      </div>
-    </section>
     <section class="contact" id="contact">
       <div>
         <p class="eyebrow">Contact</p>
@@ -197,7 +200,7 @@
       </div>
       <div class="emails">
         <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a> · general</p>
-        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · accessories</p>
+        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
         <p><a href="mailto:softsupport@j-ben-g.com">softsupport@j-ben-g.com</a> · software</p>
         <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work</p>
       </div>
