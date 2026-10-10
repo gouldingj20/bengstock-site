@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>J. Ben G</title>
-  <meta name="description" content="Household accessories and BenGStock, stock control for Linux." />
+  <meta name="description" content="Software and household accessories. BenGStock stock control for Linux, with yearly plans." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -31,11 +31,13 @@
     .shop-note strong { display:block; margin-bottom:6px; }
     .soft { background:var(--green); color:#f7f3ea; border-radius:20px; padding:28px; margin:18px 0; }
     .soft p { color:rgba(247,243,234,.82); margin:8px 0 14px; max-width:42rem; }
-    .price { font-size:2rem; font-weight:700; margin:8px 0 4px; }
-    .price small { display:block; font-size:.95rem; font-weight:500; color:rgba(247,243,234,.75); }
-    .points { display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; margin:16px 0 18px; list-style:none; }
-    .points li { padding-left:14px; position:relative; }
-    .points li::before { content:""; width:7px; height:7px; border-radius:50%; background:#e4c98a; position:absolute; left:0; top:.5rem; }
+    .plans { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:16px 0; }
+    .plan { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:16px; }
+    .plan h3 { font-size:1.05rem; margin-bottom:4px; }
+    .plan .amt { font-size:1.4rem; font-weight:700; margin:6px 0; }
+    .plan p, .plan li { color:rgba(247,243,234,.8); font-size:.92rem; }
+    .plan ul { margin:8px 0 12px; padding-left:16px; }
+    .fine { font-size:.82rem; color:rgba(247,243,234,.65); margin-top:10px; }
     .source { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin:8px 0 28px; }
     .source article { border:1px solid var(--line); border-radius:18px; padding:22px; background:#fff; }
     .source article:first-child { background:#f7f6f3; }
@@ -60,7 +62,7 @@
     footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.92rem; }
     footer a { color:var(--green); text-decoration:none; font-weight:600; }
     @media (max-width:800px) {
-      .hero,.source,.shots,.points,.feature,.contact { grid-template-columns:1fr; }
+      .hero,.source,.shots,.plans,.feature,.contact { grid-template-columns:1fr; }
       nav a:not(.buy):not(.basket-link) { display:none; }
       .shot img, .shot.main img { height:220px; min-height:0; }
     }
@@ -80,39 +82,64 @@
     </header>
     <section class="hero">
       <div>
-        <p class="eyebrow">Household accessories</p>
-        <h1>BenGStock and household accessories.</h1>
-        <p class="lede">Stock control for Linux. One year of use. Your records stay on your computer.</p>
+        <p class="eyebrow">Software and household accessories</p>
+        <h1>Software for the business. A few things for the house.</h1>
+        <p class="lede">BenGStock v1 is stock control for Linux. One year at a time. Your records stay on your computer. Later versions and other programs are listed separately.</p>
         <p class="lede second">A small range for the home as well: Satya incense, holders, a jar candle and plain packaging. Order here or on eBay. UK delivery is free on orders of £25 or more.</p>
       </div>
       <div class="shop-note">
         <strong>Shop</strong>
-        BenGStock is £250 a year. Satya incense is in stock. Holders, candles and packaging are on the way.
+        BenGStock from £250 a year. Satya incense is in stock. Holders, candles and packaging are on the way.
         <p style="margin-top:12px"><a class="buy" href="shop.html">Browse the shop</a></p>
       </div>
     </section>
     <section class="soft" id="software">
-      <p class="eyebrow" style="color:#e4c98a">BenGStock</p>
+      <p class="eyebrow" style="color:#e4c98a">BenGStock v1</p>
       <h2>Stock control for the workday.</h2>
-      <p>Stock, purchasing, goods received and cash. Simple enough for daily use, and kept entirely on your computer.</p>
-      <p class="price">£250 <small>a year. A new key is sent with every renewal.</small></p>
-      <ul class="points">
-        <li>One year of use. Renew and a new key is sent.</li>
-        <li>Your data stays with you, including backups.</li>
-        <li>Installs on Linux after purchase.</li>
-        <li>Updates included for the year.</li>
-      </ul>
-      <p>Each key is matched to one machine. When the year ends, BenGStock asks for the next key. Renew, and it is sent for the year ahead.</p>
-      <p>
-        <button class="buy" id="add-software" data-add="software" data-name="BenGStock" style="border:0;cursor:pointer;font:inherit">Add to basket</button>
-        <a class="buy" href="product.html?id=software" style="margin-left:8px;background:#e4c98a;color:#1a1408 !important">View product</a>
-      </p>
+      <p>Stock, purchasing, goods received and cash. Simple enough for daily use, and kept entirely on your computer. The year is paid up front. When it ends, you renew and put in a new key. There is no direct debit.</p>
+      <div class="plans">
+        <article class="plan">
+          <h3>Basic</h3>
+          <p class="amt">£250 <span style="font-size:.9rem;font-weight:500">/ year</span></p>
+          <ul>
+            <li>One year of BenGStock v1</li>
+            <li>Bug fixes and some updates</li>
+            <li>Light support by email</li>
+            <li>Key matched to your machine</li>
+          </ul>
+          <button class="buy" data-add="software-basic" data-name="BenGStock Basic" style="border:0;cursor:pointer;font:inherit">Add Basic</button>
+        </article>
+        <article class="plan">
+          <h3>Pro</h3>
+          <p class="amt">£500 <span style="font-size:.9rem;font-weight:500">/ year</span></p>
+          <ul>
+            <li>Everything in Basic</li>
+            <li>Faster support</li>
+            <li>Larger updates through the year</li>
+            <li>Priority on fixes</li>
+          </ul>
+          <button class="buy" data-add="software-pro" data-name="BenGStock Pro" style="border:0;cursor:pointer;font:inherit">Add Pro</button>
+        </article>
+        <article class="plan">
+          <h3>Mega</h3>
+          <p class="amt">By arrangement</p>
+          <ul>
+            <li>Full cover for the year</li>
+            <li>Custom work for your business</li>
+            <li>Built around your size and setup</li>
+            <li>Agreed in writing</li>
+          </ul>
+          <a class="buy" href="mailto:enquiries@bengstock.com?subject=BenGStock%20Mega">Enquire</a>
+        </article>
+      </div>
+      <p>At checkout you give an email. The key, invoice and licence terms go there. That is also how we stay in touch about renewals and updates.</p>
+      <p class="fine">Pro includes a fuller look at a fault. If a listed feature cannot be put right, any refund of unused months is decided on the facts of that case. Mega is scoped before work starts. v1 is the current release. A later version is a separate listing.</p>
     </section>
     <section class="source" id="source">
       <article>
-        <p class="eyebrow">Included</p>
-        <h2>One year of BenGStock.</h2>
-        <p>£250 covers a year on Linux, on a computer or a server. The key matches that machine. Updates for the year are included.</p>
+        <p class="eyebrow">How it works</p>
+        <h2>Pay for the year. Put the key in.</h2>
+        <p>The licence lasts one year on one machine. When the year ends, BenGStock asks for a new key. You pay again and enter it. Nothing is taken automatically.</p>
       </article>
       <article>
         <p class="eyebrow">On request</p>
@@ -144,7 +171,7 @@
     <p class="eyebrow">Shop</p>
     <h2 style="margin-bottom:14px">A few of the range</h2>
     <div class="feature">
-      <a href="product.html?id=software"><img src="img/preview-dashboard.jpg" alt="BenGStock" /><span>BenGStock<small>£250 a year</small></span></a>
+      <a href="product.html?id=software"><img src="img/preview-dashboard.jpg" alt="BenGStock" /><span>BenGStock v1<small>From £250 a year</small></span></a>
       <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense<small>In stock</small></span></a>
       <a href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" /><span>Incense holder<small>Coming soon</small></span></a>
       <a href="product.html?id=candle"><img src="img/products/candle.jpg" alt="Jar candle" /><span>Jar candle<small>Coming soon</small></span></a>
