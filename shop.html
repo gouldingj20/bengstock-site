@@ -10,7 +10,7 @@
     :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; }
     * { box-sizing:border-box; margin:0; padding:0; }
     body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
-    a { color:inherit; }
+    a { color:inherit; text-decoration:none; }
     img { max-width:100%; display:block; }
     .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
     header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
@@ -27,18 +27,16 @@
     .filters button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 14px; font:inherit; cursor:pointer; }
     .filters button.on { background:var(--green); color:#fff; border-color:var(--green); }
     .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; padding:8px 0 40px; }
-    .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; }
     .card img { width:100%; height:210px; object-fit:contain; background:#fafafa; }
-    .card div { padding:14px 16px 16px; }
-    .card h2 { font-size:1.1rem; margin-bottom:4px; }
-    .card p { color:var(--muted); margin-bottom:12px; font-size:.95rem; }
-    .tag { color:var(--gold); font-size:.75rem; letter-spacing:.08em; }
-    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    .site-buy { background:var(--green); color:#fff; border:0; border-radius:999px; padding:8px 14px; font:inherit; font-weight:600; cursor:pointer; }
-    input[type="number"] { width:64px; border:1px solid var(--line); border-radius:8px; padding:7px; font:inherit; }
-    .card a { font-weight:600; color:var(--green); }
+    .card div { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
+    .card h2 { font-size:1.1rem; }
+    .card p { color:var(--muted); font-size:.95rem; flex:1; }
+    .meta { display:flex; justify-content:space-between; align-items:center; font-weight:600; }
+    .meta span { color:var(--gold); font-size:.78rem; letter-spacing:.06em; }
+    .view { color:var(--green); font-weight:600; }
     footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    footer a { color:var(--green); font-weight:600; text-decoration:none; }
+    footer a { color:var(--green); font-weight:600; }
     @media (max-width:800px) { .grid { grid-template-columns:1fr; } nav a:not(.buy):not(.basket-link) { display:none; } }
   </style>
 </head>
@@ -55,68 +53,27 @@
     </header>
     <section class="intro">
       <p class="eyebrow">Shop</p>
-      <h1>Incense, packaging and BenGStock.</h1>
-      <p class="lede">Satya incense and BenGStock can be added to the basket. Other lines are not in stock yet.</p>
+      <h1>Household accessories and BenGStock.</h1>
+      <p class="lede">Open a product for the full description. BenGStock and Satya incense can be added to the basket. Other lines are on the way.</p>
       <div class="filters">
         <button class="on" data-filter="all">All</button>
         <button data-filter="software">Software</button>
-        <button data-filter="incense">Incense</button>
+        <button data-filter="household">Household</button>
         <button data-filter="packaging">Packaging</button>
       </div>
     </section>
     <section class="grid" id="grid">
-      <article class="card" data-cat="software">
-        <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
-        <div>
-          <h2>BenGStock</h2>
-          <p>Stock control for Linux. £250 a year. A new key is sent with every renewal.</p>
-          <div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" data-add="software" data-name="BenGStock">Add to basket</button></div>
-        </div>
-      </article>
-      <article class="card" data-cat="incense">
-        <img src="img/products/satya.jpg" alt="Satya incense" />
-        <div>
-          <h2>Satya incense</h2>
-          <p>Incense sticks, in stock.</p>
-          <div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" data-add="satya" data-name="Satya incense">Add to basket</button></div>
-        </div>
-      </article>
-      <article class="card" data-cat="incense">
-        <img src="img/products/holder.jpg" alt="Brass incense holder" />
-        <div><h2>Incense holder</h2><p>Not in stock. A tray holder for sticks.</p></div>
-      </article>
-      <article class="card" data-cat="incense">
-        <img src="img/products/holder-round.jpg" alt="Round incense holder" />
-        <div><h2>Round incense holder</h2><p>Not in stock. A stand for a single stick.</p></div>
-      </article>
-      <article class="card" data-cat="incense">
-        <img src="img/products/candle.jpg" alt="Jar candle" />
-        <div><h2>Jar candle</h2><p>Not in stock. To be added from wholesale.</p></div>
-      </article>
-      <article class="card" data-cat="packaging">
-        <img src="img/products/mailers.jpg" alt="Mailing bags" />
-        <div><h2>Mailing bags</h2><p>Not in stock. Plain postal mailers.</p></div>
-      </article>
-      <article class="card" data-cat="packaging">
-        <img src="img/products/boxes.jpg" alt="Postal boxes" />
-        <div><h2>Postal boxes</h2><p>Not in stock. Kraft cartons for orders.</p></div>
-      </article>
-      <article class="card" data-cat="packaging">
-        <img src="img/products/tape.jpg" alt="Packing tape" />
-        <div><h2>Packing tape</h2><p>Not in stock.</p></div>
-      </article>
-      <article class="card" data-cat="packaging">
-        <img src="img/products/bubble.jpg" alt="Bubble wrap" />
-        <div><h2>Bubble wrap</h2><p>Not in stock.</p></div>
-      </article>
-      <article class="card" data-cat="packaging">
-        <img src="img/products/tissue.jpg" alt="Tissue paper" />
-        <div><h2>Tissue paper</h2><p>Not in stock. Kraft tissue for packing.</p></div>
-      </article>
-      <article class="card" data-cat="packaging">
-        <img src="img/products/labels.jpg" alt="Address labels" />
-        <div><h2>Address labels</h2><p>Not in stock.</p></div>
-      </article>
+      <a class="card" data-cat="software" href="product.html?id=software"><img src="img/preview-dashboard.jpg" alt="BenGStock" /><div><p class="meta"><span>SOFTWARE</span>£250 / year</p><h2>BenGStock</h2><p>Stock control for Linux. One year of use. A new key is sent with every renewal.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="household" href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><div><p class="meta"><span>IN STOCK</span>£1.99</p><h2>Satya incense</h2><p>Incense sticks for the home. A simple, familiar stick for a room or a shelf.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="household" href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" /><div><p class="meta"><span>COMING SOON</span></p><h2>Incense holder</h2><p>A tray holder for incense sticks. Easy to sit on a shelf and empty.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="household" href="product.html?id=holder-round"><img src="img/products/holder-round.jpg" alt="Round incense holder" /><div><p class="meta"><span>COMING SOON</span></p><h2>Round incense holder</h2><p>A small stand for a single stick. Neat on a table or beside a plant.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="household" href="product.html?id=candle"><img src="img/products/candle.jpg" alt="Jar candle" /><div><p class="meta"><span>COMING SOON</span></p><h2>Jar candle</h2><p>A jar candle for the house. A simple everyday scent.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="packaging" href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><div><p class="meta"><span>COMING SOON</span></p><h2>Mailing bags</h2><p>Plain postal mailers for small orders sent from home.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="packaging" href="product.html?id=boxes"><img src="img/products/boxes.jpg" alt="Postal boxes" /><div><p class="meta"><span>COMING SOON</span></p><h2>Postal boxes</h2><p>Kraft cartons for packing orders.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="packaging" href="product.html?id=tape"><img src="img/products/tape.jpg" alt="Packing tape" /><div><p class="meta"><span>COMING SOON</span></p><h2>Packing tape</h2><p>Tape for sealing boxes and mailers.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="packaging" href="product.html?id=bubble"><img src="img/products/bubble.jpg" alt="Bubble wrap" /><div><p class="meta"><span>COMING SOON</span></p><h2>Bubble wrap</h2><p>Protection for small items in the post.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="packaging" href="product.html?id=tissue"><img src="img/products/tissue.jpg" alt="Tissue paper" /><div><p class="meta"><span>COMING SOON</span></p><h2>Tissue paper</h2><p>Kraft tissue for wrapping and packing.</p><span class="view">View product</span></div></a>
+      <a class="card" data-cat="packaging" href="product.html?id=labels"><img src="img/products/labels.jpg" alt="Address labels" /><div><p class="meta"><span>COMING SOON</span></p><h2>Address labels</h2><p>Labels for parcels and envelopes.</p><span class="view">View product</span></div></a>
     </section>
     <footer>
       <div>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></div>
