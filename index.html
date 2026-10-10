@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>J. Ben G</title>
-  <meta name="description" content="UK based. Software and accessories. BenGStock for Linux, plus packing, labels and household bits." />
+  <meta name="description" content="UK based. Software and accessories. BenGStock stock control for Linux." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -13,7 +13,7 @@
     body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
     a { color:inherit; }
     img { max-width:100%; display:block; }
-    .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+    .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
     header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
     header img { width:108px; }
     nav { display:flex; gap:20px; align-items:center; }
@@ -21,37 +21,35 @@
     .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
     .basket-link { position:relative; }
     .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .hero { padding:46px 0 22px; display:grid; grid-template-columns:1.3fr .7fr; gap:28px; align-items:end; }
+    .hero { padding:56px 0 36px; display:grid; grid-template-columns:1.4fr .6fr; gap:32px; align-items:center; }
     .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:12px; }
-    h1 { font-size:clamp(2.2rem,4vw,3.3rem); line-height:1.05; letter-spacing:-.03em; margin-bottom:14px; }
-    h2 { font-size:1.7rem; letter-spacing:-.02em; }
-    .lede { font-size:1.12rem; color:var(--muted); max-width:40rem; }
-    .lede.second { margin-top:14px; }
-    .shop-note { background:var(--bg); border-radius:16px; padding:18px; }
-    .shop-note strong { display:block; margin-bottom:6px; }
-    .soft { background:var(--green); color:#f7f3ea; border-radius:20px; padding:28px; margin:18px 0; }
-    .soft p { color:rgba(247,243,234,.82); margin:8px 0 14px; max-width:42rem; }
-    .plans { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:16px 0; }
-    .plan { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:16px; }
+    h1 { font-size:clamp(2.4rem,4.4vw,3.6rem); line-height:1.02; letter-spacing:-.03em; margin-bottom:14px; }
+    .lede { font-size:1.15rem; color:var(--muted); max-width:36rem; }
+    .hero-actions { margin-top:22px; display:flex; gap:10px; flex-wrap:wrap; }
+    .soft { background:var(--green); color:#f7f3ea; border-radius:24px; padding:36px 32px; margin:12px 0 28px; }
+    .soft h2 { font-size:clamp(1.8rem,3vw,2.4rem); letter-spacing:-.03em; margin-bottom:8px; }
+    .soft .sub { color:rgba(247,243,234,.8); max-width:36rem; margin-bottom:22px; }
+    .plans { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+    .plan { background:#fff; color:var(--ink); border-radius:18px; padding:20px; display:flex; flex-direction:column; }
     .plan h3 { font-size:1.05rem; margin-bottom:4px; }
-    .plan .amt { font-size:1.4rem; font-weight:700; margin:6px 0; }
-    .plan p, .plan li { color:rgba(247,243,234,.8); font-size:.92rem; }
-    .plan ul { margin:8px 0 12px; padding-left:16px; }
-    .fine { font-size:.82rem; color:rgba(247,243,234,.65); margin-top:10px; }
-    .source { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin:8px 0 28px; }
-    .source article { border:1px solid var(--line); border-radius:18px; padding:22px; background:#fff; }
-    .source article:first-child { background:#f7f6f3; }
-    .source h2 { font-size:1.35rem; margin-bottom:8px; }
-    .source p { color:var(--muted); margin-bottom:10px; }
-    .shots { display:grid; grid-template-columns:1.2fr 1fr; gap:14px; margin-bottom:36px; }
-    .shot { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
-    .shot img { width:100%; height:230px; object-fit:cover; object-position:top left; background:#0d1c16; }
-    .shot.main img { height:100%; min-height:460px; }
-    .shot figcaption { padding:12px 14px 14px; }
+    .plan .amt { font-size:1.7rem; font-weight:700; margin:8px 0 10px; letter-spacing:-.02em; }
+    .plan .amt span { font-size:.9rem; font-weight:500; color:var(--muted); }
+    .plan ul { list-style:none; margin:0 0 16px; flex:1; }
+    .plan li { padding:5px 0 5px 14px; position:relative; color:#31443a; font-size:.94rem; }
+    .plan li::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); position:absolute; left:0; top:.65rem; }
+    .plan .buy { text-align:center; }
+    .fine { font-size:.82rem; color:rgba(247,243,234,.65); margin-top:16px; }
+    .shots { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; margin-bottom:40px; }
+    .shot { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    .shot img { width:100%; height:220px; object-fit:cover; object-position:top left; background:#0d1c16; }
+    .shot.main img { height:100%; min-height:480px; }
+    .shot figcaption { padding:14px 16px 16px; }
     .shot h3 { font-size:1rem; margin-bottom:2px; }
     .shot p { color:var(--muted); font-size:.92rem; }
     .stack { display:grid; gap:14px; }
-    .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:36px; }
+    .range { margin-bottom:36px; }
+    .range h2 { margin-bottom:14px; }
+    .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
     .feature a { border:1px solid var(--line); border-radius:16px; overflow:hidden; text-decoration:none; }
     .feature img { height:140px; width:100%; object-fit:contain; background:#fafafa; }
     .feature span { display:block; padding:10px 12px 12px; font-weight:600; }
@@ -63,7 +61,7 @@
     footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.92rem; }
     footer a { color:var(--green); text-decoration:none; font-weight:600; }
     @media (max-width:800px) {
-      .hero,.source,.shots,.plans,.feature,.contact { grid-template-columns:1fr; }
+      .hero,.plans,.shots,.feature,.contact { grid-template-columns:1fr; }
       nav a:not(.buy):not(.basket-link) { display:none; }
       .shot img, .shot.main img { height:220px; min-height:0; }
     }
@@ -83,28 +81,33 @@
     </header>
     <section class="hero">
       <div>
-        <p class="eyebrow">Software and accessories · UK based</p>
-        <h1>BenGStock. Labels, packing and a few things for the house.</h1>
-        <p class="lede">Stock control for Linux. One year, one computer. Email support included.</p>
-        <p class="lede second">Also incense, holders, custom shipping labels, mailers and packing. Order here or on eBay. Free UK delivery over £25.</p>
+        <p class="eyebrow">UK based</p>
+        <h1>Software and accessories for the business and the house.</h1>
+        <p class="lede">BenGStock for stock control on Linux. Accessories for packing and the home. Order here or on eBay.</p>
+        <div class="hero-actions">
+          <a class="buy" href="#software">BenGStock</a>
+          <a class="buy" href="shop.html" style="background:#e4c98a;color:#1a1408 !important">Accessories</a>
+        </div>
       </div>
-      <div class="shop-note">
-        <strong>UK based</strong>
-        Software from £250 a year. Custom labels from £15 for 100.
-        <p style="margin-top:12px"><a class="buy" href="software.html">Software</a> <a class="buy" href="shop.html" style="margin-left:8px;background:#e4c98a;color:#1a1408 !important">Accessories</a></p>
+      <div style="background:var(--bg);border-radius:20px;padding:22px">
+        <strong>Two shops</strong>
+        <p style="color:var(--muted);margin:6px 0 14px">Software and accessories. Free UK delivery over £25 on goods.</p>
+        <a class="buy" href="software.html">Software</a>
+        <a class="buy" href="shop.html" style="margin-left:8px;background:#e4c98a;color:#1a1408 !important">Accessories</a>
       </div>
     </section>
     <section class="soft" id="software">
       <p class="eyebrow" style="color:#e4c98a">BenGStock v1</p>
-      <h2>Stock, purchasing and cash.</h2>
-      <p>Kept on your computer. One year. A new key if you renew.</p>
+      <h2>Stock control that stays on your computer.</h2>
+      <p class="sub">Stock, purchasing, goods received and cash in one place. Built for a working day, not a spreadsheet. One year. One computer. Email support on every plan.</p>
       <div class="plans">
         <article class="plan">
           <h3>Basic</h3>
-          <p class="amt">£250 <span style="font-size:.9rem;font-weight:500">/ year</span></p>
+          <p class="amt">£250 <span>/ year</span></p>
           <ul>
-            <li>BenGStock v1</li>
-            <li>Bug fixes and some updates</li>
+            <li>Full BenGStock v1</li>
+            <li>Stock, purchasing and cash</li>
+            <li>Bug fixes and updates</li>
             <li>Email support</li>
             <li>One computer</li>
           </ul>
@@ -112,12 +115,13 @@
         </article>
         <article class="plan">
           <h3>Pro</h3>
-          <p class="amt">£500 <span style="font-size:.9rem;font-weight:500">/ year</span></p>
+          <p class="amt">£500 <span>/ year</span></p>
           <ul>
-            <li>One computer</li>
+            <li>Everything in Basic</li>
             <li>Faster email support</li>
-            <li>Larger updates</li>
+            <li>Larger updates through the year</li>
             <li>Priority on fixes</li>
+            <li>One computer</li>
           </ul>
           <button class="buy" data-add="software-pro" data-name="BenGStock Pro" style="border:0;cursor:pointer;font:inherit">Add Pro</button>
         </article>
@@ -125,41 +129,28 @@
           <h3>Mega</h3>
           <p class="amt">By arrangement</p>
           <ul>
-            <li>Custom work</li>
-            <li>For your business and size</li>
-            <li>Agreed before we start</li>
+            <li>Custom version</li>
+            <li>Built for your size and setup</li>
+            <li>Agreed in writing</li>
           </ul>
           <a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a>
         </article>
       </div>
-      <p class="fine">Pro: if a listed feature cannot be fixed, any refund of unused months is decided case by case. v1 is the current release.</p>
-    </section>
-    <section class="source" id="source">
-      <article>
-        <p class="eyebrow">Licence</p>
-        <h2>One year. One machine.</h2>
-        <p>Key, invoice and licence terms go to the email you give at checkout.</p>
-      </article>
-      <article>
-        <p class="eyebrow">On request</p>
-        <h2>Source code and custom work.</h2>
-        <p>Available separately if you need them.</p>
-        <a class="buy" href="mailto:enquiry@j-ben-g.com">Enquire</a>
-      </article>
+      <p class="fine">Key, invoice and licence terms go to the email at checkout. Renew and enter a new key for the next year. Pro: refund of unused months, if a listed fault cannot be fixed, is decided case by case.</p>
     </section>
     <section class="shots" id="shots">
       <figure class="shot main">
         <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
-        <figcaption><h3>Dashboard</h3><p>Stock value, open orders and balances.</p></figcaption>
+        <figcaption><h3>Dashboard</h3><p>Stock value, open orders and balances in one view.</p></figcaption>
       </figure>
       <div class="stack">
         <figure class="shot">
           <img src="img/preview-stock.jpg" alt="BenGStock stock list" />
-          <figcaption><h3>Stock</h3><p>Levels and product detail.</p></figcaption>
+          <figcaption><h3>Stock</h3><p>Levels, locations and product detail.</p></figcaption>
         </figure>
         <figure class="shot">
           <img src="img/preview-purchasing.jpg" alt="BenGStock purchase orders" />
-          <figcaption><h3>Purchasing</h3><p>Orders and purchase numbers.</p></figcaption>
+          <figcaption><h3>Purchasing</h3><p>Orders with purchase-order numbers.</p></figcaption>
         </figure>
         <figure class="shot">
           <img src="img/preview-cashbook.jpg" alt="BenGStock cashbook" />
@@ -167,14 +158,16 @@
         </figure>
       </div>
     </section>
-    <p class="eyebrow">Accessories</p>
-    <h2 style="margin-bottom:14px">A few of the range</h2>
-    <div class="feature">
-      <a href="product.html?id=custom-labels"><img src="img/products/labels.jpg" alt="Custom shipping labels" /><span>Custom labels<small>From £15 / 100</small></span></a>
-      <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense<small>In stock</small></span></a>
-      <a href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><span>Mailing bags<small>Coming soon</small></span></a>
-      <a href="shop.html"><img src="img/products/boxes.jpg" alt="Packing" /><span>Packing<small>See the shop</small></span></a>
-    </div>
+    <section class="range">
+      <p class="eyebrow">Accessories</p>
+      <h2>A few of the range</h2>
+      <div class="feature">
+        <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><span>Satya incense<small>In stock</small></span></a>
+        <a href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" /><span>Incense holder<small>Coming soon</small></span></a>
+        <a href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><span>Mailing bags<small>Coming soon</small></span></a>
+        <a href="shop.html"><img src="img/products/boxes.jpg" alt="Packing" /><span>More<small>See the shop</small></span></a>
+      </div>
+    </section>
     <section class="contact" id="contact">
       <div>
         <p class="eyebrow">Contact</p>
