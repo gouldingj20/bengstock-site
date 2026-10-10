@@ -13,44 +13,45 @@
     body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; line-height:1.5; }
     a { color:inherit; }
     img { max-width:100%; display:block; }
-    .wrap { max-width:1040px; margin:0 auto; padding:0 22px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+    .wrap { max-width:1080px; margin:0 auto; padding:0 22px; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid var(--line); }
     header img { width:100px; }
     nav { display:flex; gap:22px; align-items:center; }
     nav a { text-decoration:none; font-weight:500; color:#31443a; font-size:.95rem; }
     .buy { background:var(--green); color:#fff !important; padding:11px 18px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; border:0; cursor:pointer; font:inherit; }
     .ghost { background:transparent; color:var(--green) !important; border:1px solid var(--line); }
     .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .hero { padding:48px 0 28px; text-align:center; }
-    .eyebrow { letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:600; color:var(--gold); margin-bottom:14px; }
-    h1 { font-size:clamp(2.2rem,5vw,3.4rem); line-height:1.05; letter-spacing:-.035em; margin-bottom:12px; }
-    .lede { font-size:1.1rem; color:var(--muted); max-width:32rem; margin:0 auto; }
-    .hero-actions { margin-top:22px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-    .band { background:var(--bg); border-radius:20px; padding:32px 28px; margin:8px 0 32px; }
-    .band h2 { font-size:1.7rem; letter-spacing:-.02em; margin-bottom:6px; }
-    .band .sub { color:var(--muted); max-width:34rem; margin-bottom:20px; }
+    .hero { padding:36px 0 28px; display:grid; grid-template-columns:1fr 1.15fr; gap:28px; align-items:center; }
+    .eyebrow { letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:600; color:var(--gold); margin-bottom:12px; }
+    h1 { font-size:clamp(2.1rem,4.2vw,3.1rem); line-height:1.05; letter-spacing:-.035em; margin-bottom:10px; }
+    .lede { font-size:1.08rem; color:var(--muted); max-width:28rem; }
+    .hero-actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+    .hero-shot { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#0d1c16; }
+    .hero-shot img { width:100%; height:340px; object-fit:cover; object-position:top left; }
+    .band { margin:8px 0 28px; }
+    .band h2 { font-size:1.55rem; letter-spacing:-.02em; margin-bottom:6px; }
+    .band .sub { color:var(--muted); max-width:36rem; margin-bottom:16px; }
     .plans { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
-    .plan { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; }
+    .plan { border:1px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; background:#fff; }
+    .plan.pro { border-color:var(--green); }
     .plan h3 { font-size:1rem; }
-    .plan .amt { font-size:1.55rem; font-weight:700; margin:6px 0 10px; letter-spacing:-.02em; }
+    .plan .amt { font-size:1.5rem; font-weight:700; margin:6px 0 10px; letter-spacing:-.02em; }
     .plan .amt span { font-size:.85rem; font-weight:500; color:var(--muted); }
     .plan ul { list-style:none; margin:0 0 14px; flex:1; }
     .plan li { padding:4px 0; color:#31443a; font-size:.92rem; }
     .plan .buy { text-align:center; width:100%; }
-    .fine { font-size:.8rem; color:var(--muted); margin-top:14px; }
-    .shots { display:grid; grid-template-columns:1.2fr 1fr; gap:12px; margin-bottom:36px; }
-    .shot { border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; }
-    .shot img { width:100%; height:200px; object-fit:cover; object-position:top left; background:#0d1c16; }
-    .shot.main img { height:100%; min-height:430px; }
-    .shot figcaption { padding:12px 14px; }
+    .fine { font-size:.8rem; color:var(--muted); margin-top:12px; }
+    .shots { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:32px; }
+    .shot { border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    .shot img { width:100%; height:160px; object-fit:cover; object-position:top left; background:#0d1c16; }
+    .shot figcaption { padding:10px 12px 12px; }
     .shot h3 { font-size:.95rem; }
-    .shot p { color:var(--muted); font-size:.88rem; }
-    .stack { display:grid; gap:12px; }
+    .shot p { color:var(--muted); font-size:.86rem; }
     .range { margin-bottom:32px; }
-    .range h2 { margin:6px 0 12px; font-size:1.4rem; }
+    .range h2 { margin:6px 0 12px; font-size:1.35rem; }
     .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
     .feature a { border:1px solid var(--line); border-radius:14px; overflow:hidden; text-decoration:none; }
-    .feature img { height:120px; width:100%; object-fit:contain; background:#fafafa; }
+    .feature img { height:110px; width:100%; object-fit:contain; background:#fafafa; }
     .feature span { display:block; padding:10px 12px; font-weight:600; font-size:.95rem; }
     .feature small { display:block; font-weight:500; color:var(--muted); margin-top:2px; }
     .contact { border-top:1px solid var(--line); padding:24px 0 8px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px; }
@@ -59,9 +60,9 @@
     footer { border-top:1px solid var(--line); padding:16px 0 24px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.9rem; }
     footer a { color:var(--green); text-decoration:none; font-weight:600; }
     @media (max-width:800px) {
-      .plans,.shots,.feature,.contact { grid-template-columns:1fr; }
+      .hero,.plans,.shots,.feature,.contact { grid-template-columns:1fr; }
       nav a:not(.buy):not(.basket-link) { display:none; }
-      .shot img,.shot.main img { height:200px; min-height:0; }
+      .hero-shot img { height:220px; }
     }
   </style>
 </head>
@@ -78,18 +79,23 @@
       </nav>
     </header>
     <section class="hero">
-      <p class="eyebrow">UK based</p>
-      <h1>Software and accessories.</h1>
-      <p class="lede">BenGStock for stock control. Accessories for packing and the home. Order here or on eBay.</p>
-      <div class="hero-actions">
-        <a class="buy" href="#software">BenGStock</a>
-        <a class="buy ghost" href="shop.html">Accessories</a>
+      <div>
+        <p class="eyebrow">UK based</p>
+        <h1>Software and accessories.</h1>
+        <p class="lede">BenGStock for stock control. Accessories for packing and the home.</p>
+        <div class="hero-actions">
+          <a class="buy" href="#software">BenGStock</a>
+          <a class="buy ghost" href="shop.html">Accessories</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
       </div>
     </section>
     <section class="band" id="software">
       <p class="eyebrow">BenGStock v1</p>
       <h2>Stock, purchasing and cash.</h2>
-      <p class="sub">Kept on your computer. One year. One machine. Email support on every plan.</p>
+      <p class="sub">On your computer. One year. One machine. Email support on every plan.</p>
       <div class="plans">
         <article class="plan">
           <h3>Basic</h3>
@@ -102,7 +108,7 @@
           </ul>
           <button class="buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button>
         </article>
-        <article class="plan">
+        <article class="plan pro">
           <h3>Pro</h3>
           <p class="amt">£500 <span>/ year</span></p>
           <ul>
@@ -127,24 +133,18 @@
       <p class="fine">Key and invoice go to the email at checkout. Renew with a new key for the next year.</p>
     </section>
     <section class="shots">
-      <figure class="shot main">
-        <img src="img/preview-dashboard.jpg" alt="BenGStock dashboard" />
-        <figcaption><h3>Dashboard</h3><p>Stock value, open orders and balances.</p></figcaption>
+      <figure class="shot">
+        <img src="img/preview-stock.jpg" alt="BenGStock stock" />
+        <figcaption><h3>Stock</h3><p>Levels and product detail.</p></figcaption>
       </figure>
-      <div class="stack">
-        <figure class="shot">
-          <img src="img/preview-stock.jpg" alt="BenGStock stock" />
-          <figcaption><h3>Stock</h3><p>Levels and product detail.</p></figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/preview-purchasing.jpg" alt="BenGStock purchasing" />
-          <figcaption><h3>Purchasing</h3><p>Orders and purchase numbers.</p></figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/preview-cashbook.jpg" alt="BenGStock cashbook" />
-          <figcaption><h3>Cashbook</h3><p>Cash positions and movements.</p></figcaption>
-        </figure>
-      </div>
+      <figure class="shot">
+        <img src="img/preview-purchasing.jpg" alt="BenGStock purchasing" />
+        <figcaption><h3>Purchasing</h3><p>Orders and purchase numbers.</p></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/preview-cashbook.jpg" alt="BenGStock cashbook" />
+        <figcaption><h3>Cashbook</h3><p>Cash positions and movements.</p></figcaption>
+      </figure>
     </section>
     <section class="range">
       <p class="eyebrow">Accessories</p>
