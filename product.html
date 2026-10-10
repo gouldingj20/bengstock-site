@@ -34,9 +34,12 @@
     .points { list-style:none; margin:0 0 18px; }
     .points li { padding:6px 0 6px 14px; position:relative; color:#31443a; }
     .points li::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); position:absolute; left:0; top:.7rem; }
+    .plans { display:grid; gap:10px; margin:12px 0; }
+    .plan { border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
+    .plan strong { display:block; }
     .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px; }
     input[type="number"] { width:72px; border:1px solid var(--line); border-radius:10px; padding:10px; font:inherit; }
-    .site-buy { background:var(--green); color:#fff; border:0; border-radius:999px; padding:12px 18px; font:inherit; font-weight:600; cursor:pointer; }
+    .site-buy { background:var(--green); color:#fff; border:0; border-radius:999px; padding:10px 16px; font:inherit; font-weight:600; cursor:pointer; }
     .note { margin-top:16px; color:var(--muted); font-size:.92rem; }
     footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
     footer a { color:var(--green); font-weight:600; text-decoration:none; }
@@ -68,7 +71,16 @@
   <script src="basket.js"></script>
   <script>
     const products = {
-      software: { name: "BenGStock", cat: "Software", image: "img/preview-dashboard.jpg", price: "£250 a year", inStock: true, id: "software", desc: "Stock control for Linux. Stock, purchasing, goods received and cash, kept on your own computer. One year of use. A new key is sent with every renewal.", points: ["One year of use", "Key matched to your machine", "Updates included for the year", "Ready to install on Linux"] },
+      software: {
+        name: "BenGStock v1",
+        cat: "Software",
+        image: "img/preview-dashboard.jpg",
+        price: "From £250 a year",
+        inStock: true,
+        plans: true,
+        desc: "Stock control for Linux. Stock, purchasing, goods received and cash, kept on your own computer. This listing is v1. Later versions are sold separately. The year is paid up front. Renew and enter a new key to continue. There is no direct debit.",
+        points: ["One year of use", "Key matched to your machine", "Email used for the key, invoice and licence terms", "Manual renewal"]
+      },
       satya: { name: "Satya incense", cat: "Household", image: "img/products/satya.jpg", price: "£1.99", inStock: true, id: "satya", desc: "Satya incense sticks for home. A simple, familiar stick for a room, a shelf or a quiet evening.", points: ["In stock", "UK delivery", "Free UK delivery on orders of £25 or more"] },
       holder: { name: "Incense holder", cat: "Household", image: "img/products/holder.jpg", price: "Coming soon", inStock: false, desc: "A tray holder for incense sticks. Useful on a shelf, desk or windowsill, and easy to empty.", points: ["Tray style", "For incense sticks", "Not in stock yet"] },
       "holder-round": { name: "Round incense holder", cat: "Household", image: "img/products/holder-round.jpg", price: "Coming soon", inStock: false, desc: "A small stand for a single incense stick. Neat on a table or beside a plant.", points: ["Single stick", "Compact", "Not in stock yet"] },
@@ -85,14 +97,39 @@
     document.title = item.name + " · J. Ben G";
     document.getElementById("crumb-name").textContent = item.name;
     const status = item.inStock ? '<span class="status in">In stock</span>' : '<span class="status out">Out of stock</span>';
-    const buy = item.inStock
-      ? '<div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" id="add">Add to basket</button></div>'
-      : '<p class="note">This line is not in stock yet. <a href="mailto:enquiries@bengstock.com">Ask when it returns.</a></p>';
+    let buy = '<p class="note">This line is not in stock yet. <a href="mailto:enquiries@bengstock.com">Ask when it returns.</a></p>';
+    if (item.plans) {
+      buy = '<div class="plans">' +
+        '<div class="plan"><strong>Basic · £250 / year</strong><p>Bug fixes, some updates, light email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
+        '<div class="plan"><strong>Pro · £500 / year</strong><p>Faster support and larger updates. Refund of unused months, if a listed fault cannot be fixed, is decided on the facts.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
+        '<div class="plan"><strong>Mega · by arrangement</strong><p>Full cover and custom work for your business and size.</p><a class="buy" href="mailto:enquiries@bengstock.com?subject=BenGStock%20Mega">Enquire</a></div>' +
+        '</div>';
+    } else if (item.inStock) {
+      buy = '<div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" id="add">Add to basket</button></div>';
+    }
     document.getElementById("product").innerHTML =
       '<div class="photo"><img src="' + item.image + '" alt="' + item.name + '" /></div>' +
       '<div><p class="eyebrow">' + item.cat + '</p><h1>' + item.name + '</h1>' + status +
       '<p class="price">' + item.price + '</p><p class="desc">' + item.desc + '</p>' +
-      '<ul class="points">' + item.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' + buy + '</div>';
+      '<ul class="points">' + item.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' + buy +
+      '<p class="note">The email you give at checkout is where the key, invoice and licence terms are sent. It is also how we keep in touch.</p></div>';
+    function add(pid, name) {
+      const key = "jbg-basket";
+      const items = JSON.parse(localStorage.getItem(key) || "[]");
+      const found = items.find((row) => row.id === pid);
+      if (found) found.qty += 1;
+      else items.push({ id: pid, name, qty: 1 });
+      localStorage.setItem(key, JSON.stringify(items));
+      document.querySelectorAll("[data-count]").forEach((el) => {
+        el.textContent = items.reduce((n, row) => n + row.qty, 0);
+      });
+    }
+    document.querySelectorAll("[data-add]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        add(btn.dataset.add, btn.dataset.name);
+        btn.textContent = "Added";
+      });
+    });
     const btn = document.getElementById("add");
     if (btn) {
       btn.addEventListener("click", () => {
