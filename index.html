@@ -42,12 +42,18 @@
     .plan li { padding:4px 0; color:#31443a; font-size:.92rem; }
     .plan .buy { text-align:center; width:100%; }
     .fine { font-size:.8rem; color:var(--muted); margin-top:12px; }
-    .shots { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:32px; }
-    .shot { border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-    .shot img { width:100%; height:160px; object-fit:cover; object-position:top left; background:#0d1c16; }
-    .shot figcaption { padding:10px 12px 12px; }
+    .shots { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:32px; }
+    .shots .lead { grid-column:1 / -1; display:grid; grid-template-columns:1.6fr 1fr; gap:22px; align-items:center; background:var(--bg); border:1px solid var(--line); border-radius:18px; padding:18px; }
+    .shots .lead img { width:100%; height:auto; border-radius:12px; border:1px solid var(--line); display:block; }
+    .shots .lead h3 { font-size:1.3rem; letter-spacing:-.02em; margin-bottom:6px; }
+    .shots .lead p { color:var(--muted); }
+    .shot { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; transition:transform .2s, border-color .2s; }
+    .shot:hover { transform:translateY(-3px); border-color:var(--gold); }
+    .shot img { width:100%; aspect-ratio:16/9; height:auto; object-fit:cover; object-position:top left; background:#0d1c16; display:block; }
+    .shot figcaption { padding:10px 12px 12px; border-top:3px solid var(--gold); }
     .shot h3 { font-size:.95rem; }
     .shot p { color:var(--muted); font-size:.86rem; }
+    @media (max-width:800px) { .shots .lead { grid-template-columns:1fr; } }
     .custom { background:var(--bg); border-radius:18px; padding:28px; margin:8px 0 32px; display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center; }
     .custom h2 { font-size:1.5rem; letter-spacing:-.02em; margin-bottom:6px; }
     .custom p { color:var(--muted); }
@@ -161,18 +167,38 @@
       </div>
       <p class="fine">Key and invoice go to the email at checkout. Renew with a new key for the next year.</p>
     </section>
-    <section class="shots">
+    <section class="shots" aria-label="BenGStock screens">
+      <div class="lead">
+        <picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img src="img/bengstock/dashboard.jpg" alt="BenGStock dashboard" width="1280" height="720" /></picture>
+        <div>
+          <p class="eyebrow">See it running</p>
+          <h3>Everything on one dashboard.</h3>
+          <p>Stock value, low and out items, open orders, money in and out, and bank and cash balances. Click a tile to open that screen.</p>
+        </div>
+      </div>
       <figure class="shot">
-        <img src="img/preview-stock.jpg" alt="BenGStock stock" />
-        <figcaption><h3>Stock</h3><p>Levels and product detail.</p></figcaption>
+        <picture><source srcset="img/bengstock/stock.webp" type="image/webp" /><img src="img/bengstock/stock.jpg" alt="BenGStock stock list" loading="lazy" width="1280" height="720" /></picture>
+        <figcaption><h3>Stock</h3><p>Every item with SKU, location, cost and price. Low and out flagged.</p></figcaption>
       </figure>
       <figure class="shot">
-        <img src="img/preview-purchasing.jpg" alt="BenGStock purchasing" />
-        <figcaption><h3>Purchasing</h3><p>Orders and purchase numbers.</p></figcaption>
+        <picture><source srcset="img/bengstock/purchasing.webp" type="image/webp" /><img src="img/bengstock/purchasing.jpg" alt="BenGStock purchase orders" loading="lazy" width="1280" height="720" /></picture>
+        <figcaption><h3>Purchasing</h3><p>Raise, send and track purchase orders.</p></figcaption>
       </figure>
       <figure class="shot">
-        <img src="img/preview-cashbook.jpg" alt="BenGStock cashbook" />
-        <figcaption><h3>Cashbook</h3><p>Cash positions and movements.</p></figcaption>
+        <picture><source srcset="img/bengstock/goodsin.webp" type="image/webp" /><img src="img/bengstock/goodsin.jpg" alt="BenGStock goods in" loading="lazy" width="1280" height="720" /></picture>
+        <figcaption><h3>Goods in</h3><p>Book deliveries in against orders.</p></figcaption>
+      </figure>
+      <figure class="shot">
+        <picture><source srcset="img/bengstock/cashbook.webp" type="image/webp" /><img src="img/bengstock/cashbook.jpg" alt="BenGStock cashbook" loading="lazy" width="1280" height="720" /></picture>
+        <figcaption><h3>Cashbook</h3><p>Bank and cash, money in and out.</p></figcaption>
+      </figure>
+      <figure class="shot">
+        <picture><source srcset="img/bengstock/labels.webp" type="image/webp" /><img src="img/bengstock/labels.jpg" alt="BenGStock label maker" loading="lazy" width="1280" height="720" /></picture>
+        <figcaption><h3>Labels</h3><p>Barcode and price labels for your shelves.</p></figcaption>
+      </figure>
+      <figure class="shot">
+        <picture><source srcset="img/bengstock/reports.webp" type="image/webp" /><img src="img/bengstock/reports.jpg" alt="BenGStock reports" loading="lazy" width="1280" height="720" /></picture>
+        <figcaption><h3>Reports</h3><p>Reorder, valuation and movement reports.</p></figcaption>
       </figure>
     </section>
     <section class="custom" id="custom">
