@@ -79,8 +79,8 @@
         price: "From £250 a year",
         inStock: true,
         plans: true,
-        desc: "Stock, purchasing, goods received and cash. On your computer. One year, one machine.",
-        points: ["One year", "One computer", "Email support", "New key if you renew"]
+        desc: "Stock, purchasing, goods received and cash. On your computer. One year. One computer on Basic, four on Pro. Extra computers £100 each.",
+        points: ["One year", "One computer (Pro: four)", "Extra computers £100 each", "Email support", "New key if you renew"]
       },
       "custom-labels": {
         name: "Custom shipping labels",
@@ -121,8 +121,8 @@
     let buy = '<p class="note">Coming soon. <a href="mailto:shopsupport@j-ben-g.com">Ask when it is back.</a></p>';
     if (item.plans) {
       buy = '<div class="plans">' +
-        '<div class="plan"><strong>Basic · £250 / year</strong><p>One computer. Bug fixes, some updates, email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
-        '<div class="plan"><strong>Pro · £500 / year</strong><p>One computer. Faster email support, larger updates.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
+        '<div class="plan"><strong>Basic · £250 / year</strong><p>One computer. Extra computers £100 each. Bug fixes, some updates, email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
+        '<div class="plan"><strong>Pro · £500 / year</strong><p>Four computers. Extra computers £100 each. Faster email support, larger updates.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
         '<div class="plan"><strong>Mega · by arrangement</strong><p>Custom work for your business.</p><a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a></div>' +
         '</div>';
     } else if (item.custom) {
