@@ -1,7 +1,5 @@
 const prices = {
-  "software-basic": { amount: 25000, name: "BenGStock Basic · 1 year" },
-  "software-pro": { amount: 50000, name: "BenGStock Pro · 1 year" },
-  software: { amount: 25000, name: "BenGStock Basic · 1 year" },
+  bengstock: { amount: 50000, name: "BengStock licence · one computer (one-time, offline licence file)", digital: true },
   satya: { price: "price_1UONXVIxCmDSYfBKPKoPCP5B", amount: 199, weight: 0.2 }
 };
 
@@ -40,12 +38,18 @@ export default async function handler(req, res) {
   }
   const params = new URLSearchParams();
   params.set("mode", "payment");
-  params.set("success_url", "https://bengstock-site.vercel.app/basket.html?paid=1");
-  params.set("cancel_url", "https://bengstock-site.vercel.app/basket.html");
+  const host = req.headers["x-forwarded-host"] || req.headers.host || "bengstock-site.vercel.app";
+  const safeHost = /^[a-z0-9.-]+\.vercel\.app$|^(www\.)?j-ben-g\.com$/i.test(host) ? host : "bengstock-site.vercel.app";
+  const origin = `https://${safeHost}`;
+  params.set("success_url", `${origin}/basket.html?session_id={CHECKOUT_SESSION_ID}`);
+  params.set("cancel_url", `${origin}/basket.html`);
   params.set("billing_address_collection", "required");
   params.set("phone_number_collection[enabled]", "true");
   params.set("customer_creation", "always");
-  params.set("shipping_address_collection[allowed_countries][0]", "GB");
+  // Only ask for a delivery address when the order has physical goods.
+  if (lines.some((item) => !prices[item.id].digital)) {
+    params.set("shipping_address_collection[allowed_countries][0]", "GB");
+  }
   lines.forEach((item, i) => {
     let qty = Math.max(1, Number(item.qty) || 1);
     const product = prices[item.id];

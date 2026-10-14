@@ -1,65 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Software · J. Ben G</title>
+  <title>BengStock · Offline stock control software · J. Ben G</title>
+  <meta name="description" content="BengStock: stock, purchasing, goods in, labels and cashbook on your own computer. £500 per computer, once. Works offline." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
-    a { color:inherit; text-decoration:none; }
-    img { max-width:100%; display:block; }
-    .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
-    header img { width:108px; }
-    nav { display:flex; gap:20px; align-items:center; }
-    nav a { text-decoration:none; font-weight:500; color:#31443a; }
-    .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
-    .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .intro { padding:36px 0 8px; }
-    .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:10px; }
-    h1 { font-size:clamp(2rem,4vw,3rem); letter-spacing:-.03em; margin-bottom:10px; }
-    .lede { color:var(--muted); max-width:42rem; }
-    .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; padding:18px 0 40px; }
-    .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; }
-    .card img { width:100%; height:210px; object-fit:contain; background:#fafafa; }
-    .card div { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
-    .card h2 { font-size:1.1rem; }
-    .card p { color:var(--muted); font-size:.95rem; flex:1; }
-    .meta { display:flex; justify-content:space-between; align-items:center; font-weight:600; }
-    .meta span { color:var(--gold); font-size:.78rem; letter-spacing:.06em; }
-    .view { color:var(--green); font-weight:600; }
-    footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    footer a { color:var(--green); font-weight:600; }
-    @media (max-width:800px) { .grid { grid-template-columns:1fr; } nav a:not(.buy):not(.basket-link) { display:none; } }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <header>
-      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="software.html">Software</a>
-        <a href="shop.html">Shop</a>
-        <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
-        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
-      </nav>
+    <header class="top">
+      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="92" height="69" /></a>
+      <nav aria-label="Main"><a href="index.html">Home</a><a href="software.html" aria-current="page">Software</a><a href="shop.html">Shop</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="basket.html">Basket <span class="count" data-count>0</span></a></nav>
     </header>
-    <section class="intro">
-      <p class="eyebrow">Software · UK based</p>
-      <h1>BenGStock v1.</h1>
-      <p class="lede">Stock control for Linux. From £250 a year. One computer on Basic, four on Pro. Extra computers £100 each. Email support.</p>
+  </div>
+  <main id="main">
+  <section class="space">
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">BengStock 1.0</p>
+        <h1>Everything a small stockroom needs, on one screen.</h1>
+        <p class="lede">Track items, raise purchase orders, book deliveries in, print labels and keep a simple cashbook. All on your own computer, with no internet needed.</p>
+        <div class="ctas"><a class="btn" href="#pricing">Buy BengStock · £500</a><a class="btn ghost" href="#features">See features</a></div>
+        <div class="platforms"><span class="on">Linux · available now</span><span>Windows · coming soon</span><span>Apple Mac · planned</span></div>
+      </div>
+      <div><picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img class="shot" src="img/bengstock/dashboard.jpg" alt="BengStock dashboard" width="1280" height="720" /></picture></div>
+    </div>
+  </section>
+  <div class="wrap">
+    <section class="block" id="features">
+      <div class="head"><p class="eyebrow">Features</p><h2>Built for the way small businesses really work.</h2><p>One dashboard shows stock value, low and out items, open orders and money in and out. Click a tile to open that screen.</p></div>
+      <div class="tiles">
+        <figure class="tile"><picture><source srcset="img/bengstock/stock.webp" type="image/webp" /><img src="img/bengstock/stock.jpg" alt="BengStock stock screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Stock</h3><p>Every item with SKU, location, cost and price. Low and out flagged.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/purchasing.webp" type="image/webp" /><img src="img/bengstock/purchasing.jpg" alt="BengStock purchasing screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Purchasing</h3><p>Raise, send and track purchase orders.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/goodsin.webp" type="image/webp" /><img src="img/bengstock/goodsin.jpg" alt="BengStock goods in screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Goods in</h3><p>Book deliveries in against your orders.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/cashbook.webp" type="image/webp" /><img src="img/bengstock/cashbook.jpg" alt="BengStock cashbook screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Cashbook</h3><p>Bank and cash, money in and out.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/labels.webp" type="image/webp" /><img src="img/bengstock/labels.jpg" alt="BengStock labels screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Labels</h3><p>Barcode and price labels for your shelves.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/reports.webp" type="image/webp" /><img src="img/bengstock/reports.jpg" alt="BengStock reports screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Reports</h3><p>Reorder, valuation and movement reports.</p></figcaption></figure>
+      </div>
     </section>
-    <section class="grid">
-      <a class="card" href="product.html?id=software"><img src="img/preview-dashboard.jpg" alt="BenGStock" /><div><p class="meta"><span>v1</span>From £250 / year</p><h2>BenGStock</h2><p>Basic, Pro or Mega. One year. Basic one computer, Pro four. Extra computers £100 each.</p><span class="view">View product</span></div></a>
+    <section class="block">
+      <div class="cards3">
+        <div class="card"><h3>A history you can trust</h3><p>Every stock change is booked with a reason and a time, so you always know what moved and why.</p></div>
+        <div class="card"><h3>Works offline</h3><p>No account and no login. BengStock never needs to check in over the internet.</p></div>
+        <div class="card"><h3>Made by a real person</h3><p>Designed and built by Josh in the UK, then finalised with AI tools to catch bugs.</p></div>
+      </div>
     </section>
-    <footer>
-      <div>© 2026 J. Ben G · UK based · <a href="privacy.html">Privacy</a></div>
-      <a href="basket.html">View basket</a>
+    <section class="block" id="pricing">
+      <div class="head"><p class="eyebrow">Pricing</p><h2>One price. Yours to keep.</h2><p>Buy BengStock once for each computer you use it on. No subscription, no account, no renewals.</p></div>
+      <div class="pricing">
+        <div class="price-box">
+          <h3>BengStock licence</h3>
+          <p class="amt">£500 <span>per computer, one-time</span></p>
+          <ul>
+            <li>Full BengStock for the version you buy</li>
+            <li>Offline licence file, made for your computer</li>
+            <li>Free bug fixes</li>
+            <li>Email support from Josh</li>
+            <li>Download link, licence and invoice by email</li>
+          </ul>
+          <div class="qty-row">
+            <label for="machines">Computers</label>
+            <input id="machines" type="number" min="1" value="1" data-qty />
+            <button class="btn" data-add="bengstock" data-name="BengStock licence">Add to basket</button>
+          </div>
+          <p class="muted" style="margin-top:12px;font-size:.88rem">Linux today. Windows coming soon. Apple Mac planned.</p>
+        </div>
+        <div>
+          <table class="updates">
+            <tr><th>How updates work</th><th>Cost</th></tr>
+            <tr><td>Bug fixes for your version</td><td>Free</td></tr>
+            <tr><td>Big feature updates (new version)</td><td>Small paid upgrade, optional</td></tr>
+            <tr><td>Keep using the version you own</td><td>Free, for as long as you like</td></tr>
+            <tr><td>Full source code buyout</td><td>£25,000 · <a href="mailto:enquiry@j-ben-g.com?subject=BengStock%20source%20code%20buyout">Enquire</a></td></tr>
+          </table>
+          <p class="muted" style="margin-top:14px">Need it built around your business? <a href="mailto:enquiry@j-ben-g.com?subject=Custom%20BengStock">Ask about a custom version</a>.</p>
+        </div>
+      </div>
+    </section>
+    <section class="block faq">
+      <div class="head"><p class="eyebrow">Questions</p><h2>Good to know.</h2></div>
+      <details><summary>Is this a subscription?</summary><p>No. You pay once for the version you buy, per computer.</p></details>
+      <details><summary>What does "per computer" mean?</summary><p>Your licence is a small file made for one computer. It works fully offline and never needs to check in. Replacing a computer? Email us and we'll move your licence across.</p></details>
+      <details><summary>What happens when a new version comes out?</summary><p>Your version keeps working. Bug fixes are free. Big feature updates are optional, for a small fee.</p></details>
+      <details><summary>Does it need the internet?</summary><p>No. It runs fully offline and your data is saved on your computer.</p></details>
+      <details><summary>How do I get my licence?</summary><p>After payment you get an email with the download link, your licence file, an invoice and the licence terms. Nothing is posted.</p></details>
+      <details><summary>Does it work on Windows or Mac?</summary><p>Linux today. Windows is coming soon. Apple Mac is planned for later.</p></details>
+      <details><summary>Who builds it?</summary><p>Josh Goulding, trading as J. Ben G in the UK. Every release is tested, then finalised with AI tools to catch bugs.</p></details>
+      <details><summary>Can I buy the source code?</summary><p>Yes. The full source code buyout is £25,000 under a written agreement. <a href="mailto:enquiry@j-ben-g.com?subject=BengStock%20source%20code%20buyout">Get in touch</a>.</p></details>
+    </section>
+  </div>
+  </main>
+  <div class="wrap">
+    <footer class="foot" id="contact">
+      <div>
+        <h4>J. Ben G</h4>
+        <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
+        <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="software.html">BengStock</a></p>
+        <p><a href="software.html#pricing">Pricing</a></p>
+        <p><a href="shop.html">Shop</a></p>
+        <p><a href="index.html#custom">Custom software</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a></p>
+        <p><a href="mailto:softsupport@j-ben-g.com">softsupport@j-ben-g.com</a> · software</p>
+        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
+        <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work with us</p>
+      </div>
     </footer>
   </div>
   <script src="basket.js"></script>

@@ -1,172 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Product · J. Ben G</title>
+  <title>Shop · J. Ben G</title>
+  <meta name="description" content="J. Ben G shop product." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; --bg:#f7f6f3; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
-    a { color:inherit; }
-    img { max-width:100%; display:block; }
-    .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
-    header img { width:108px; }
-    nav { display:flex; gap:20px; align-items:center; }
-    nav a { text-decoration:none; font-weight:500; color:#31443a; }
-    .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
-    .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .crumb { margin:22px 0 8px; color:var(--muted); font-size:.92rem; }
-    .crumb a { color:var(--green); text-decoration:none; font-weight:600; }
-    .product { display:grid; grid-template-columns:1.05fr .95fr; gap:28px; padding:8px 0 48px; align-items:start; }
-    .photo { background:var(--bg); border-radius:20px; overflow:hidden; border:1px solid var(--line); }
-    .photo img { width:100%; height:460px; object-fit:contain; }
-    .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:8px; }
-    h1 { font-size:clamp(2rem,4vw,2.8rem); letter-spacing:-.03em; margin-bottom:8px; }
-    .price { font-size:1.6rem; font-weight:700; margin:10px 0; }
-    .status { display:inline-block; border-radius:999px; padding:4px 10px; font-size:.82rem; font-weight:600; margin-bottom:12px; }
-    .in { background:#e7f4ec; color:#143226; }
-    .out { background:#f4ece7; color:#6b4a32; }
-    .desc { color:var(--muted); font-size:1.05rem; line-height:1.55; margin-bottom:14px; }
-    .points { list-style:none; margin:0 0 18px; }
-    .points li { padding:6px 0 6px 14px; position:relative; color:#31443a; }
-    .points li::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); position:absolute; left:0; top:.7rem; }
-    .plans { display:grid; gap:10px; margin:12px 0; }
-    .plan { border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
-    .plan strong { display:block; }
-    .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px; }
-    input[type="number"] { width:72px; border:1px solid var(--line); border-radius:10px; padding:10px; font:inherit; }
-    .site-buy { background:var(--green); color:#fff; border:0; border-radius:999px; padding:10px 16px; font:inherit; font-weight:600; cursor:pointer; }
-    .note { margin-top:16px; color:var(--muted); font-size:.92rem; }
-    footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    footer a { color:var(--green); font-weight:600; text-decoration:none; }
-    @media (max-width:800px) {
-      .product { grid-template-columns:1fr; }
-      .photo img { height:280px; }
-      nav a:not(.buy):not(.basket-link) { display:none; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <header>
-      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="software.html">Software</a>
-        <a href="shop.html">Accessories</a>
-        <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
-        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
-      </nav>
+    <header class="top">
+      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="92" height="69" /></a>
+      <nav aria-label="Main"><a href="index.html">Home</a><a href="software.html">Software</a><a href="shop.html" aria-current="page">Shop</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="basket.html">Basket <span class="count" data-count>0</span></a></nav>
     </header>
-    <p class="crumb"><a href="shop.html">Accessories</a> / <span id="crumb-name">Product</span></p>
-    <section class="product" id="product"></section>
-    <footer>
-      <div>© 2026 J. Ben G · UK based · <a href="privacy.html">Privacy</a></div>
-      <a href="basket.html">View basket</a>
+  </div>
+  <main id="main">
+  <div class="wrap">
+    <p class="muted" style="margin:18px 0"><a href="shop.html">Shop</a> / <span id="crumb-name">Product</span></p>
+    <section class="pricing" id="product"></section>
+  </div>
+  </main>
+  <div class="wrap">
+    <footer class="foot" id="contact">
+      <div>
+        <h4>J. Ben G</h4>
+        <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
+        <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="software.html">BengStock</a></p>
+        <p><a href="software.html#pricing">Pricing</a></p>
+        <p><a href="shop.html">Shop</a></p>
+        <p><a href="index.html#custom">Custom software</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a></p>
+        <p><a href="mailto:softsupport@j-ben-g.com">softsupport@j-ben-g.com</a> · software</p>
+        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
+        <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work with us</p>
+      </div>
     </footer>
   </div>
   <script src="basket.js"></script>
   <script>
     const products = {
-      software: {
-        name: "BenGStock v1",
-        cat: "Software",
-        image: "img/preview-dashboard.jpg",
-        price: "From £250 a year",
-        inStock: true,
-        plans: true,
-        desc: "Stock, purchasing, goods received and cash. On your computer. One year. One computer on Basic, four on Pro. Extra computers £100 each.",
-        points: ["One year", "One computer (Pro: four)", "Extra computers £100 each", "Email support", "New key if you renew"]
-      },
-      "custom-labels": {
-        name: "Custom shipping labels",
-        cat: "Labels",
-        image: "img/products/labels.jpg",
-        price: "From £15 for 100",
-        inStock: true,
-        custom: true,
-        desc: "Your design, printed to order. Email the artwork and the quantity. From £15 for 100 labels. Larger runs are cheaper per label.",
-        points: ["Email your design", "Printed to order", "From £15 for 100", "UK postage"]
-      },
-      satya: { name: "Satya incense", cat: "Household", image: "img/products/satya.jpg", price: "£1.99", inStock: true, id: "satya", desc: "Satya incense sticks.", points: ["In stock", "Free UK delivery over £25"] },
-      holder: { name: "Incense holder", cat: "Household", image: "img/products/holder.jpg", price: "Coming soon", inStock: false, desc: "Tray holder for incense sticks.", points: ["Coming soon"] },
-      "holder-round": { name: "Round incense holder", cat: "Household", image: "img/products/holder-round.jpg", price: "Coming soon", inStock: false, desc: "Stand for a single stick.", points: ["Coming soon"] },
-      candle: { name: "Jar candle", cat: "Household", image: "img/products/candle.jpg", price: "Coming soon", inStock: false, desc: "Everyday jar candle.", points: ["Coming soon"] },
-      mailers: { name: "Mailing bags", cat: "Packing", image: "img/products/mailers.jpg", price: "Coming soon", inStock: false, desc: "Plain postal mailers.", points: ["Coming soon"] },
-      boxes: { name: "Postal boxes", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Kraft cartons.", points: ["Coming soon"] },
-      tape: { name: "Packing tape", cat: "Packing", image: "img/products/tape.jpg", price: "Coming soon", inStock: false, desc: "For boxes and mailers.", points: ["Coming soon"] },
-      bubble: { name: "Bubble wrap", cat: "Packing", image: "img/products/bubble.jpg", price: "Coming soon", inStock: false, desc: "For small items.", points: ["Coming soon"] },
-      tissue: { name: "Tissue paper", cat: "Packing", image: "img/products/tissue.jpg", price: "Coming soon", inStock: false, desc: "Kraft tissue.", points: ["Coming soon"] },
-      labels: { name: "Address labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Plain address labels.", points: ["Coming soon"] },
-      "barcode-labels": { name: "Barcode labels", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Small labels for stock.", points: ["Coming soon"] },
-      "label-printer": { name: "Label printer", cat: "Labels", image: "img/products/labels.jpg", price: "Coming soon", inStock: false, desc: "Desktop label printer.", points: ["Coming soon"] },
-      "packing-pads": { name: "Packing list pads", cat: "Packing", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Pads for what goes in the box.", points: ["Coming soon"] },
-      "dog-lead": { name: "Dog lead", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Everyday lead for walks.", points: ["Coming soon"] },
-      "dog-collar": { name: "Dog collar", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Collar with buckle.", points: ["Coming soon"] },
-      "dog-harness": { name: "Dog harness", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Simple walking harness.", points: ["Coming soon"] },
-      "dog-tags": { name: "ID tag", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Name and number tag.", points: ["Coming soon"] },
-      "dog-bowls": { name: "Dog bowls", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Food and water bowls.", points: ["Coming soon"] },
-      "dog-poo": { name: "Poo bags", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Rolls for walks.", points: ["Coming soon"] },
-      "dog-toy": { name: "Dog toy", cat: "Dog", image: "img/products/boxes.jpg", price: "Coming soon", inStock: false, desc: "Simple chew or fetch toy.", points: ["Coming soon"] }
+      "custom-labels": { name: "Custom shipping labels", cat: "Labels", image: "img/products/labels.jpg", price: "From £15 per 100", tag: "Made to order", custom: true,
+        desc: "Your design, printed to order. Email your artwork and the quantity you need, and we'll confirm the price before printing. Bigger runs cost less per label.",
+        points: ["Your own design", "Printed to order", "From £15 per 100", "UK delivery quoted with your order"] },
+      satya: { name: "Satya incense", cat: "Home", image: "img/products/satya.jpg", price: "£1.99", tag: "In stock", id: "satya",
+        desc: "Classic Satya incense sticks, packed carefully and sent from the UK.",
+        points: ["In stock, ready to send", "Buy 12 packs, pay for 6", "UK delivery £9.99", "Free UK delivery on orders of £25 or more"] }
     };
-    const id = new URLSearchParams(location.search).get("id") || "software";
-    const item = products[id] || products.software;
-    document.title = item.name + " · J. Ben G";
-    document.getElementById("crumb-name").textContent = item.name;
-    const status = item.inStock ? '<span class="status in">Available</span>' : '<span class="status out">Coming soon</span>';
-    let buy = '<p class="note">Coming soon. <a href="mailto:shopsupport@j-ben-g.com">Ask when it is back.</a></p>';
-    if (item.plans) {
-      buy = '<div class="plans">' +
-        '<div class="plan"><strong>Basic · £250 / year</strong><p>One computer. Extra computers £100 each. Bug fixes, some updates, email support.</p><button class="site-buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button></div>' +
-        '<div class="plan"><strong>Pro · £500 / year</strong><p>Four computers. Extra computers £100 each. Faster email support, larger updates.</p><button class="site-buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button></div>' +
-        '<div class="plan"><strong>Mega · by arrangement</strong><p>Custom work for your business.</p><a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a></div>' +
-        '</div>';
-    } else if (item.custom) {
-      buy = '<p class="note"><a class="buy" href="mailto:shopsupport@j-ben-g.com?subject=Custom%20shipping%20labels">Email your design</a></p>';
-    } else if (item.inStock) {
-      buy = '<div class="row"><input type="number" min="1" value="1" data-qty /><button class="site-buy" id="add">Add to basket</button></div>';
-    }
-    document.getElementById("product").innerHTML =
-      '<div class="photo"><img src="' + item.image + '" alt="' + item.name + '" /></div>' +
-      '<div><p class="eyebrow">' + item.cat + '</p><h1>' + item.name + '</h1>' + status +
-      '<p class="price">' + item.price + '</p><p class="desc">' + item.desc + '</p>' +
-      '<ul class="points">' + item.points.map((p) => '<li>' + p + '</li>').join('') + '</ul>' + buy + '</div>';
-    function add(pid, name) {
-      const key = "jbg-basket";
-      const items = JSON.parse(localStorage.getItem(key) || "[]");
-      const found = items.find((row) => row.id === pid);
-      if (found) found.qty += 1;
-      else items.push({ id: pid, name, qty: 1 });
-      localStorage.setItem(key, JSON.stringify(items));
-      document.querySelectorAll("[data-count]").forEach((el) => {
-        el.textContent = items.reduce((n, row) => n + row.qty, 0);
-      });
-    }
-    document.querySelectorAll("[data-add]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        add(btn.dataset.add, btn.dataset.name);
-        btn.textContent = "Added";
-      });
-    });
-    const btn = document.getElementById("add");
-    if (btn) {
-      btn.addEventListener("click", () => {
-        const qty = Math.max(1, Number(document.querySelector("[data-qty]").value) || 1);
-        const key = "jbg-basket";
-        const items = JSON.parse(localStorage.getItem(key) || "[]");
-        const found = items.find((row) => row.id === item.id);
-        if (found) found.qty += qty;
-        else items.push({ id: item.id, name: item.name, qty });
-        localStorage.setItem(key, JSON.stringify(items));
-        document.querySelectorAll("[data-count]").forEach((el) => {
-          el.textContent = items.reduce((n, row) => n + row.qty, 0);
-        });
-        btn.textContent = "Added";
-      });
+    const id = new URLSearchParams(location.search).get("id");
+    if (id === "software" || id === "bengstock") location.replace("software.html#pricing");
+    const item = products[id];
+    if (!item) location.replace("shop.html");
+    else {
+      document.title = item.name + " · J. Ben G";
+      document.getElementById("crumb-name").textContent = item.name;
+      const buy = item.custom
+        ? '<a class="btn" href="mailto:shopsupport@j-ben-g.com?subject=Custom%20shipping%20labels">Email your design</a>'
+        : '<div class="qty-row"><label for="q">Quantity</label><input id="q" type="number" min="1" value="1" data-qty /><button class="btn" data-add="' + item.id + '" data-name="' + item.name + '">Add to basket</button></div>';
+      document.getElementById("product").innerHTML =
+        '<div class="product-card"><div class="pic" style="aspect-ratio:1"><img src="' + item.image + '" alt="' + item.name + '" /></div></div>' +
+        '<div><p class="eyebrow">' + item.cat + '</p><h1 style="font-size:2.4rem;margin-bottom:8px">' + item.name + '</h1><span class="tag">' + item.tag + '</span>' +
+        '<p class="price-box amt" style="border:0;padding:12px 0;font-size:2rem">' + item.price + '</p><p class="muted">' + item.desc + '</p>' +
+        '<ul style="margin:16px 0 22px 18px">' + item.points.map((x) => '<li>' + x + '</li>').join('') + '</ul>' + buy +
+        '<p class="muted" style="margin-top:16px;font-size:.88rem">Delivery: £9.99 to UK addresses, free on orders of £25 or more. Secure card payment by Stripe.</p></div>';
+      window.JBG.bind();
     }
   </script>
 </body>

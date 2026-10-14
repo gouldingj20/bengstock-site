@@ -1,8 +1,11 @@
 (function () {
   const key = "jbg-basket";
+  const legacy = { software: 1, "software-basic": 1, "software-pro": 1 };
   function read() {
-    try { return JSON.parse(localStorage.getItem(key) || "[]"); }
-    catch (e) { return []; }
+    try {
+      const items = JSON.parse(localStorage.getItem(key) || "[]");
+      return items.filter((item) => !legacy[item.id]);
+    } catch (e) { return []; }
   }
   function write(items) {
     localStorage.setItem(key, JSON.stringify(items));
@@ -18,16 +21,22 @@
     else items.push({ id, name, qty: n });
     write(items);
   }
-  write(read());
-  document.querySelectorAll("[data-add]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const input = btn.parentElement.querySelector("[data-qty]");
-      add(btn.dataset.add, btn.dataset.name, input && input.value);
-      btn.textContent = "Added";
+  function bind() {
+    document.querySelectorAll("[data-add]:not([data-bound])").forEach((btn) => {
+      btn.dataset.bound = "1";
+      btn.addEventListener("click", () => {
+        const input = btn.parentElement.querySelector("[data-qty]");
+        add(btn.dataset.add, btn.dataset.name, input && input.value);
+        btn.textContent = "Added ✓";
+        setTimeout(() => { btn.textContent = "Add to basket"; }, 1600);
+      });
     });
-  });
+  }
+  write(read());
+  bind();
   window.JBG = {
     list: read,
+    bind,
     remove(id) { write(read().filter((item) => item.id !== id)); },
     setQty(id, qty) {
       const items = read();
