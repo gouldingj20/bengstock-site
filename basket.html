@@ -1,125 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Basket · J. Ben G</title>
+  <meta name="description" content="Your J. Ben G basket." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); }
-    a { color:inherit; }
-    .wrap { max-width:760px; margin:0 auto; padding:0 20px 40px; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid var(--line); }
-    header img { width:108px; }
-    nav a { margin-left:16px; text-decoration:none; font-weight:500; }
-    h1 { margin:28px 0 8px; letter-spacing:-.03em; }
-    p { color:var(--muted); }
-    ul { list-style:none; margin:18px 0; }
-    li { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); } li img { width:54px; height:54px; object-fit:contain; background:#fafafa; border-radius:8px; } li span { flex:1; } input[type="number"] { width:64px; border:1px solid var(--line); border-radius:8px; padding:6px; font:inherit; }
-    button { background:none; border:0; color:var(--green); font:inherit; font-weight:600; cursor:pointer; }
-    .note { background:#f7f6f3; border-radius:16px; padding:16px; margin-top:16px; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <header>
-      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
-      <nav><a href="shop.html">Shop</a></nav>
+    <header class="top">
+      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="92" height="69" /></a>
+      <nav aria-label="Main"><a href="index.html">Home</a><a href="software.html">Software</a><a href="shop.html" aria-current="page">Shop</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="basket.html">Basket <span class="count" data-count>0</span></a></nav>
     </header>
-    <h1>Basket</h1>
-    <p>Items stay in this browser until you remove them. At payment you give an email. The key, invoice and licence terms go there.</p>
-    <ul id="lines"></ul>
-    <p id="totals" style="margin-top:12px"></p>
-    <div class="note">
-      <p id="pay-note">Delivery is £9.99. Free on goods of £25 or more. Twelve Satya packs are charged as six. Software is a one-year payment. You renew yourself and enter a new key. There is no direct debit.</p>
-      <p style="margin-top:12px"><button id="pay" style="background:#143226;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer">PAY</button></p>
-    </div>
-  <p style="margin-top:18px;color:#5c6d63">Website built by J. Ben G</p>
+  </div>
+  <main id="main">
+  <div class="wrap" style="max-width:760px">
+    <h1 style="margin:24px 0 8px">Basket</h1>
+    <p class="muted" id="intro">Items stay in this browser until you remove them or pay.</p>
+    <ul id="lines" style="list-style:none;margin:20px 0"></ul>
+    <p id="totals" style="font-weight:600"></p>
+    <p id="pay-note" class="muted" style="margin:14px 0"></p>
+    <p><button class="btn" id="pay">Go to secure payment</button></p>
+  </div>
+  </main>
+  <div class="wrap">
+    <footer class="foot" id="contact">
+      <div>
+        <h4>J. Ben G</h4>
+        <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
+        <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="software.html">BengStock</a></p>
+        <p><a href="software.html#pricing">Pricing</a></p>
+        <p><a href="shop.html">Shop</a></p>
+        <p><a href="index.html#custom">Custom software</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a></p>
+        <p><a href="mailto:softsupport@j-ben-g.com">softsupport@j-ben-g.com</a> · software</p>
+        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
+        <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work with us</p>
+      </div>
+    </footer>
   </div>
   <script src="basket.js"></script>
   <script>
     const list = document.getElementById("lines");
-    const money = { "software-basic": 250, "software-pro": 500, software: 250, satya: 1.99 };
-    const weight = { satya: 0.2 };
-    function moneyText(n) { return "£" + n.toFixed(2); }
+    const info = {
+      bengstock: { price: 500, pic: "img/bengstock/dashboard.jpg", digital: true },
+      satya: { price: 1.99, pic: "img/products/satya.jpg", weight: 0.2 }
+    };
+    const money = (n) => "£" + n.toFixed(2);
+    const note = document.getElementById("pay-note");
     function draw() {
       const items = window.JBG.list();
       list.innerHTML = "";
       const totals = document.getElementById("totals");
       if (!items.length) {
-        list.innerHTML = "<li><span>The basket is empty.</span></li>";
-        totals.textContent = "";
-        return;
+        list.innerHTML = '<li class="muted">Your basket is empty. <a href="software.html">See BengStock</a> or <a href="shop.html">visit the shop</a>.</li>';
+        totals.textContent = ""; note.textContent = ""; document.getElementById("pay").hidden = true; return;
       }
-      const pics = { "software-basic": "img/preview-dashboard.jpg", "software-pro": "img/preview-dashboard.jpg", software: "img/preview-dashboard.jpg", satya: "img/products/satya.jpg" };
+      document.getElementById("pay").hidden = false;
+      let goods = 0, kilos = 0, physical = false, digital = false;
       items.forEach((item) => {
+        const meta = info[item.id] || {};
         const li = document.createElement("li");
-        const img = document.createElement("img");
-        img.src = pics[item.id] || "img/logo-j-ben-g.png";
-        img.alt = "";
-        const name = document.createElement("span");
-        name.textContent = item.name;
-        const qty = document.createElement("input");
-        qty.type = "number";
-        qty.min = "1";
-        qty.value = item.qty;
-        qty.addEventListener("change", () => {
-          window.JBG.setQty(item.id, qty.value);
-          draw();
-        });
-        const btn = document.createElement("button");
-        btn.textContent = "Remove";
-        btn.addEventListener("click", () => {
-          window.JBG.remove(item.id);
-          draw();
-        });
-        li.appendChild(img);
-        li.appendChild(name);
-        li.appendChild(qty);
-        li.appendChild(btn);
-        list.appendChild(li);
-      });
-      let goods = 0, kilos = 0;
-      items.forEach((item) => {
+        li.style.cssText = "display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #e3e8e5";
+        const img = document.createElement("img"); img.src = meta.pic || "img/logo-j-ben-g.png"; img.alt = ""; img.style.cssText = "width:64px;height:48px;object-fit:cover;border-radius:8px";
+        const name = document.createElement("span"); name.style.flex = "1";
+        name.textContent = item.name + (meta.digital ? " (per computer)" : "");
+        const qty = document.createElement("input"); qty.type = "number"; qty.min = "1"; qty.value = item.qty; qty.style.width = "64px"; qty.setAttribute("aria-label", "Quantity");
+        qty.addEventListener("change", () => { window.JBG.setQty(item.id, qty.value); draw(); });
+        const btn = document.createElement("button"); btn.textContent = "Remove"; btn.className = "btn ghost"; btn.style.padding = "6px 12px";
+        btn.addEventListener("click", () => { window.JBG.remove(item.id); draw(); });
+        li.append(img, name, qty, btn); list.appendChild(li);
         const paidQty = item.id === "satya" ? Math.floor(item.qty / 12) * 6 + (item.qty % 12) : item.qty;
-        goods += (money[item.id] || 0) * paidQty;
-        kilos += (weight[item.id] || 0) * item.qty;
+        goods += (meta.price || 0) * paidQty;
+        kilos += (meta.weight || 0) * item.qty;
+        if (meta.digital) digital = true; else physical = true;
       });
+      const shopGoods = items.filter((i) => !(info[i.id] || {}).digital).reduce((n, i) => n + (info[i.id] ? info[i.id].price * (i.id === "satya" ? Math.floor(i.qty / 12) * 6 + (i.qty % 12) : i.qty) : 0), 0);
       const boxes = kilos ? Math.max(1, Math.ceil(kilos / 20)) : 0;
-      const chargeable = goods >= 25 ? Math.max(0, boxes - 1) : boxes;
-      const delivery = chargeable * 9.99;
-      totals.textContent = "Goods " + moneyText(goods) + " · Delivery " + moneyText(delivery) + " · Total " + moneyText(goods + delivery);
+      const delivery = (shopGoods >= 25 ? Math.max(0, boxes - 1) : boxes) * 9.99;
+      totals.textContent = "Items " + money(goods) + (physical ? " · Delivery " + money(delivery) : "") + " · Total " + money(goods + delivery);
+      const lines = [];
+      if (digital) lines.push("BengStock is delivered by email: download link, licence file, invoice and licence terms. No delivery address needed.");
+      if (physical) lines.push("Shop items: UK delivery £9.99, free on shop orders of £25 or more. Buy 12 Satya packs, pay for 6.");
+      note.textContent = lines.join(" ");
     }
     draw();
     const params = new URLSearchParams(location.search);
-    if (params.get("paid") === "1") {
-      localStorage.removeItem("jbg-basket");
-      document.getElementById("pay-note").textContent = "Payment received. The key, invoice and licence terms will be sent to the email you gave.";
-      draw();
+    const sid = params.get("session_id");
+    if (sid) {
+      note.textContent = "Checking your payment...";
+      fetch("/api/session?id=" + encodeURIComponent(sid)).then((r) => r.json()).then((d) => {
+        if (d.paid) {
+          localStorage.removeItem("jbg-basket"); draw();
+          document.getElementById("intro").textContent = "Thank you. Payment received.";
+          note.textContent = "A receipt is on its way to " + (d.email || "your email") + ". Software orders also get the download link, licence file and licence terms by email.";
+        } else note.textContent = "We couldn't confirm that payment. If you were charged, email shopsupport@j-ben-g.com.";
+      }).catch(() => { note.textContent = "We couldn't check the payment just now. If you were charged, email shopsupport@j-ben-g.com."; });
+      history.replaceState(null, "", "basket.html");
     }
     document.getElementById("pay").addEventListener("click", async () => {
-      const note = document.getElementById("pay-note");
       const items = window.JBG.list();
-      if (!items.length) {
-        note.textContent = "The basket is empty.";
-        return;
-      }
-      note.textContent = "Opening payment...";
+      if (!items.length) return;
+      note.textContent = "Opening secure payment...";
       try {
-        const response = await fetch("/api/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ items })
-        });
+        const response = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
         const data = await response.json();
         if (data.url) location.href = data.url;
-        else note.textContent = "Payment could not open.";
-      } catch (e) {
-        note.textContent = "Payment could not open.";
-      }
+        else note.textContent = data.error || "Payment could not open. Please try again.";
+      } catch (e) { note.textContent = "Payment could not open. Please try again."; }
     });
   </script>
 </body>

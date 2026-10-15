@@ -1,260 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>J. Ben G</title>
-  <meta name="description" content="UK based. Software, custom builds and a shop for packing, home and dog." />
+  <title>J. Ben G · BengStock stock control software, made in the UK</title>
+  <meta name="description" content="J. Ben G makes BengStock: offline stock control software for small UK businesses. £500 per computer, once. No subscription." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; --bg:#f6f5f2; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; line-height:1.5; }
-    a { color:inherit; }
-    img { max-width:100%; display:block; }
-    .wrap { max-width:1080px; margin:0 auto; padding:0 22px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid var(--line); }
-    header img { width:100px; }
-    nav { display:flex; gap:22px; align-items:center; }
-    nav a { text-decoration:none; font-weight:500; color:#31443a; font-size:.95rem; }
-    .buy { background:var(--green); color:#fff !important; padding:11px 18px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; border:0; cursor:pointer; font:inherit; }
-    .ghost { background:transparent; color:var(--green) !important; border:1px solid var(--line); }
-    .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .welcome { padding:32px 0 20px; max-width:40rem; }
-    .welcome h1 { font-size:clamp(2rem,4vw,2.8rem); letter-spacing:-.03em; margin-bottom:10px; }
-    .welcome p { color:var(--muted); margin-bottom:10px; }
-    .eyebrow { letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:600; color:var(--gold); margin-bottom:12px; }
-    .split { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:8px 0 28px; }
-    .card-link { border:1px solid var(--line); border-radius:18px; padding:22px; text-decoration:none; display:flex; flex-direction:column; gap:8px; }
-    .card-link h2 { font-size:1.4rem; letter-spacing:-.02em; }
-    .card-link p { color:var(--muted); flex:1; }
-    .band { margin:8px 0 28px; }
-    .band h2 { font-size:1.55rem; letter-spacing:-.02em; margin-bottom:6px; }
-    .band .sub { color:var(--muted); max-width:36rem; margin-bottom:16px; }
-    .plans { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
-    .plan { border:1px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; background:#fff; }
-    .plan.pro { border-color:var(--green); }
-    .plan h3 { font-size:1rem; }
-    .plan .amt { font-size:1.5rem; font-weight:700; margin:6px 0 10px; letter-spacing:-.02em; }
-    .plan .amt span { font-size:.85rem; font-weight:500; color:var(--muted); }
-    .plan ul { list-style:none; margin:0 0 14px; flex:1; }
-    .plan li { padding:4px 0; color:#31443a; font-size:.92rem; }
-    .plan .buy { text-align:center; width:100%; }
-    .fine { font-size:.8rem; color:var(--muted); margin-top:12px; }
-    .shots { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:32px; }
-    .shots .lead { grid-column:1 / -1; display:grid; grid-template-columns:1.6fr 1fr; gap:22px; align-items:center; background:var(--bg); border:1px solid var(--line); border-radius:18px; padding:18px; }
-    .shots .lead img { width:100%; height:auto; border-radius:12px; border:1px solid var(--line); display:block; }
-    .shots .lead h3 { font-size:1.3rem; letter-spacing:-.02em; margin-bottom:6px; }
-    .shots .lead p { color:var(--muted); }
-    .shot { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; transition:transform .2s, border-color .2s; }
-    .shot:hover { transform:translateY(-3px); border-color:var(--gold); }
-    .shot img { width:100%; aspect-ratio:16/9; height:auto; object-fit:cover; object-position:top left; background:#0d1c16; display:block; }
-    .shot figcaption { padding:10px 12px 12px; border-top:3px solid var(--gold); }
-    .shot h3 { font-size:.95rem; }
-    .shot p { color:var(--muted); font-size:.86rem; }
-    @media (max-width:800px) { .shots .lead { grid-template-columns:1fr; } }
-    .custom { background:var(--bg); border-radius:18px; padding:28px; margin:8px 0 32px; display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center; }
-    .custom h2 { font-size:1.5rem; letter-spacing:-.02em; margin-bottom:6px; }
-    .custom p { color:var(--muted); }
-    .custom ul { margin:12px 0 16px; padding-left:18px; color:#31443a; }
-    .custom li { margin:4px 0; }
-    .range { margin-bottom:32px; }
-    .range h2 { margin:6px 0 12px; font-size:1.5rem; letter-spacing:-.02em; }
-    .feature { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-    .feature a { border:1px solid var(--line); border-radius:14px; overflow:hidden; text-decoration:none; }
-    .feature img { height:130px; width:100%; object-fit:contain; background:#fafafa; }
-    .feature span { display:block; padding:10px 12px; font-weight:600; font-size:.95rem; }
-    .feature small { display:block; font-weight:500; color:var(--muted); margin-top:2px; }
-    .shop-cta { margin-top:14px; }
-    .contact { border-top:1px solid var(--line); padding:24px 0 8px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px; }
-    .contact a { color:var(--green); font-weight:600; text-decoration:none; }
-    .emails { display:grid; gap:4px; color:var(--muted); }
-    footer { border-top:1px solid var(--line); padding:16px 0 24px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.9rem; }
-    footer a { color:var(--green); text-decoration:none; font-weight:600; }
-    .card-link, .feature a, .buy { transition:border-color .2s, transform .2s, opacity .2s; }
-    .card-link:hover, .feature a:hover { border-color:var(--green); transform:translateY(-2px); }
-    .buy:hover { opacity:.9; }
-    nav a:not(.buy):hover, footer a:hover, .contact a:hover { text-decoration:underline; text-underline-offset:3px; }
-    a:focus-visible, button:focus-visible { outline:2px solid var(--gold); outline-offset:3px; border-radius:6px; }
-    .skip { position:absolute; left:-9999px; }
-    .skip:focus { left:12px; top:12px; background:var(--green); color:#fff; padding:8px 12px; border-radius:8px; z-index:10; }
-    .muted { color:var(--muted); }
-    .contact .muted { margin-top:6px; }
-    @media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
-    @media (max-width:800px) {
-      .split,.plans,.shots,.feature,.contact,.custom { grid-template-columns:1fr; }
-      header { flex-wrap:wrap; gap:10px; }
-      nav { gap:14px; flex-wrap:wrap; }
-      .feature { grid-template-columns:1fr 1fr; }
-      .custom { padding:20px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <header>
-      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="100" height="75" /></a>
-      <nav aria-label="Main">
-        <a href="software.html">Software</a>
-        <a href="#custom">Custom</a>
-        <a href="shop.html">Shop</a>
-        <a href="#contact">Contact</a>
-        <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
-        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay<span class="skip"> (opens in a new tab)</span></a>
-      </nav>
+    <header class="top">
+      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="92" height="69" /></a>
+      <nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="software.html">Software</a><a href="shop.html">Shop</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="basket.html">Basket <span class="count" data-count>0</span></a></nav>
     </header>
-    <main id="main">
-    <section class="welcome">
-      <p class="eyebrow">Welcome</p>
-      <h1>A small UK business with a mixed range.</h1>
-      <p>J. Ben G started on eBay with everyday bits for the house and for packing orders. From there it grew into software, because stock and orders needed a proper tool.</p>
-      <p>BenGStock is stock control for Linux. There is also custom software and website work. You get the code and own it. No hosting from us.</p>
-      <p>The shop still has the practical side: incense, labels, packing, dog leads, collars and the usual walk bits. Free UK delivery over £25.</p>
-    </section>
-    <section class="split">
-      <a class="card-link" href="shop.html">
-        <p class="eyebrow">Shop</p>
-        <h2>Incense, labels, packing and dog bits.</h2>
-        <p>Everyday products for the house, the post and the dog. Order here or on eBay.</p>
-        <span class="buy">See the shop</span>
-      </a>
-      <a class="card-link" href="#software">
-        <p class="eyebrow">Software</p>
-        <h2>BenGStock for stock control.</h2>
-        <p>From £250 a year. One computer on Basic, four on Pro. Extra computers £100 each. Email support.</p>
-        <span class="buy">See BenGStock</span>
-      </a>
-    </section>
-    <section class="range">
-      <p class="eyebrow">Shop</p>
-      <h2>From the shop</h2>
-      <div class="feature">
-        <a href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" loading="lazy" decoding="async" /><span>Satya incense<small>In stock · £1.99</small></span></a>
-        <a href="product.html?id=custom-labels"><img src="img/products/labels.jpg" alt="Custom labels" loading="lazy" decoding="async" /><span>Custom labels<small>From £15 / 100</small></span></a>
-        <a href="product.html?id=dog-lead"><img src="img/products/boxes.jpg" alt="Dog lead" loading="lazy" decoding="async" /><span>Dog lead<small>Coming soon</small></span></a>
-        <a href="product.html?id=dog-collar"><img src="img/products/boxes.jpg" alt="Dog collar" loading="lazy" decoding="async" /><span>Dog collar<small>Coming soon</small></span></a>
-        <a href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" loading="lazy" decoding="async" /><span>Mailing bags<small>Coming soon</small></span></a>
-        <a href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" loading="lazy" decoding="async" /><span>Incense holder<small>Coming soon</small></span></a>
-        <a href="product.html?id=dog-harness"><img src="img/products/boxes.jpg" alt="Dog harness" loading="lazy" decoding="async" /><span>Dog harness<small>Coming soon</small></span></a>
-        <a href="shop.html"><img src="img/products/boxes.jpg" alt="More" loading="lazy" decoding="async" /><span>More<small>See the shop</small></span></a>
-      </div>
-      <p class="shop-cta"><a class="buy" href="shop.html">Open the shop</a></p>
-    </section>
-    <section class="band" id="software">
-      <p class="eyebrow">BenGStock v1</p>
-      <h2>Stock, purchasing and cash.</h2>
-      <p class="sub">On your computer. One year. Basic covers one computer, Pro covers four. Extra computers £100 each. Email support on every plan.</p>
-      <div class="plans">
-        <article class="plan">
-          <h3>Basic</h3>
-          <p class="amt">£250 <span>/ year</span></p>
-          <ul>
-            <li>Full BenGStock v1</li>
-            <li>Bug fixes and updates</li>
-            <li>Email support</li>
-            <li>One computer</li>
-            <li>Extra computers £100 each</li>
-          </ul>
-          <button class="buy" data-add="software-basic" data-name="BenGStock Basic">Add Basic</button>
-        </article>
-        <article class="plan pro">
-          <h3>Pro</h3>
-          <p class="amt">£500 <span>/ year</span></p>
-          <ul>
-            <li>Everything in Basic</li>
-            <li>Faster email support</li>
-            <li>Larger updates</li>
-            <li>Priority on fixes</li>
-            <li>Four computers included</li>
-            <li>Extra computers £100 each</li>
-          </ul>
-          <button class="buy" data-add="software-pro" data-name="BenGStock Pro">Add Pro</button>
-        </article>
-        <article class="plan">
-          <h3>Mega</h3>
-          <p class="amt">By arrangement</p>
-          <ul>
-            <li>Custom version</li>
-            <li>Built for your setup</li>
-            <li>Agreed in writing</li>
-          </ul>
-          <a class="buy" href="mailto:enquiry@j-ben-g.com?subject=BenGStock%20Mega">Enquire</a>
-        </article>
-      </div>
-      <p class="fine">Key and invoice go to the email at checkout. Renew with a new key for the next year.</p>
-    </section>
-    <section class="shots" aria-label="BenGStock screens">
-      <div class="lead">
-        <picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img src="img/bengstock/dashboard.jpg" alt="BenGStock dashboard" width="1280" height="720" /></picture>
-        <div>
-          <p class="eyebrow">See it running</p>
-          <h3>Everything on one dashboard.</h3>
-          <p>Stock value, low and out items, open orders, money in and out, and bank and cash balances. Click a tile to open that screen.</p>
-        </div>
-      </div>
-      <figure class="shot">
-        <picture><source srcset="img/bengstock/stock.webp" type="image/webp" /><img src="img/bengstock/stock.jpg" alt="BenGStock stock list" loading="lazy" width="1280" height="720" /></picture>
-        <figcaption><h3>Stock</h3><p>Every item with SKU, location, cost and price. Low and out flagged.</p></figcaption>
-      </figure>
-      <figure class="shot">
-        <picture><source srcset="img/bengstock/purchasing.webp" type="image/webp" /><img src="img/bengstock/purchasing.jpg" alt="BenGStock purchase orders" loading="lazy" width="1280" height="720" /></picture>
-        <figcaption><h3>Purchasing</h3><p>Raise, send and track purchase orders.</p></figcaption>
-      </figure>
-      <figure class="shot">
-        <picture><source srcset="img/bengstock/goodsin.webp" type="image/webp" /><img src="img/bengstock/goodsin.jpg" alt="BenGStock goods in" loading="lazy" width="1280" height="720" /></picture>
-        <figcaption><h3>Goods in</h3><p>Book deliveries in against orders.</p></figcaption>
-      </figure>
-      <figure class="shot">
-        <picture><source srcset="img/bengstock/cashbook.webp" type="image/webp" /><img src="img/bengstock/cashbook.jpg" alt="BenGStock cashbook" loading="lazy" width="1280" height="720" /></picture>
-        <figcaption><h3>Cashbook</h3><p>Bank and cash, money in and out.</p></figcaption>
-      </figure>
-      <figure class="shot">
-        <picture><source srcset="img/bengstock/labels.webp" type="image/webp" /><img src="img/bengstock/labels.jpg" alt="BenGStock label maker" loading="lazy" width="1280" height="720" /></picture>
-        <figcaption><h3>Labels</h3><p>Barcode and price labels for your shelves.</p></figcaption>
-      </figure>
-      <figure class="shot">
-        <picture><source srcset="img/bengstock/reports.webp" type="image/webp" /><img src="img/bengstock/reports.jpg" alt="BenGStock reports" loading="lazy" width="1280" height="720" /></picture>
-        <figcaption><h3>Reports</h3><p>Reorder, valuation and movement reports.</p></figcaption>
-      </figure>
-    </section>
-    <section class="custom" id="custom">
+  </div>
+  <main id="main">
+  <section class="space">
+    <div class="wrap hero">
       <div>
-        <p class="eyebrow">Custom builds</p>
-        <h2>Software and websites. You own the code.</h2>
-        <p>Custom software or a website built for your business. You get the raw code when it is finished. No hosting from us.</p>
-        <ul>
-          <li>Custom software</li>
-          <li>Websites</li>
-          <li>You own the code</li>
-          <li>No hosting</li>
-        </ul>
-        <a class="buy" href="mailto:enquiry@j-ben-g.com?subject=Custom%20build">Enquire</a>
+        <p class="eyebrow">J. Ben G · Business software</p>
+        <h1>Stock control you buy once and keep.</h1>
+        <p class="lede">BengStock tracks your stock, purchase orders, deliveries, labels and cash, all on your own computer. £500 per computer, once. No subscription.</p>
+        <div class="ctas"><a class="btn" href="software.html">See BengStock</a><a class="btn ghost" href="software.html#pricing">Pricing</a></div>
+        <div class="facts"><span>Works offline</span><span>Your data stays yours</span><span>Made in the UK</span></div>
+      </div>
+      <div><picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img class="shot" src="img/bengstock/dashboard.jpg" alt="BengStock dashboard" width="1280" height="720" /></picture></div>
+    </div>
+  </section>
+  <div class="wrap">
+    <section class="block">
+      <div class="cards3">
+        <div class="card"><h3>Pay once, keep it</h3><p>No subscription and no renewals. The version you buy is yours, and bug fixes are free.</p></div>
+        <div class="card"><h3>Works offline</h3><p>No account, no login, no internet needed. If the broadband drops, BengStock keeps going.</p></div>
+        <div class="card"><h3>Your data stays yours</h3><p>Everything is saved on your computer, not someone else's server.</p></div>
+      </div>
+    </section>
+    <section class="block">
+      <div class="head"><p class="eyebrow">BengStock</p><h2>Everything a small stockroom needs, on one screen.</h2><p>From the first delivery to the last label. Click any tile on the dashboard to jump straight in.</p></div>
+      <div class="tiles">
+        <figure class="tile"><picture><source srcset="img/bengstock/stock.webp" type="image/webp" /><img src="img/bengstock/stock.jpg" alt="BengStock stock screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Stock</h3><p>Every item with SKU, location, cost and price. Low and out flagged.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/purchasing.webp" type="image/webp" /><img src="img/bengstock/purchasing.jpg" alt="BengStock purchasing screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Purchasing</h3><p>Raise, send and track purchase orders.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/goodsin.webp" type="image/webp" /><img src="img/bengstock/goodsin.jpg" alt="BengStock goods in screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Goods in</h3><p>Book deliveries in against your orders.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/cashbook.webp" type="image/webp" /><img src="img/bengstock/cashbook.jpg" alt="BengStock cashbook screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Cashbook</h3><p>Bank and cash, money in and out.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/labels.webp" type="image/webp" /><img src="img/bengstock/labels.jpg" alt="BengStock labels screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Labels</h3><p>Barcode and price labels for your shelves.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/reports.webp" type="image/webp" /><img src="img/bengstock/reports.jpg" alt="BengStock reports screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Reports</h3><p>Reorder, valuation and movement reports.</p></figcaption></figure>
+      </div>
+    </section>
+    <section class="block">
+      <div class="band">
+        <div><h2>£500 per computer, once.</h2><p>No subscription. Free bug fixes. Big feature updates are optional, for a small fee. Linux today, Windows coming soon.</p></div>
+        <a class="btn" href="software.html#pricing">See pricing</a>
+      </div>
+    </section>
+    <section class="block" id="software">
+      <div class="head"><p class="eyebrow">Software</p><h2>Software for small businesses.</h2><p>BengStock is the first. More tools that work alongside it are on the way.</p></div>
+      <div class="products">
+        <a class="product-card" href="software.html"><div class="pic"><img src="img/bengstock/dashboard.jpg" alt="BengStock" loading="lazy" /></div><div class="body"><span class="tag">Available now</span><h3>BengStock</h3><p>Stock, purchasing, goods in, labels, cashbook and reports.</p><span class="price-line">£500 per computer</span></div></a>
+        <div class="product-card"><div class="pic soon">More on the way</div><div class="body"><span class="tag soon">In development</span><h3>New business tools</h3><p>Built to work alongside BengStock. Email us to hear first.</p><span class="price-line"><a href="mailto:enquiry@j-ben-g.com?subject=New%20software%20updates">Get updates</a></span></div></div>
+        <a class="product-card" href="#custom" id="custom"><div class="pic soon">Built for you</div><div class="body"><span class="tag">By quote</span><h3>Custom software and websites</h3><p>Built for your business. You get the code and own it.</p><span class="price-line">Enquire</span></div></a>
+      </div>
+    </section>
+    <section class="block" id="about">
+      <div class="about">
+        <img src="img/logo-j-ben-g.png" alt="" width="110" height="82" />
+        <div><p class="eyebrow">Made by Josh</p><h2>Designed and built in the UK.</h2><p>I'm Josh, and I run J. Ben G. I designed and built BengStock because my own business needed a proper stock tool without a monthly fee. Every release is tested, then finalised with AI tools to catch bugs before it reaches you. If something goes wrong, you email me, not a call centre.</p></div>
+      </div>
+    </section>
+    <section class="block">
+      <div class="head"><p class="eyebrow">The shop</p><h2>From the shop.</h2><p>Packing supplies, incense and more, sent from the UK. Free delivery on orders of £25 or more.</p></div>
+      <div class="products">
+        <a class="product-card" href="product.html?id=satya"><div class="pic"><img src="img/products/satya.jpg" alt="Satya incense" loading="lazy" /></div><div class="body"><span class="tag">In stock</span><h3>Satya incense</h3><p>Classic Satya sticks, sent from the UK.</p><span class="price-line">£1.99</span></div></a>
+        <a class="product-card" href="product.html?id=custom-labels"><div class="pic"><img src="img/products/labels.jpg" alt="Custom shipping labels" loading="lazy" /></div><div class="body"><span class="tag">Made to order</span><h3>Custom shipping labels</h3><p>Your design, printed and posted.</p><span class="price-line">From £15 per 100</span></div></a>
+        <a class="product-card" href="shop.html"><div class="pic soon">Visit the shop</div><div class="body"><span class="tag soon">More coming</span><h3>Dog, packing and home</h3><p>New lines are on the way. See what's in stock now.</p><span class="price-line">Visit the shop →</span></div></a>
+      </div>
+    </section>
+  </div>
+  </main>
+  <div class="wrap">
+    <footer class="foot" id="contact">
+      <div>
+        <h4>J. Ben G</h4>
+        <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
+        <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
       </div>
       <div>
-        <p class="muted">Scoped and agreed in writing before work starts. Quote depends on what you need.</p>
+        <h4>Explore</h4>
+        <p><a href="software.html">BengStock</a></p>
+        <p><a href="software.html#pricing">Pricing</a></p>
+        <p><a href="shop.html">Shop</a></p>
+        <p><a href="index.html#custom">Custom software</a></p>
       </div>
-    </section>
-    <section class="contact" id="contact">
       <div>
-        <p class="eyebrow">Contact</p>
-        <h2>UK based</h2>
-        <p class="muted">Order here or on eBay. Free UK delivery over £25. Card payments by Stripe.</p>
-      </div>
-      <div class="emails">
-        <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a> · general</p>
-        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
+        <h4>Contact</h4>
+        <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a></p>
         <p><a href="mailto:softsupport@j-ben-g.com">softsupport@j-ben-g.com</a> · software</p>
-        <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work</p>
+        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
+        <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work with us</p>
       </div>
-    </section>
-    </main>
-    <footer>
-      <div>© 2026 J. Ben G · UK based · <a href="privacy.html">Privacy</a></div>
-      <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
     </footer>
   </div>
   <script src="basket.js"></script>

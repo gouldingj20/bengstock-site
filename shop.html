@@ -1,95 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop · J. Ben G</title>
+  <meta name="description" content="Packing supplies, custom labels, incense and more from J. Ben G. Sent from the UK. Free UK delivery on orders of £25 or more." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink:#14241c; --muted:#5c6d63; --green:#143226; --gold:#b8923e; --line:#e6ebe7; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Outfit,system-ui,sans-serif; color:var(--ink); background:#fff; }
-    a { color:inherit; text-decoration:none; }
-    img { max-width:100%; display:block; }
-    .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
-    header img { width:108px; }
-    nav { display:flex; gap:20px; align-items:center; }
-    nav a { text-decoration:none; font-weight:500; color:#31443a; }
-    .buy { background:var(--green); color:#fff !important; padding:10px 16px; border-radius:999px; font-weight:600; text-decoration:none; display:inline-block; }
-    .count { background:var(--gold); color:#1a1408; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:4px; }
-    .intro { padding:36px 0 8px; }
-    .eyebrow { letter-spacing:.14em; text-transform:uppercase; font-size:12px; font-weight:600; color:var(--gold); margin-bottom:10px; }
-    h1 { font-size:clamp(2rem,4vw,3rem); letter-spacing:-.03em; margin-bottom:10px; }
-    .lede { color:var(--muted); max-width:42rem; }
-    .filters { display:flex; gap:8px; flex-wrap:wrap; margin:18px 0; }
-    .filters button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 14px; font:inherit; cursor:pointer; }
-    .filters button.on { background:var(--green); color:#fff; border-color:var(--green); }
-    .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; padding:8px 0 40px; }
-    .card { border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; }
-    .card img { width:100%; height:210px; object-fit:contain; background:#fafafa; }
-    .card div { padding:14px 16px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
-    .card h2 { font-size:1.1rem; }
-    .card p { color:var(--muted); font-size:.95rem; flex:1; }
-    .meta { display:flex; justify-content:space-between; align-items:center; font-weight:600; }
-    .meta span { color:var(--gold); font-size:.78rem; letter-spacing:.06em; }
-    .view { color:var(--green); font-weight:600; }
-    footer { border-top:1px solid var(--line); padding:18px 0 28px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    footer a { color:var(--green); font-weight:600; }
-    @media (max-width:800px) { .grid { grid-template-columns:1fr; } nav a:not(.buy):not(.basket-link) { display:none; } }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <header>
-      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="software.html">Software</a>
-        <a href="shop.html">Shop</a>
-        <a class="basket-link" href="basket.html">Basket <span class="count" data-count>0</span></a>
-        <a class="buy" href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">My eBay</a>
-      </nav>
+    <header class="top">
+      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="92" height="69" /></a>
+      <nav aria-label="Main"><a href="index.html">Home</a><a href="software.html">Software</a><a href="shop.html" aria-current="page">Shop</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="basket.html">Basket <span class="count" data-count>0</span></a></nav>
     </header>
-    <section class="intro">
-      <p class="eyebrow">Shop · UK based</p>
-      <h1>Labels, packing, dogs and a few things for the house.</h1>
-      <p class="lede">Custom shipping labels, incense, mailers, packing and dog bits. Free UK delivery over £25.</p>
-      <div class="filters">
-        <button class="on" data-filter="all">All</button>
-        <button data-filter="household">Household</button>
-        <button data-filter="labels">Labels</button>
-        <button data-filter="packing">Packing</button>
-        <button data-filter="dog">Dog</button>
+  </div>
+  <main id="main">
+  <section class="space">
+    <div class="wrap" style="position:relative;padding:44px 22px 48px">
+      <p class="eyebrow">The J. Ben G shop</p>
+      <h1 style="font-size:clamp(2.1rem,4.4vw,3.2rem);max-width:40rem;margin-bottom:12px">Good everyday stock, sent from the UK.</h1>
+      <p class="muted" style="max-width:36rem;font-size:1.08rem">Packing supplies, custom labels and things for the home. UK delivery £9.99, free on orders of £25 or more. Secure card payment by Stripe.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <section class="block">
+      <div class="head"><h2>In stock now</h2></div>
+      <div class="products">
+        <a class="product-card" href="product.html?id=satya"><div class="pic"><img src="img/products/satya.jpg" alt="Satya incense" loading="lazy" /></div><div class="body"><span class="tag">In stock</span><h3>Satya incense</h3><p>Classic Satya sticks, sent from the UK.</p><span class="price-line">£1.99</span></div></a>
+        <a class="product-card" href="product.html?id=custom-labels"><div class="pic"><img src="img/products/labels.jpg" alt="Custom shipping labels" loading="lazy" /></div><div class="body"><span class="tag">Made to order</span><h3>Custom shipping labels</h3><p>Your design, printed and posted.</p><span class="price-line">From £15 per 100</span></div></a>
       </div>
     </section>
-    <section class="grid" id="grid">
-      <a class="card" data-cat="labels" href="product.html?id=custom-labels"><img src="img/products/labels.jpg" alt="Custom shipping labels" /><div><p class="meta"><span>CUSTOM</span>From £15 / 100</p><h2>Custom shipping labels</h2><p>Email your design. We print the quantity.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="household" href="product.html?id=satya"><img src="img/products/satya.jpg" alt="Satya incense" /><div><p class="meta"><span>IN STOCK</span>£1.99</p><h2>Satya incense</h2><p>Incense sticks.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="household" href="product.html?id=holder"><img src="img/products/holder.jpg" alt="Incense holder" /><div><p class="meta"><span>COMING SOON</span></p><h2>Incense holder</h2><p>Tray holder for sticks.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="household" href="product.html?id=holder-round"><img src="img/products/holder-round.jpg" alt="Round incense holder" /><div><p class="meta"><span>COMING SOON</span></p><h2>Round incense holder</h2><p>Stand for a single stick.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="household" href="product.html?id=candle"><img src="img/products/candle.jpg" alt="Jar candle" /><div><p class="meta"><span>COMING SOON</span></p><h2>Jar candle</h2><p>Everyday jar candle.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="labels" href="product.html?id=labels"><img src="img/products/labels.jpg" alt="Address labels" /><div><p class="meta"><span>COMING SOON</span></p><h2>Address labels</h2><p>Plain labels for parcels.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="labels" href="product.html?id=barcode-labels"><img src="img/products/labels.jpg" alt="Barcode labels" /><div><p class="meta"><span>COMING SOON</span></p><h2>Barcode labels</h2><p>Small labels for stock.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="labels" href="product.html?id=label-printer"><img src="img/products/labels.jpg" alt="Label printer" /><div><p class="meta"><span>COMING SOON</span></p><h2>Label printer</h2><p>Desktop label printer.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="packing" href="product.html?id=mailers"><img src="img/products/mailers.jpg" alt="Mailing bags" /><div><p class="meta"><span>COMING SOON</span></p><h2>Mailing bags</h2><p>Plain postal mailers.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="packing" href="product.html?id=boxes"><img src="img/products/boxes.jpg" alt="Postal boxes" /><div><p class="meta"><span>COMING SOON</span></p><h2>Postal boxes</h2><p>Kraft cartons.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="packing" href="product.html?id=tape"><img src="img/products/tape.jpg" alt="Packing tape" /><div><p class="meta"><span>COMING SOON</span></p><h2>Packing tape</h2><p>For boxes and mailers.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="packing" href="product.html?id=bubble"><img src="img/products/bubble.jpg" alt="Bubble wrap" /><div><p class="meta"><span>COMING SOON</span></p><h2>Bubble wrap</h2><p>For small items.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="packing" href="product.html?id=tissue"><img src="img/products/tissue.jpg" alt="Tissue paper" /><div><p class="meta"><span>COMING SOON</span></p><h2>Tissue paper</h2><p>Kraft tissue.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="packing" href="product.html?id=packing-pads"><img src="img/products/boxes.jpg" alt="Packing list pads" /><div><p class="meta"><span>COMING SOON</span></p><h2>Packing list pads</h2><p>Pads for what goes in the box.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-lead"><img src="img/products/boxes.jpg" alt="Dog lead" /><div><p class="meta"><span>COMING SOON</span></p><h2>Dog lead</h2><p>Everyday lead.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-collar"><img src="img/products/boxes.jpg" alt="Dog collar" /><div><p class="meta"><span>COMING SOON</span></p><h2>Dog collar</h2><p>Collar with buckle.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-harness"><img src="img/products/boxes.jpg" alt="Dog harness" /><div><p class="meta"><span>COMING SOON</span></p><h2>Dog harness</h2><p>Simple walking harness.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-tags"><img src="img/products/boxes.jpg" alt="ID tag" /><div><p class="meta"><span>COMING SOON</span></p><h2>ID tag</h2><p>Name and number tag.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-bowls"><img src="img/products/boxes.jpg" alt="Dog bowls" /><div><p class="meta"><span>COMING SOON</span></p><h2>Dog bowls</h2><p>Food and water bowls.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-poo"><img src="img/products/boxes.jpg" alt="Poo bags" /><div><p class="meta"><span>COMING SOON</span></p><h2>Poo bags</h2><p>Rolls for walks.</p><span class="view">View product</span></div></a>
-      <a class="card" data-cat="dog" href="product.html?id=dog-toy"><img src="img/products/boxes.jpg" alt="Dog toy" /><div><p class="meta"><span>COMING SOON</span></p><h2>Dog toy</h2><p>Simple chew or fetch toy.</p><span class="view">View product</span></div></a>
+    <section class="block">
+      <div class="head"><h2>Coming soon</h2><p>New lines on the way. <a href="mailto:shopsupport@j-ben-g.com?subject=Tell%20me%20when%20it%27s%20in">Email us</a> and we'll tell you when they land.</p>
+      <div class="filters"><button class="on" data-filter="all">All</button><button data-filter="household">Home</button><button data-filter="labels">Labels</button><button data-filter="packing">Packing</button><button data-filter="dog">Dog</button></div></div>
+      <div class="soon-list" id="soon">
+        <div data-cat="household"><strong>Incense holder</strong><small>Home</small></div>
+        <div data-cat="household"><strong>Round incense holder</strong><small>Home</small></div>
+        <div data-cat="household"><strong>Jar candle</strong><small>Home</small></div>
+        <div data-cat="labels"><strong>Address labels</strong><small>Labels</small></div>
+        <div data-cat="labels"><strong>Barcode labels</strong><small>Labels</small></div>
+        <div data-cat="labels"><strong>Label printer</strong><small>Labels</small></div>
+        <div data-cat="packing"><strong>Mailing bags</strong><small>Packing</small></div>
+        <div data-cat="packing"><strong>Postal boxes</strong><small>Packing</small></div>
+        <div data-cat="packing"><strong>Packing tape</strong><small>Packing</small></div>
+        <div data-cat="packing"><strong>Bubble wrap</strong><small>Packing</small></div>
+        <div data-cat="packing"><strong>Tissue paper</strong><small>Packing</small></div>
+        <div data-cat="packing"><strong>Packing list pads</strong><small>Packing</small></div>
+        <div data-cat="dog"><strong>Dog lead</strong><small>Dog</small></div>
+        <div data-cat="dog"><strong>Dog collar</strong><small>Dog</small></div>
+        <div data-cat="dog"><strong>Dog harness</strong><small>Dog</small></div>
+        <div data-cat="dog"><strong>ID tag</strong><small>Dog</small></div>
+        <div data-cat="dog"><strong>Dog bowls</strong><small>Dog</small></div>
+        <div data-cat="dog"><strong>Poo bags</strong><small>Dog</small></div>
+        <div data-cat="dog"><strong>Dog toy</strong><small>Dog</small></div>
+      </div>
     </section>
-    <footer>
-      <div>© 2026 J. Ben G · UK based · <a href="privacy.html">Privacy</a></div>
-      <a href="basket.html">View basket</a>
+  </div>
+  </main>
+  <div class="wrap">
+    <footer class="foot" id="contact">
+      <div>
+        <h4>J. Ben G</h4>
+        <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
+        <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="software.html">BengStock</a></p>
+        <p><a href="software.html#pricing">Pricing</a></p>
+        <p><a href="shop.html">Shop</a></p>
+        <p><a href="index.html#custom">Custom software</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:enquiry@j-ben-g.com">enquiry@j-ben-g.com</a></p>
+        <p><a href="mailto:softsupport@j-ben-g.com">softsupport@j-ben-g.com</a> · software</p>
+        <p><a href="mailto:shopsupport@j-ben-g.com">shopsupport@j-ben-g.com</a> · shop</p>
+        <p><a href="mailto:jobs@j-ben-g.com">jobs@j-ben-g.com</a> · work with us</p>
+      </div>
     </footer>
   </div>
   <script src="basket.js"></script>
@@ -99,9 +93,7 @@
         document.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("on"));
         btn.classList.add("on");
         const cat = btn.dataset.filter;
-        document.querySelectorAll(".card").forEach((card) => {
-          card.style.display = cat === "all" || card.dataset.cat === cat ? "" : "none";
-        });
+        document.querySelectorAll("#soon [data-cat]").forEach((el) => { el.style.display = cat === "all" || el.dataset.cat === cat ? "" : "none"; });
       });
     });
   </script>
