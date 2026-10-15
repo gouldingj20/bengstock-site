@@ -1,5 +1,5 @@
 const prices = {
-  bengstock: { amount: 50000, name: "BengStock licence · one computer · 1 year, unlimited users (renewed yearly)", digital: true },
+  bengstock: { amount: 50000, name: "BengStock licence · one computer · 1 year (offline licence file, renewed yearly)", digital: true },
   satya: { price: "price_1UONXVIxCmDSYfBKPKoPCP5B", amount: 199, weight: 0.2 }
 };
 

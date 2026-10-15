@@ -94,7 +94,7 @@
       const delivery = (shopGoods >= 25 ? Math.max(0, boxes - 1) : boxes) * 9.99;
       totals.textContent = "Items " + money(goods) + (physical ? " · Delivery " + money(delivery) : "") + " · Total " + money(goods + delivery);
       const lines = [];
-      if (digital) lines.push("BengStock is £500 per computer per year, delivered by email: download link, licence details, invoice and licence terms. No delivery address needed.");
+      if (digital) lines.push("BengStock is £500 per computer per year, delivered by email: download link, licence file, invoice and licence terms. No delivery address needed.");
       if (physical) lines.push("Shop items: UK delivery £9.99, free on shop orders of £25 or more. Buy 12 Satya packs, pay for 6.");
       note.textContent = lines.join(" ");
     }
@@ -107,7 +107,7 @@
         if (d.paid) {
           localStorage.removeItem("jbg-basket"); draw();
           document.getElementById("intro").textContent = "Thank you. Payment received.";
-          note.textContent = "A receipt is on its way to " + (d.email || "your email") + ". Software orders also get the download link, licence details and licence terms by email.";
+          note.textContent = "A receipt is on its way to " + (d.email || "your email") + ". Software orders also get the download link, licence file and licence terms by email.";
         } else note.textContent = "We couldn't confirm that payment. If you were charged, email shopsupport@j-ben-g.com.";
       }).catch(() => { note.textContent = "We couldn't check the payment just now. If you were charged, email shopsupport@j-ben-g.com."; });
       history.replaceState(null, "", "basket.html");
