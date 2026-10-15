@@ -78,7 +78,7 @@
         li.style.cssText = "display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #e3e8e5";
         const img = document.createElement("img"); img.src = meta.pic || "img/logo-j-ben-g.png"; img.alt = ""; img.style.cssText = "width:64px;height:48px;object-fit:cover;border-radius:8px";
         const name = document.createElement("span"); name.style.flex = "1";
-        name.textContent = item.name + (meta.digital ? " (per computer)" : "");
+        name.textContent = item.name + (meta.digital ? " (per computer, 1 year)" : "");
         const qty = document.createElement("input"); qty.type = "number"; qty.min = "1"; qty.value = item.qty; qty.style.width = "64px"; qty.setAttribute("aria-label", "Quantity");
         qty.addEventListener("change", () => { window.JBG.setQty(item.id, qty.value); draw(); });
         const btn = document.createElement("button"); btn.textContent = "Remove"; btn.className = "btn ghost"; btn.style.padding = "6px 12px";
@@ -94,7 +94,7 @@
       const delivery = (shopGoods >= 25 ? Math.max(0, boxes - 1) : boxes) * 9.99;
       totals.textContent = "Items " + money(goods) + (physical ? " · Delivery " + money(delivery) : "") + " · Total " + money(goods + delivery);
       const lines = [];
-      if (digital) lines.push("BengStock is delivered by email: download link, licence file, invoice and licence terms. No delivery address needed.");
+      if (digital) lines.push("BengStock is £500 per computer per year, delivered by email: download link, licence file, invoice and licence terms. No delivery address needed.");
       if (physical) lines.push("Shop items: UK delivery £9.99, free on shop orders of £25 or more. Buy 12 Satya packs, pay for 6.");
       note.textContent = lines.join(" ");
     }

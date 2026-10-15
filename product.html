@@ -70,7 +70,7 @@
         ? '<a class="btn" href="mailto:shopsupport@j-ben-g.com?subject=Custom%20shipping%20labels">Email your design</a>'
         : '<div class="qty-row"><label for="q">Quantity</label><input id="q" type="number" min="1" value="1" data-qty /><button class="btn" data-add="' + item.id + '" data-name="' + item.name + '">Add to basket</button></div>';
       document.getElementById("product").innerHTML =
-        '<div class="product-card"><div class="pic" style="aspect-ratio:1"><img src="' + item.image + '" alt="' + item.name + '" /></div></div>' +
+        '<div class="product-card"><div class="pic" style="aspect-ratio:4/3"><img src="' + item.image + '" alt="' + item.name + '" /></div></div>' +
         '<div><p class="eyebrow">' + item.cat + '</p><h1 style="font-size:2.4rem;margin-bottom:8px">' + item.name + '</h1><span class="tag">' + item.tag + '</span>' +
         '<p class="price-box amt" style="border:0;padding:12px 0;font-size:2rem">' + item.price + '</p><p class="muted">' + item.desc + '</p>' +
         '<ul style="margin:16px 0 22px 18px">' + item.points.map((x) => '<li>' + x + '</li>').join('') + '</ul>' + buy +
