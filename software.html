@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BengStock · Offline stock control software · J. Ben G</title>
-  <meta name="description" content="BengStock: stock, purchasing, goods in, labels and cashbook on your own computer. £500 per computer per year. Works offline." />
+  <meta name="description" content="BengStock: stock, purchasing, goods in, labels and cashbook on your own computer. Basic £250 a year, Pro £500 a year. Works offline. Unlimited users." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,7 +26,7 @@
         <p class="eyebrow">BengStock 1.0</p>
         <h1>Everything a small stockroom needs, on one screen.</h1>
         <p class="lede">Track items, raise purchase orders, book deliveries in, print labels and keep a simple cashbook. All on your own computer, with no internet needed.</p>
-        <div class="ctas"><a class="btn" href="#pricing">Buy BengStock · £500 / year</a><a class="btn ghost" href="#features">See features</a></div>
+        <div class="ctas"><a class="btn" href="#pricing">Buy BengStock · from £250 / year</a><a class="btn ghost" href="#features">See features</a></div>
         <div class="platforms"><span class="on">Linux · available now</span><span>Windows · coming soon</span><span>Apple Mac · planned</span></div>
       </div>
       <div><picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img class="shot" src="img/bengstock/dashboard.jpg" alt="BengStock dashboard" width="1280" height="720" /></picture></div>
@@ -53,32 +53,50 @@
       </div>
     </section>
     <section class="block" id="pricing">
-      <div class="head"><p class="eyebrow">Pricing</p><h2>One simple price.</h2><p>One licence for each computer you use BengStock on, renewed yearly. No internet needed, and as many users as you like.</p></div>
+      <div class="head"><p class="eyebrow">Pricing</p><h2>Two simple yearly plans.</h2><p>Pick the plan that fits how many computers you run BengStock on. Unlimited users on both. Renewed yearly.</p></div>
       <div class="pricing">
         <div class="price-box">
-          <h3>BengStock licence</h3>
-          <p class="amt">£500 <span>per computer, per year</span></p>
+          <h3>Basic</h3>
+          <p class="amt">£250 <span>per year</span></p>
           <ul>
-            <li>Full BengStock, renewed yearly</li>
-            <li>Offline licence file, made for your computer</li>
+            <li>1 computer included</li>
             <li>Unlimited users, each with their own login</li>
+            <li>Offline licence file, made for your computer</li>
             <li>Free bug fixes</li>
             <li>Email support from Josh</li>
-            <li>Download link, licence and invoice by email</li>
           </ul>
-          <div class="qty-row">
-            <label for="machines">Computers</label>
-            <input id="machines" type="number" min="1" value="1" data-qty />
-            <button class="btn" data-add="bengstock" data-name="BengStock licence">Add to basket</button>
+          <div><button class="btn" data-add="bengstock-basic" data-name="BengStock Basic · 1 year">Choose Basic</button></div>
+        </div>
+        <div class="price-box" style="border-color:var(--gold)">
+          <h3>Pro <span class="tag" style="vertical-align:middle">Best value</span></h3>
+          <p class="amt">£500 <span>per year</span></p>
+          <ul>
+            <li>4 computers included</li>
+            <li>Unlimited users, each with their own login</li>
+            <li>Offline licence files, one per computer</li>
+            <li>Free bug fixes</li>
+            <li>Email support from Josh</li>
+          </ul>
+          <div><button class="btn" data-add="bengstock-pro" data-name="BengStock Pro · 1 year">Choose Pro</button></div>
+        </div>
+      </div>
+      <div class="pricing" style="margin-top:20px">
+        <div class="card">
+          <h3>Extra computers</h3>
+          <p>Need more computers than your plan covers? Add them to Basic or Pro for £100 each.</p>
+          <div class="qty-row" style="margin-top:12px">
+            <label for="extra">Extra computers</label>
+            <input id="extra" type="number" min="1" value="1" data-qty />
+            <button class="btn ghost" data-add="bengstock-extra" data-name="BengStock extra computer">Add extra computers</button>
           </div>
-          <p class="muted" style="margin-top:12px;font-size:.88rem">Linux today. Windows coming soon. Apple Mac planned.</p>
+          <p class="muted" style="margin-top:10px;font-size:.88rem">Add a Basic or Pro plan to your basket too. Linux today. Windows coming soon. Apple Mac planned.</p>
         </div>
         <div>
           <table class="updates">
             <tr><th>How updates work</th><th>Cost</th></tr>
             <tr><td>Bug fixes for your version</td><td>Free</td></tr>
             <tr><td>Big feature updates (new version)</td><td>Small paid upgrade, optional</td></tr>
-            <tr><td>Licence renewal</td><td>£500 per computer, each year</td></tr>
+            <tr><td>Yearly renewal</td><td>Basic £250 · Pro £500</td></tr>
             <tr><td>Full source code buyout</td><td>£25,000 · <a href="mailto:enquiry@j-ben-g.com?subject=BengStock%20source%20code%20buyout">Enquire</a></td></tr>
           </table>
           <p class="muted" style="margin-top:14px">Need it built around your business? <a href="mailto:enquiry@j-ben-g.com?subject=Custom%20BengStock">Ask about a custom version</a>.</p>
@@ -87,8 +105,8 @@
     </section>
     <section class="block faq">
       <div class="head"><p class="eyebrow">Questions</p><h2>Good to know.</h2></div>
-      <details><summary>How does pricing work?</summary><p>It's a yearly licence: £500 per computer, per year. Renew each year to keep your licence active.</p></details>
-      <details><summary>What does "per computer" mean?</summary><p>Your licence is a small file made for one computer. It works fully offline and never needs to check in. Replacing a computer? Email us and we'll move your licence across.</p></details>
+      <details><summary>How does pricing work?</summary><p>Two yearly plans. Basic is £250 a year for 1 computer. Pro is £500 a year for 4 computers. Extra computers are £100 each on either plan. Renew each year to keep your licence active.</p></details>
+      <details><summary>How many users and computers can I have?</summary><p>Users are unlimited on both plans. Computers are set by your plan: 1 on Basic, 4 on Pro, plus any extras at £100 each. Each computer gets a small licence file made for it. It works fully offline and never needs to check in. Replacing a computer? Email us and we'll move your licence across.</p></details>
       <details><summary>What happens when a new version comes out?</summary><p>Bug fixes are free while your licence is active. Big feature updates are optional, for a small fee.</p></details>
       <details><summary>Can my staff have their own logins?</summary><p>Yes. Every user signs in with their own login, and you can add as many users as you need at no extra cost.</p></details>
       <details><summary>Does it need the internet?</summary><p>No. It runs fully offline and your data is saved on your computer.</p></details>

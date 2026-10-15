@@ -1,6 +1,6 @@
 (function () {
   const key = "jbg-basket";
-  const legacy = { software: 1, "software-basic": 1, "software-pro": 1 };
+  const legacy = { software: 1, "software-basic": 1, "software-pro": 1, bengstock: 1 };
   function read() {
     try {
       const items = JSON.parse(localStorage.getItem(key) || "[]");
@@ -24,11 +24,12 @@
   function bind() {
     document.querySelectorAll("[data-add]:not([data-bound])").forEach((btn) => {
       btn.dataset.bound = "1";
+      const label = btn.textContent;
       btn.addEventListener("click", () => {
         const input = btn.parentElement.querySelector("[data-qty]");
         add(btn.dataset.add, btn.dataset.name, input && input.value);
         btn.textContent = "Added ✓";
-        setTimeout(() => { btn.textContent = "Add to basket"; }, 1600);
+        setTimeout(() => { btn.textContent = label; }, 1600);
       });
     });
   }
