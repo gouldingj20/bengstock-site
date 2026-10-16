@@ -85,3 +85,14 @@ footer.foot p{margin-bottom:4px}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:860px){.hero,.cards3,.tiles,.products,.band,.pricing,.about,footer.foot{grid-template-columns:1fr}.soon-list{grid-template-columns:1fr 1fr}.band .btn{justify-self:start}nav{gap:14px}.hero{padding-top:24px;padding-bottom:40px;gap:28px}}
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.area{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
+.area h3{font-size:1.2rem;margin-bottom:10px}
+.area ul{list-style:none}.area li{padding:4px 0 4px 20px;position:relative;color:#31443a}
+.area li:before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:.8rem;top:7px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(160deg,#fbfcfe,#eef3fb)}
+.step:before{counter-increment:s;content:counter(s);display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-bottom:10px}
+.step h3{font-size:1.15rem;margin-bottom:4px}.step p{color:var(--muted)}
+.summary{font-size:1.25rem;font-family:Fraunces,serif;max-width:44rem;margin-top:8px}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
