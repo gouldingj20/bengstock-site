@@ -1,4 +1,7 @@
 const prices = {
+  "bengstock-basic": { amount: 25000, name: "BengStock Desktop Basic · 1 year · 1 computer (Linux, offline licence, renewed yearly)", digital: true },
+  "bengstock-pro": { amount: 50000, name: "BengStock Desktop Pro · 1 year · 4 computers (Linux, offline licence, renewed yearly)", digital: true },
+  "bengstock-extra": { amount: 10000, name: "BengStock Desktop extra computer (add-on to Basic or Pro)", digital: true },
   satya: { price: "price_1UONXVIxCmDSYfBKPKoPCP5B", amount: 199, weight: 0.2 }
 };
 
@@ -33,6 +36,11 @@ export default async function handler(req, res) {
   const lines = items.filter((item) => prices[item.id]);
   if (!lines.length) {
     res.status(400).json({ error: "Nothing in the basket can be paid yet" });
+    return;
+  }
+  const hasPlan = lines.some((item) => item.id === "bengstock-basic" || item.id === "bengstock-pro");
+  if (lines.some((item) => item.id === "bengstock-extra") && !hasPlan) {
+    res.status(400).json({ error: "Extra computers need a Basic or Pro plan in the basket." });
     return;
   }
   const params = new URLSearchParams();

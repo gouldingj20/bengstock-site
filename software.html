@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BengStock · Stock control software for businesses of every size · J. Ben G</title>
-  <meta name="description" content="BengStock is online stock control software for businesses of every size: stock, goods in, purchasing, quotes, invoices and labels, on any computer, from anywhere. Plans from £29.99 a month." />
+  <title>BengStock · Online, Desktop and source code · J. Ben G</title>
+  <meta name="description" content="BengStock is stock control for businesses of every size. BengStock Online from £29.99 a month, BengStock Desktop for Linux from £250 a year, or buy the full source code." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,111 +15,140 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
     <header class="top">
-      <a href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="92" height="69" /></a>
-      <nav aria-label="Main"><a href="index.html">Home</a><a href="software.html" aria-current="page">Software</a><a href="shop.html">Shop</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="basket.html">Basket <span class="count" data-count>0</span></a><a href="software.html#launch">Log in</a><a class="btn" style="padding:9px 16px" href="software.html#launch">Start your plan</a></nav>
+      <a class="logo" href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="104" height="78" /></a>
+      <nav class="main" aria-label="Main"><a href="index.html">Home</a><a href="software.html" aria-current="page">BengStock</a><a href="shop.html">Shop</a><a href="index.html#contact">About & Contact</a></nav>
+      <div class="actions"><a class="basket" href="basket.html">Basket <span class="count" data-count>0</span></a><a class="btn small" href="software.html#online">Log in</a></div>
     </header>
   </div>
   <main id="main">
   <section class="space">
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">BengStock · Stock control software</p>
+        <p class="eyebrow">BengStock</p>
         <h1>Know what you have, what's low and what's on order.</h1>
-        <p class="lede">BengStock is stock control software for businesses of every size. It keeps your stock, purchase orders, deliveries, quotes, invoices and labels in one place, online, so your team can use it on any computer, from anywhere.</p>
-        <div class="ctas"><a class="btn" href="#launch">Start your plan</a><a class="btn ghost" href="#launch">Log in</a><a class="btn ghost" href="#pricing">Pricing</a></div>
-        <div class="platforms"><span class="on">Online · launching soon</span><span>Any computer</span><span>From anywhere</span></div>
+        <p class="lede">Stock control for businesses of every size. Stock, purchasing, goods in, quotes, invoices and labels in one clear system.</p>
+        <a class="btn" href="#plans">Choose how to buy</a>
       </div>
-      <div><picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img class="shot" src="img/bengstock/dashboard.jpg" alt="BengStock dashboard" width="1280" height="720" /></picture></div>
+      <div><picture><source srcset="img/bengstock/dashboard.webp" type="image/webp" /><img class="shot" src="img/bengstock/dashboard.jpg" alt="BengStock dashboard showing stock value, low stock and open orders" width="1280" height="720" /></picture></div>
     </div>
   </section>
   <div class="wrap">
-    <section class="block" id="what">
-      <div class="head"><p class="eyebrow">What BengStock does</p><h2>One tool, from delivery to invoice.</h2><p>Everything is grouped by job, so your team finds what they need fast.</p></div>
-      <div class="areas">
-        <div class="area"><h3>Stock</h3><ul><li>Every item in one list: SKU, barcode, location, supplier, cost and sell price.</li><li>Low and out-of-stock items are flagged, so nothing runs out unnoticed.</li><li>Plug in a USB barcode scanner and scan to find or book stock.</li></ul></div>
-        <div class="area"><h3>Goods In</h3><ul><li>Book deliveries in against the purchase order when they arrive.</li><li>Handle part deliveries and refused goods without guesswork.</li><li>Stock levels update the moment goods are booked in.</li></ul></div>
-        <div class="area"><h3>Purchasing</h3><ul><li>Raise, send and track purchase orders to your suppliers.</li><li>See what to reorder, grouped by supplier, with a suggested quantity and cost.</li><li>Return goods to suppliers and see which suppliers deliver on time.</li></ul></div>
-        <div class="area"><h3>Sales, quotes and invoices</h3><ul><li>Write quotes for customers with item, labour and text lines.</li><li>Turn a won quote into an invoice in one step, and stock is taken out for you.</li><li>Print quotes and invoices, with your company and VAT details.</li></ul></div>
-        <div class="area"><h3>Labels</h3><ul><li>Print stock labels with SKU, name, barcode and price.</li><li>Send them straight to your printer from the Label Maker.</li></ul></div>
-        <div class="area"><h3>Dashboard and reports</h3><ul><li>The dashboard shows stock value, low items, open orders, and money in and out.</li><li>Reports for reorder, stock valuation and movement history.</li><li>Export items and movements to CSV for your spreadsheet or accountant.</li></ul></div>
-        <div class="area"><h3>Online, from anywhere</h3><ul><li>Sign in from any computer, in the shop, the warehouse or at home.</li><li>Everyone works from the same up-to-date stock, with nothing to install.</li></ul></div>
-        <div class="area"><h3>Staff and security</h3><ul><li>Every member of staff signs in with their own login. Your plan sets how many users you can add.</li><li>Every stock change is recorded with who did it, why and when, and can't be quietly edited or deleted.</li></ul></div>
+    <section class="block" id="plans">
+      <div class="head"><p class="eyebrow">Ways to buy</p><h2>Online, Desktop or source code.</h2></div>
+      <nav class="tabs" aria-label="BengStock options"><a href="#online" data-tab="online">Online</a><a href="#desktop" data-tab="desktop">Desktop</a><a href="#source" data-tab="source">Source code</a></nav>
+
+      <div class="panel" id="online">
+        <div class="panel-intro">
+          <div><h3 style="font-size:1.6rem">BengStock Online <span class="pill gold" style="vertical-align:middle">Launching soon</span></h3><p>Sign in on any computer, from anywhere. Monthly plans roll month to month. Pay yearly and get 2 months free.</p></div>
+          <div class="toggle" role="group" aria-label="Billing period"><button class="on" data-bill="m" aria-pressed="true">Monthly</button><button data-bill="y" aria-pressed="false">Yearly</button></div>
+        </div>
+        <div class="plans">
+        <div class="plan">
+          <h3>Basic</h3>
+          <p class="amt"><span class="p-m">£29.99</span><span class="p-y" hidden>£299.90</span></p>
+          <p class="per"><span class="p-m">per month</span><span class="p-y" hidden>per year</span></p>
+          <ul><li>2 users</li><li>5 GB storage</li><li>Any number of computers</li></ul>
+        </div>
+        <div class="plan">
+          <h3>Pro</h3>
+          <p class="amt"><span class="p-m">£59.99</span><span class="p-y" hidden>£599.90</span></p>
+          <p class="per"><span class="p-m">per month</span><span class="p-y" hidden>per year</span></p>
+          <ul><li>4 users</li><li>20 GB storage</li><li>Any number of computers</li></ul>
+        </div>
+        <div class="plan">
+          <h3>Pro+</h3>
+          <p class="amt"><span class="p-m">£250</span><span class="p-y" hidden>£2,500</span></p>
+          <p class="per"><span class="p-m">per month</span><span class="p-y" hidden>per year</span></p>
+          <ul><li>30 users</li><li>100 GB storage</li><li>Any number of computers</li></ul>
+        </div>
+        <div class="plan">
+          <h3>Mega</h3>
+          <p class="amt" style="font-size:1.9rem">By enquiry</p>
+          <p class="per">paid yearly</p>
+          <ul><li>500 GB+ storage</li><li>Users to suit your business</li><li>Set up with Josh</li></ul>
+        </div>
+        </div>
+        <div class="cta-band">
+          <div><h3>BengStock Online is launching soon.</h3><p>It will live at bengstock.j-ben-g.app. Register your interest and we'll email you when plans open.</p></div>
+          <a class="btn gold" href="mailto:enquiry@j-ben-g.app?subject=BengStock%20Online%20-%20register%20my%20interest">Register your interest</a>
+        </div>
+      </div>
+
+      <div class="panel" id="desktop">
+        <div class="panel-intro">
+          <div><h3 style="font-size:1.6rem">BengStock Desktop for Linux <span class="pill" style="vertical-align:middle">Buy now</span></h3><p>Runs offline on your own computers. Yearly licence, and each computer gets its own offline licence file.</p></div>
+        </div>
+        <div class="plans two">
+        <div class="plan">
+          <h3>Basic</h3>
+          <p class="amt">£250</p><p class="per">per year</p>
+          <ul><li>1 computer</li><li>Works offline</li><li>Offline licence file</li><li>Free bug fixes and email support</li></ul>
+          <button class="btn" data-add="bengstock-basic" data-name="BengStock Desktop Basic · 1 year">Add to basket</button>
+        </div>
+        <div class="plan feature-plan">
+          <h3>Pro</h3>
+          <p class="amt">£500</p><p class="per">per year</p>
+          <ul><li>4 computers</li><li>Works offline</li><li>Offline licence file for each computer</li><li>Free bug fixes and email support</li></ul>
+          <button class="btn" data-add="bengstock-pro" data-name="BengStock Desktop Pro · 1 year">Add to basket</button>
+        </div>
+        </div>
+        <div class="addon">
+          <div><h3>Extra computers</h3><p>£100 each, added to Basic or Pro.</p></div>
+          <div class="qty-row"><label for="extra">Computers</label><input id="extra" type="number" min="1" value="1" data-qty /><button class="btn ghost" data-add="bengstock-extra" data-name="BengStock Desktop extra computer">Add to basket</button></div>
+        </div>
+        <div class="facts"><span class="on">Linux · available now</span><span>Windows · coming soon</span><span>Mac · later</span></div>
+        <p class="muted" style="margin-top:16px">After payment you get the download link, your licence files, an invoice and the licence terms by email.</p>
+      </div>
+
+      <div class="panel" id="source">
+        <div class="source">
+          <div><h3 style="font-size:1.6rem;margin-bottom:8px">Full source code</h3><p class="muted">Buy the complete BengStock source code to run, change and build on yourself, under a written agreement with J. Ben G.</p></div>
+          <div><p class="amt">£25,000</p><p class="muted" style="margin-bottom:16px">one-off, by enquiry</p><a class="btn" href="mailto:enquiry@j-ben-g.app?subject=BengStock%20source%20code%20buyout">Enquire</a></div>
+        </div>
       </div>
     </section>
+
+    <section class="block" id="features">
+      <div class="head"><p class="eyebrow">What BengStock does</p><h2>One system, from delivery to invoice.</h2></div>
+      <div class="features">
+        <div class="feature"><h3>Stock</h3><ul><li>SKU, barcode, location, supplier, cost and sell price</li><li>Low and out-of-stock items flagged</li><li>USB barcode scanners just work</li></ul></div>
+        <div class="feature"><h3>Goods in</h3><ul><li>Book deliveries against the purchase order</li><li>Part deliveries and refused goods handled</li><li>Stock updates the moment goods arrive</li></ul></div>
+        <div class="feature"><h3>Purchasing</h3><ul><li>Raise, send and track purchase orders</li><li>Reorder suggestions grouped by supplier</li><li>Returns and supplier delivery scores</li></ul></div>
+        <div class="feature"><h3>Quotes and invoices</h3><ul><li>Quotes with item, labour and text lines</li><li>Won quote to invoice in one step</li><li>Print with your company and VAT details</li></ul></div>
+        <div class="feature"><h3>Labels</h3><ul><li>Barcode and price labels</li><li>Straight to your printer from the Label Maker</li></ul></div>
+        <div class="feature"><h3>Staff and records</h3><ul><li>Each member of staff has their own login</li><li>Every stock change records who, why and when</li><li>Dashboard, reports and CSV export</li></ul></div>
+      </div>
+    </section>
+
     <section class="block">
-      <div class="head"><p class="eyebrow">See it running</p><h2>Clear screens, built for daily use.</h2><p>Screens from BengStock today. The online version keeps the same tools.</p></div>
+      <div class="head"><p class="eyebrow">See it running</p><h2>Clear screens for daily use.</h2></div>
       <div class="tiles">
-        <figure class="tile"><picture><source srcset="img/bengstock/stock.webp" type="image/webp" /><img src="img/bengstock/stock.jpg" alt="BengStock stock screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Stock</h3><p>Every item with SKU, location, cost and price. Low and out flagged.</p></figcaption></figure>
-        <figure class="tile"><picture><source srcset="img/bengstock/goodsin.webp" type="image/webp" /><img src="img/bengstock/goodsin.jpg" alt="BengStock goods in screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Goods in</h3><p>Book a delivery in against its purchase order.</p></figcaption></figure>
-        <figure class="tile"><picture><source srcset="img/bengstock/purchasing.webp" type="image/webp" /><img src="img/bengstock/purchasing.jpg" alt="BengStock purchasing screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Purchasing</h3><p>Raise, send and track purchase orders.</p></figcaption></figure>
-        <figure class="tile"><picture><source srcset="img/bengstock/labels.webp" type="image/webp" /><img src="img/bengstock/labels.jpg" alt="BengStock label maker screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Label Maker</h3><p>Barcode and price labels for your shelves.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/stock.webp" type="image/webp" /><img src="img/bengstock/stock.jpg" alt="BengStock stock screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Stock</h3><p>Every item, with low and out flagged.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/goodsin.webp" type="image/webp" /><img src="img/bengstock/goodsin.jpg" alt="BengStock goods in screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Goods in</h3><p>Book a delivery in against its order.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/purchasing.webp" type="image/webp" /><img src="img/bengstock/purchasing.jpg" alt="BengStock purchasing screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Purchasing</h3><p>Raise, send and track orders.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/labels.webp" type="image/webp" /><img src="img/bengstock/labels.jpg" alt="BengStock label maker screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Label Maker</h3><p>Barcode and price labels.</p></figcaption></figure>
         <figure class="tile"><picture><source srcset="img/bengstock/cashbook.webp" type="image/webp" /><img src="img/bengstock/cashbook.jpg" alt="BengStock cashbook screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Cashbook</h3><p>Bank and cash, money in and out.</p></figcaption></figure>
-        <figure class="tile"><picture><source srcset="img/bengstock/reports.webp" type="image/webp" /><img src="img/bengstock/reports.jpg" alt="BengStock reports screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Reports</h3><p>Reorder, valuation and movement reports.</p></figcaption></figure>
+        <figure class="tile"><picture><source srcset="img/bengstock/reports.webp" type="image/webp" /><img src="img/bengstock/reports.jpg" alt="BengStock reports screen" loading="lazy" width="1280" height="720" /></picture><figcaption><h3>Reports</h3><p>Reorder, valuation and movements.</p></figcaption></figure>
       </div>
     </section>
-    <section class="block">
-      <div class="head"><p class="eyebrow">How it works</p><h2>Up and running in three steps.</h2></div>
-      <div class="steps">
-        <div class="step"><h3>Choose a plan</h3><p>Pick Basic, Pro or Pro+, monthly or yearly. Mega is by enquiry.</p></div>
-        <div class="step"><h3>Sign in from anywhere</h3><p>Log in from any computer. Nothing to install.</p></div>
-        <div class="step"><h3>Start tracking</h3><p>Add your items and suppliers, set up staff logins, and start booking stock in and out.</p></div>
-      </div>
-    </section>
+
     <section class="block">
       <div class="head"><p class="eyebrow">Who it's for</p><h2>Businesses of every size.</h2><p>If you buy, store and sell physical stock, BengStock is built for you.</p></div>
       <div class="cards3">
-        <div class="card"><h3>Shops and online sellers</h3><p>Keep stock, reorders and labels in step, whether you sell over the counter or online.</p></div>
-        <div class="card"><h3>Workshops and trades</h3><p>Track parts and materials, quote jobs and invoice customers from the same stock list.</p></div>
-        <div class="card"><h3>Stores and warehouses</h3><p>Book deliveries in, manage suppliers and give each member of staff their own login.</p></div>
-      </div>
-      <p class="muted" style="margin-top:18px">BengStock is owned and sold by J. Ben G (Josh Goulding, UK sole trader). Designed and built by Josh, then finalised with AI tools to catch bugs.</p>
-    </section>
-    <section class="block" id="pricing">
-      <div class="head"><p class="eyebrow">Pricing</p><h2>Simple plans that grow with you.</h2><p>Use BengStock on any number of computers, from anywhere. Monthly plans roll month to month. Pay yearly and get 2 months free.</p>
-        <div class="filters billing" role="group" aria-label="Billing period"><button class="on" data-bill="month" aria-pressed="true">Monthly</button><button data-bill="year" aria-pressed="false">Yearly · 2 months free</button></div>
-      </div>
-      <div class="plans4">
-        <div class="price-box plan-card">
-          <h3>Basic</h3>
-          <p class="amt"><span class="p-month">£29.99</span><span class="p-year" hidden>£299.90</span> <span class="per p-month">per month</span><span class="per p-year" hidden>per year</span></p>
-          <ul><li>2 users</li><li>5 GB storage</li><li>Any number of computers</li></ul>
-          <a class="btn" href="#launch">Start your plan</a>
-        </div>
-        <div class="price-box plan-card">
-          <h3>Pro</h3>
-          <p class="amt"><span class="p-month">£59.99</span><span class="p-year" hidden>£599.90</span> <span class="per p-month">per month</span><span class="per p-year" hidden>per year</span></p>
-          <ul><li>4 users</li><li>20 GB storage</li><li>Any number of computers</li></ul>
-          <a class="btn" href="#launch">Start your plan</a>
-        </div>
-        <div class="price-box plan-card">
-          <h3>Pro+</h3>
-          <p class="amt"><span class="p-month">£250</span><span class="p-year" hidden>£2,500</span> <span class="per p-month">per month</span><span class="per p-year" hidden>per year</span></p>
-          <ul><li>30 users</li><li>100 GB storage</li><li>Any number of computers</li></ul>
-          <a class="btn" href="#launch">Start your plan</a>
-        </div>
-        <div class="price-box plan-card">
-          <h3>Mega</h3>
-          <p class="amt" style="font-size:2rem">By enquiry</p>
-          <ul><li>500 GB+ storage</li><li>Users to suit your business</li><li>Paid yearly</li><li>Set up with Josh</li></ul>
-          <a class="btn ghost" href="mailto:enquiry@j-ben-g.app?subject=BengStock%20Mega">Enquire</a>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:14px">Plans aren't on sale yet. BengStock online is launching soon. Want the full source code or a custom version? <a href="mailto:enquiry@j-ben-g.app?subject=BengStock%20source%20code%20or%20custom%20version">Get in touch</a>.</p>
-    </section>
-    <section class="block" id="launch">
-      <div class="band">
-        <div><h2>BengStock online is launching soon.</h2><p>It will live at bengstock.j-ben-g.app. Register your interest and we'll email you as soon as you can start your plan and log in.</p></div>
-        <a class="btn" href="mailto:enquiry@j-ben-g.app?subject=BengStock%20online%20-%20register%20my%20interest">Register your interest</a>
+        <div class="card"><h3>Shops and online sellers</h3><p>Keep stock, reorders and labels in step, over the counter or online.</p></div>
+        <div class="card"><h3>Workshops and trades</h3><p>Track parts, quote jobs and invoice customers from one stock list.</p></div>
+        <div class="card"><h3>Stores and warehouses</h3><p>Book deliveries in, manage suppliers and give staff their own logins.</p></div>
       </div>
     </section>
+
     <section class="block faq">
       <div class="head"><p class="eyebrow">Questions</p><h2>Good to know.</h2></div>
-      <details><summary>How does pricing work?</summary><p>Basic is £29.99 a month for 2 users and 5 GB. Pro is £59.99 a month for 4 users and 20 GB. Pro+ is £250 a month for 30 users and 100 GB. Monthly plans roll month to month. Pay yearly and get 2 months free: Basic £299.90, Pro £599.90, Pro+ £2,500. Mega is by enquiry, paid yearly, with 500 GB or more.</p></details>
-      <details><summary>How many computers can I use?</summary><p>As many as you like. BengStock runs online, so you sign in from any computer, from anywhere. Your plan sets the number of users and the storage.</p></details>
-      <details><summary>Can my staff have their own logins?</summary><p>Yes. Every user signs in with their own login, up to the number of users on your plan.</p></details>
-      <details><summary>When can I start?</summary><p>BengStock online is launching soon. <a href="mailto:enquiry@j-ben-g.app?subject=BengStock%20online%20-%20register%20my%20interest">Register your interest</a> and we'll email you when plans open.</p></details>
-      <details><summary>Who owns and sells BengStock?</summary><p>BengStock is owned and sold by J. Ben G (Josh Goulding, UK sole trader). It is designed and built by Josh, then finalised with AI tools to catch bugs.</p></details>
-      <details><summary>Can I buy the source code?</summary><p>Ask us. Full source code buyouts are by enquiry under a written agreement. <a href="mailto:enquiry@j-ben-g.app?subject=BengStock%20source%20code">Get in touch</a>.</p></details>
+      <details><summary>What's the difference between Online and Desktop?</summary><p>Online runs in the cloud, so you sign in on any computer, from anywhere, and pay monthly or yearly. It's launching soon. Desktop runs offline on your own Linux computers, with a yearly licence and an offline licence file for each computer. You can buy it now.</p></details>
+      <details><summary>How does Online pricing work?</summary><p>Basic £29.99 a month for 2 users and 5 GB, Pro £59.99 for 4 users and 20 GB, Pro+ £250 for 30 users and 100 GB. Pay yearly and get 2 months free: £299.90, £599.90 or £2,500. Mega is by enquiry, paid yearly, with 500 GB or more.</p></details>
+      <details><summary>How does Desktop pricing work?</summary><p>Basic is £250 a year for 1 computer. Pro is £500 a year for 4 computers. Extra computers are £100 each on either plan. Renew each year to keep your licence active.</p></details>
+      <details><summary>Which systems does Desktop run on?</summary><p>Linux today. Windows is coming soon, and Mac later.</p></details>
+      <details><summary>Can I buy the source code?</summary><p>Yes. The full source code is £25,000 under a written agreement. <a href="mailto:enquiry@j-ben-g.app?subject=BengStock%20source%20code%20buyout">Enquire</a>.</p></details>
+      <details><summary>Who owns and sells BengStock?</summary><p>BengStock is owned and sold by J. Ben G (Josh Goulding, UK sole trader). It's designed and built by Josh, then finalised with AI tools to catch bugs.</p></details>
     </section>
   </div>
   </main>
@@ -128,16 +157,16 @@
       <div>
         <h4>J. Ben G</h4>
         <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
-        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
         <p>BengStock is owned and sold by J. Ben G (Josh Goulding, UK sole trader).</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
         <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
       </div>
       <div>
-        <h4>Explore</h4>
-        <p><a href="software.html">BengStock</a></p>
-        <p><a href="software.html#pricing">Pricing</a></p>
+        <h4>BengStock</h4>
+        <p><a href="software.html#online">BengStock Online</a></p>
+        <p><a href="software.html#desktop">BengStock Desktop</a></p>
+        <p><a href="software.html#source">Source code</a></p>
         <p><a href="shop.html">Shop</a></p>
-        <p><a href="index.html#custom">Custom software</a></p>
       </div>
       <div>
         <h4>Contact</h4>
@@ -150,12 +179,26 @@
   </div>
   <script src="basket.js"></script>
   <script>
-    document.querySelectorAll("[data-bill]").forEach((b) => b.addEventListener("click", () => {
-      const yearly = b.dataset.bill === "year";
-      document.querySelectorAll("[data-bill]").forEach((x) => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b); });
-      document.querySelectorAll(".p-month").forEach((e) => { e.hidden = yearly; });
-      document.querySelectorAll(".p-year").forEach((e) => { e.hidden = !yearly; });
-    }));
+    (function () {
+      document.documentElement.classList.add("js");
+      const tabs = document.querySelectorAll("[data-tab]");
+      function show(id, scroll) {
+        if (!document.getElementById(id) || !document.getElementById(id).classList.contains("panel")) return;
+        document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("on", p.id === id));
+        tabs.forEach((t) => { const on = t.dataset.tab === id; t.classList.toggle("on", on); t.setAttribute("aria-current", on ? "true" : "false"); });
+        if (scroll) document.getElementById("plans").scrollIntoView();
+      }
+      tabs.forEach((t) => t.addEventListener("click", (e) => { e.preventDefault(); history.replaceState(null, "", "#" + t.dataset.tab); show(t.dataset.tab, false); }));
+      const h = location.hash.slice(1);
+      show(["online", "desktop", "source"].includes(h) ? h : "online", ["online", "desktop", "source"].includes(h));
+      window.addEventListener("hashchange", () => show(location.hash.slice(1), true));
+      document.querySelectorAll("[data-bill]").forEach((b) => b.addEventListener("click", () => {
+        const y = b.dataset.bill === "y";
+        document.querySelectorAll("[data-bill]").forEach((x) => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b); });
+        document.querySelectorAll(".p-m").forEach((e) => { e.hidden = y; });
+        document.querySelectorAll(".p-y").forEach((e) => { e.hidden = !y; });
+      }));
+    })();
   </script>
 </body>
 </html>

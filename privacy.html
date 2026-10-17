@@ -1,35 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy · J. Ben G</title>
+  <meta name="description" content="Privacy at J. Ben G." />
   <link rel="icon" href="img/logo-j-ben-g.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family:Outfit,system-ui,sans-serif; color:#14241c; margin:0; }
-    .wrap { max-width:760px; margin:0 auto; padding:28px 20px 48px; }
-    a { color:#143226; }
-    h1 { letter-spacing:-.03em; }
-    p, li { color:#3d5148; line-height:1.5; }
-    header { display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; }
-    header img { width:108px; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
-    <header>
-      <a href="index.html"><img src="img/logo-j-ben-g.png" alt="J. Ben G" /></a>
-      <a href="index.html">Back</a>
+    <header class="top">
+      <a class="logo" href="index.html" aria-label="J. Ben G home"><img src="img/logo-j-ben-g.png" alt="J. Ben G" width="104" height="78" /></a>
+      <nav class="main" aria-label="Main"><a href="index.html">Home</a><a href="software.html">BengStock</a><a href="shop.html">Shop</a><a href="index.html#contact">About & Contact</a></nav>
+      <div class="actions"><a class="basket" href="basket.html">Basket <span class="count" data-count>0</span></a><a class="btn small" href="software.html#online">Log in</a></div>
     </header>
-    <h1>Privacy</h1>
-    <p>J. Ben G is UK based. Email: <a href="mailto:enquiry@j-ben-g.app">enquiry@j-ben-g.app</a>.</p>
-    <p>This site does not ask you to create an account. It does not use advertising or analytics cookies. It does not sell personal information.</p>
-    <p>If you email, the message and your contact details are used only to reply. They are not added to a mailing list.</p>
-    <p>Shop orders placed on eBay are handled by eBay. Their privacy notice applies to that purchase.</p>
-    <p>Card payments on this site, when checkout is open, are taken by Stripe. Card numbers are entered on Stripe’s page. J. Ben G does not store the card number. Stripe receives the details needed to take the payment and send the download. The name and email used at checkout are kept only for the order, the licence and any bug-fix download.</p>
-    <p>You can ask what is held about you, or ask for it to be deleted where there is no need to keep it for the order. Email <a href="mailto:enquiry@j-ben-g.app">enquiry@j-ben-g.app</a>.</p>
-    <p>Website built by J. Ben G</p>
   </div>
+  <main id="main"><div class="wrap" style="max-width:760px;padding-top:40px"><h1 style="margin-bottom:20px">Privacy</h1>
+    <p style="margin-bottom:14px">J. Ben G is UK based. Email: <a href="mailto:enquiry@j-ben-g.app">enquiry@j-ben-g.app</a>.</p>
+    <p style="margin-bottom:14px">This site does not ask you to create an account. It does not use advertising or analytics cookies. It does not sell personal information.</p>
+    <p style="margin-bottom:14px">If you email, the message and your contact details are used only to reply. They are not added to a mailing list.</p>
+    <p style="margin-bottom:14px">Shop orders placed on eBay are handled by eBay. Their privacy notice applies to that purchase.</p>
+    <p style="margin-bottom:14px">Card payments on this site, when checkout is open, are taken by Stripe. Card numbers are entered on Stripe’s page. J. Ben G does not store the card number. Stripe receives the details needed to take the payment and send the download. The name and email used at checkout are kept only for the order, the licence and any bug-fix download.</p>
+    <p style="margin-bottom:14px">You can ask what is held about you, or ask for it to be deleted where there is no need to keep it for the order. Email <a href="mailto:enquiry@j-ben-g.app">enquiry@j-ben-g.app</a>.</p>
+    </div></main>
+  <div class="wrap">
+    <footer class="foot" id="contact">
+      <div>
+        <h4>J. Ben G</h4>
+        <p>Business software and a small shop, run by Josh Goulding in the UK.</p>
+        <p>BengStock is owned and sold by J. Ben G (Josh Goulding, UK sole trader).</p>
+        <p>You can also find our shop on <a href="https://www.ebay.co.uk/usr/j.bengukshop" target="_blank" rel="noopener">eBay</a>.</p>
+        <p>© 2026 J. Ben G · <a href="privacy.html">Privacy</a></p>
+      </div>
+      <div>
+        <h4>BengStock</h4>
+        <p><a href="software.html#online">BengStock Online</a></p>
+        <p><a href="software.html#desktop">BengStock Desktop</a></p>
+        <p><a href="software.html#source">Source code</a></p>
+        <p><a href="shop.html">Shop</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:enquiry@j-ben-g.app">enquiry@j-ben-g.app</a></p>
+        <p><a href="mailto:softsupport@j-ben-g.app">softsupport@j-ben-g.app</a> · software</p>
+        <p><a href="mailto:shopsupport@j-ben-g.app">shopsupport@j-ben-g.app</a> · shop</p>
+        <p><a href="mailto:jobs@j-ben-g.app">jobs@j-ben-g.app</a> · work with us</p>
+      </div>
+    </footer>
+  </div>
+  <script src="basket.js"></script>
 </body>
 </html>

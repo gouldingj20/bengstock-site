@@ -1,6 +1,6 @@
 (function () {
   const key = "jbg-basket";
-  const legacy = { software: 1, "software-basic": 1, "software-pro": 1, bengstock: 1, "bengstock-basic": 1, "bengstock-pro": 1, "bengstock-extra": 1 };
+  const legacy = { software: 1, "software-basic": 1, "software-pro": 1, bengstock: 1 };
   function read() {
     try {
       const items = JSON.parse(localStorage.getItem(key) || "[]");
