@@ -96,3 +96,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .step h3{font-size:1.15rem;margin-bottom:4px}.step p{color:var(--muted)}
 .summary{font-size:1.25rem;font-family:Fraunces,serif;max-width:44rem;margin-top:8px}
 @media (max-width:860px){.steps{grid-template-columns:1fr}}
+.plans4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.plans4 .price-box{max-width:none;padding:24px;display:flex;flex-direction:column}
+.plans4 .price-box ul{flex:1}.plans4 .amt{font-size:2.4rem}
+.plans4 .btn{text-align:center}
+.amt .per{font-family:Outfit;font-size:1rem;color:var(--muted);font-weight:500}
+[hidden]{display:none!important}
+.plans4 .amt{line-height:1.1;margin:6px 0 4px}.plans4 .amt .per{display:block;margin-top:4px}
+.price-box .amt span.p-month:not(.per),.price-box .amt span.p-year:not(.per){font-family:Fraunces,Georgia,serif;font-size:inherit;color:var(--ink);font-weight:600}
