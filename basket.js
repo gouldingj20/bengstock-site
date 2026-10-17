@@ -16,8 +16,8 @@
   function add(id, name, qty) {
     const items = read();
     const found = items.find((item) => item.id === id);
-    const n = Math.max(1, Number(qty) || 1);
-    if (found) found.qty += n;
+    const n = Math.min(50, Math.max(1, Math.floor(Number(qty)) || 1));
+    if (found) found.qty = Math.min(50, found.qty + n);
     else items.push({ id, name, qty: n });
     write(items);
   }
@@ -43,7 +43,7 @@
       const items = read();
       const found = items.find((item) => item.id === id);
       if (!found) return;
-      found.qty = Math.max(1, Number(qty) || 1);
+      found.qty = Math.min(50, Math.max(1, Math.floor(Number(qty)) || 1));
       write(items);
     }
   };

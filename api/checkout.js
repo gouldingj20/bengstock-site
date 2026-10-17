@@ -5,13 +5,35 @@ const prices = {
   satya: { price: "price_1UONXVIxCmDSYfBKPKoPCP5B", amount: 199, weight: 0.2 }
 };
 
+const ALLOWED_HOSTS = ["bengstock-site.vercel.app", "j-ben-g.app", "www.j-ben-g.app"];
+const MAX_QTY = 50;
+
+// Quantity as a whole number from 1 to 50.
+function cleanQty(value) {
+  const n = Math.floor(Number(value));
+  if (!Number.isFinite(n) || n < 1) return 1;
+  return Math.min(n, MAX_QTY);
+}
+
+// Return URLs never come from request headers: SITE_URL env, else the first allowed host.
+function siteOrigin() {
+  const env = (process.env.SITE_URL || "").trim().replace(/\/+$/, "");
+  if (env) {
+    try {
+      const u = new URL(env);
+      if (u.protocol === "https:" && ALLOWED_HOSTS.includes(u.hostname)) return u.origin;
+    } catch (e) { /* fall through */ }
+  }
+  return `https://${ALLOWED_HOSTS[0]}`;
+}
+
 function deliveryPence(items) {
   let goods = 0;
   let weight = 0;
   items.forEach((item) => {
     const product = prices[item.id];
     if (!product || !product.weight) return;
-    const qty = Math.max(1, Number(item.qty) || 1);
+    const qty = cleanQty(item.qty);
     goods += product.amount * qty;
     weight += product.weight * qty;
   });
@@ -28,12 +50,21 @@ export default async function handler(req, res) {
   }
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key) {
-    res.status(500).json({ error: "Stripe test key is not set on Vercel" });
+    console.error("checkout: STRIPE_SECRET_KEY is not set");
+    res.status(500).json({ error: "Payment is not available right now. Please try again later." });
     return;
   }
-  const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
+  let body;
+  try {
+    body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
+  } catch (e) {
+    res.status(400).json({ error: "Your basket could not be read. Please try again." });
+    return;
+  }
   const items = Array.isArray(body.items) ? body.items : [];
-  const lines = items.filter((item) => prices[item.id]);
+  const lines = items
+    .filter((item) => item && typeof item.id === "string" && Object.prototype.hasOwnProperty.call(prices, item.id))
+    .map((item) => ({ id: item.id, qty: cleanQty(item.qty) }));
   if (!lines.length) {
     res.status(400).json({ error: "Nothing in the basket can be paid yet" });
     return;
@@ -45,9 +76,7 @@ export default async function handler(req, res) {
   }
   const params = new URLSearchParams();
   params.set("mode", "payment");
-  const host = req.headers["x-forwarded-host"] || req.headers.host || "bengstock-site.vercel.app";
-  const safeHost = /^[a-z0-9.-]+\.vercel\.app$|^(www\.)?j-ben-g\.app$/i.test(host) ? host : "bengstock-site.vercel.app";
-  const origin = `https://${safeHost}`;
+  const origin = siteOrigin();
   params.set("success_url", `${origin}/basket.html?session_id={CHECKOUT_SESSION_ID}`);
   params.set("cancel_url", `${origin}/basket.html`);
   params.set("billing_address_collection", "required");
@@ -58,7 +87,7 @@ export default async function handler(req, res) {
     params.set("shipping_address_collection[allowed_countries][0]", "GB");
   }
   lines.forEach((item, i) => {
-    let qty = Math.max(1, Number(item.qty) || 1);
+    let qty = item.qty;
     const product = prices[item.id];
     if (item.id === "satya") {
       qty = Math.floor(qty / 12) * 6 + (qty % 12);
@@ -72,7 +101,7 @@ export default async function handler(req, res) {
     params.set(`line_items[${i}][price_data][product_data][name]`, product.name);
   });
   const delivery = deliveryPence(lines.map((item) => {
-    const qty = Math.max(1, Number(item.qty) || 1);
+    const qty = item.qty;
     return item.id === "satya" ? { ...item, qty: Math.floor(qty / 12) * 6 + (qty % 12) } : item;
   }));
   if (delivery) {
@@ -82,15 +111,21 @@ export default async function handler(req, res) {
     params.set(`line_items[${i}][price_data][unit_amount]`, String(delivery));
     params.set(`line_items[${i}][price_data][product_data][name]`, "Delivery");
   }
-  const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/x-www-form-urlencoded" },
-    body: params
-  });
-  const data = await response.json();
-  if (!response.ok) {
-    res.status(response.status).json({ error: data.error && data.error.message ? data.error.message : "Stripe refused the checkout" });
-    return;
+  try {
+    const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/x-www-form-urlencoded" },
+      body: params
+    });
+    const data = await response.json();
+    if (!response.ok || !data.url) {
+      console.error("checkout: Stripe error", response.status, data && data.error ? data.error.message : data);
+      res.status(502).json({ error: "Payment could not open. Please try again." });
+      return;
+    }
+    res.status(200).json({ url: data.url });
+  } catch (e) {
+    console.error("checkout: request failed", e);
+    res.status(502).json({ error: "Payment could not open. Please try again." });
   }
-  res.status(200).json({ url: data.url });
 }

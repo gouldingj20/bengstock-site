@@ -62,7 +62,7 @@
         points: ["In stock, ready to send", "Buy 12 packs, pay for 6", "UK delivery £9.99", "Free UK delivery on orders of £25 or more"] }
     };
     const id = new URLSearchParams(location.search).get("id");
-    if (id === "software" || id === "bengstock") location.replace("software.html#pricing");
+    if (id === "software" || id === "bengstock") location.replace("software.html#desktop");
     const item = products[id];
     if (!item) location.replace("shop.html");
     else {

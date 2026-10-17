@@ -79,7 +79,7 @@
       items.forEach((item) => {
         const meta = info[item.id] || {};
         const li = document.createElement("li");
-        li.style.cssText = "display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #e3e8e5";
+        li.style.cssText = "display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)";
         const img = document.createElement("img"); img.src = meta.pic || "img/logo-j-ben-g.png"; img.alt = ""; img.style.cssText = "width:64px;height:48px;object-fit:cover;border-radius:8px";
         const name = document.createElement("span"); name.style.flex = "1";
         name.textContent = item.name;
@@ -99,7 +99,7 @@
       totals.textContent = "Items " + money(goods) + (physical ? " · Delivery " + money(delivery) : "") + " · Total " + money(goods + delivery);
       const lines = [];
       if (physical) lines.push("Shop items: UK delivery £9.99, free on shop orders of £25 or more. Buy 12 Satya packs, pay for 6.");
-      if (digital) lines.push("BengStock Desktop is delivered by email: download link, licence files, invoice and licence terms. No delivery address needed.");
+      if (digital) lines.push("BengStock Desktop: Josh will email your licence and download within 1 working day. No delivery address needed.");
       if (items.some((i) => i.id === "bengstock-extra") && !items.some((i) => i.id === "bengstock-basic" || i.id === "bengstock-pro")) lines.push("Extra computers need a Basic or Pro plan. Add one before paying.");
       note.textContent = lines.join(" ");
     }
@@ -112,7 +112,7 @@
         if (d.paid) {
           localStorage.removeItem("jbg-basket"); draw();
           document.getElementById("intro").textContent = "Thank you. Payment received.";
-          note.textContent = "A receipt is on its way to " + (d.email || "your email") + ".";
+          note.textContent = "For BengStock Desktop, Josh will email your licence and download within 1 working day. Shop orders are posted to the address you gave.";
         } else note.textContent = "We couldn't confirm that payment. If you were charged, email shopsupport@j-ben-g.app.";
       }).catch(() => { note.textContent = "We couldn't check the payment just now. If you were charged, email shopsupport@j-ben-g.app."; });
       history.replaceState(null, "", "basket.html");

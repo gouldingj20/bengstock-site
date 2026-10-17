@@ -1,4 +1,4 @@
-// Confirms a Stripe Checkout session really was paid before the basket shows a success message.
+// Confirms a Stripe Checkout session was paid. Returns only { paid: true|false }.
 export default async function handler(req, res) {
   const id = String((req.query && req.query.id) || "");
   const key = process.env.STRIPE_SECRET_KEY;
@@ -6,16 +6,19 @@ export default async function handler(req, res) {
     res.status(400).json({ paid: false });
     return;
   }
-  const response = await fetch(`https://api.stripe.com/v1/checkout/sessions/${id}`, {
-    headers: { Authorization: `Bearer ${key}` }
-  });
-  const data = await response.json();
-  if (!response.ok) {
-    res.status(404).json({ paid: false });
-    return;
+  try {
+    const response = await fetch(`https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(id)}`, {
+      headers: { Authorization: `Bearer ${key}` }
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error("session: Stripe error", response.status, data && data.error ? data.error.message : "");
+      res.status(200).json({ paid: false });
+      return;
+    }
+    res.status(200).json({ paid: data.payment_status === "paid" });
+  } catch (e) {
+    console.error("session: request failed", e);
+    res.status(200).json({ paid: false });
   }
-  res.status(200).json({
-    paid: data.payment_status === "paid",
-    email: data.customer_details && data.customer_details.email ? data.customer_details.email : null
-  });
 }
